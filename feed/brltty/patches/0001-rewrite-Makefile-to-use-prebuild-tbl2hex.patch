@@ -1,0 +1,51 @@
+diff -ruN brltty-6.0/Programs/Makefile.in brnew/Programs/Makefile.in
+--- brltty-6.0/Programs/Makefile.in	2019-02-03 10:02:33.000000000 -0800
++++ brnew/Programs/Makefile.in	2019-10-29 21:43:59.269723001 -0700
+@@ -609,7 +609,7 @@
+ 
+ API_CLIENT_OBJECTS = brlapi_client.$O
+ 
+-api: $(API_DYNAMIC_LIBRARY) $(API_ARC)
++api: $(API_ARC)
+ 
+ api-dynamic-library-versioned: $(API_LIB_VERSIONED)
+ $(API_LIB_VERSIONED): $(API_LIB)
+@@ -941,12 +941,12 @@
+ ###############################################################################
+ 
+ TEXT_TABLE_FILE = $(SRC_TOP)$(TBL_DIR)/$(TEXT_TABLES_SUBDIRECTORY)/$(TEXT_TABLE)$(TEXT_TABLE_EXTENSION)
+-text.auto.h: $(TEXT_TABLE_FILE) tbl2hex$(X_FOR_BUILD)
+-	./tbl2hex$(X_FOR_BUILD) -- $(TEXT_TABLE_FILE) >$@
++text.auto.h: $(TEXT_TABLE_FILE) 
++	./tbl2hex-host -- $(TEXT_TABLE_FILE) >$@
+ 
+ ATTRIBUTES_TABLE_FILE = $(SRC_TOP)$(TBL_DIR)/$(ATTRIBUTES_TABLES_SUBDIRECTORY)/$(ATTRIBUTES_TABLE)$(ATTRIBUTES_TABLE_EXTENSION)
+-attr.auto.h: $(ATTRIBUTES_TABLE_FILE) tbl2hex$(X_FOR_BUILD)
+-	./tbl2hex$(X_FOR_BUILD) -- $(ATTRIBUTES_TABLE_FILE) >$@
++attr.auto.h: $(ATTRIBUTES_TABLE_FILE)
++	./tbl2hex-host -- $(ATTRIBUTES_TABLE_FILE) >$@
+ 
+ cmds.auto.h: $(SRC_DIR)/cmds.awk $(COMMANDS_DEPENDENCIES)
+ 	$(AWK) -f $(SRC_DIR)/cmds.awk $(COMMANDS_ARGUMENTS) >$@
+@@ -1082,11 +1082,7 @@
+ 
+ install-api: $(INSTALL_API_LIBRARIES) install-api-headers install-api-manpages install-api-key install-api-policy $(INSTALL_XBRLAPI) $(INSTALL_API_BINDINGS)
+ 
+-install-api-libraries: $(API_LIB) $(API_ARC) install-apilib-directory install-apisoc-directory
+-	$(INSTALL_PROGRAM) $(API_LIB) $(INSTALL_APILIB_DIRECTORY)/$(API_LIB).$(API_RELEASE)
+-	$(SYMLINK) -f $(API_LIB).$(API_RELEASE) $(INSTALL_APILIB_DIRECTORY)/$(API_LIB)
+-	$(SYMLINK) -f $(API_LIB).$(API_RELEASE) $(INSTALL_APILIB_DIRECTORY)/$(API_LIB).$(API_VERSION)
+-	$(CONFLIBDIR) $(INSTALL_APILIB_DIRECTORY)
++install-api-libraries: $(API_ARC) install-apilib-directory install-apisoc-directory
+ 	$(INSTALL_DATA) $(API_ARC) $(INSTALL_APILIB_DIRECTORY)
+ 
+ install-api-libraries-windows: $(API_DLL) $(API_ARC) install-program-directory install-apilib-directory
+@@ -1202,7 +1198,7 @@
+ 	-rm -f brltty-trtxt$X brltty-ttb$X brltty-atb$X brltty-ctb$X brltty-ktb$X
+ 	-rm -f brltty-tune$X brltty-morse$X
+ 	-rm -f xbrlapi$X
+-	-rm -f tbl2hex$(X_FOR_BUILD) *test$X *-static$X
++	-rm -f tbl2hex$X *test$X *-static$X
+ 	-rm -f brlapi_constants.h *.$(LIB_EXT) *.$(LIB_EXT).* *.$(ARC_EXT) *.def *.class *.jar
+ 	-rm -f $(BLD_TOP)$(DRV_DIR)/*
+ 
