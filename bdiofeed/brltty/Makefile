@@ -28,16 +28,27 @@ define Package/brltty/description
 endef
 
 define Package/brltty/install
+    $(CP) ./files/* $(1)/
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/brltty $(1)/usr/bin/brltty
+	$(INSTALL_DIR) $(1)/usr/lib
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/usr/lib/libbrlapi.a $(1)/usr/lib/libbrlapi.a
+	$(INSTALL_DIR) $(1)/usr/include/brltty
+	$(CP) $(PKG_INSTALL_DIR)/usr/include/*.h $(1)/usr/include
+	$(CP) $(PKG_INSTALL_DIR)/usr/include/brltty/*.h $(1)/usr/include/brltty
+	$(CP) $(PKG_INSTALL_DIR)/usr/bin/brltty $(STAGING_DIR)/usr/bin
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libbrlapi.a $(STAGING_DIR)/usr/lib
+	mkdir -p $(STAGING_DIR)/usr/include/brltty
+	$(CP) $(PKG_INSTALL_DIR)/usr/include/brltty/*.h $(STAGING_DIR)/usr/include/brltty
 endef
 
 define Build/Install
 	$(call Build/Install/Default,)
-	cp $(PKG_INSTALL_DIR)/usr/bin/brltty $(STAGING_DIR)/usr/bin
-	cp $(PKG_INSTALL_DIR)/usr/lib/libbrlapi.a $(STAGING_DIR)/usr/lib
+	$(CP) $(PKG_INSTALL_DIR)/usr/bin/brltty $(STAGING_DIR)/usr/bin
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libbrlapi.a $(STAGING_DIR)/usr/lib
 	mkdir -p $(STAGING_DIR)/usr/include/brltty
-	cp $(PKG_INSTALL_DIR)/usr/include/brltty/*.h $(STAGING_DIR)/usr/include/brltty
+	$(CP) $(PKG_INSTALL_DIR)/usr/include/*.h $(STAGING_DIR)/usr/include
+	$(CP) $(PKG_INSTALL_DIR)/usr/include/brltty/*.h $(STAGING_DIR)/usr/include/brltty
 endef
 
 CONFIGURE_ARGS += \

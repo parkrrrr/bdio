@@ -9,6 +9,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/bdiohid
   TITLE:=BDIO HID Converter
+  DEPENDS:=+brltty +libstdcpp
 endef
 
 define Package/bdiohid/description
@@ -23,7 +24,7 @@ define Package/bdiohid/install
 endef
 
 define Build/Compile
-	cd src; $(TARGET_CC) $(TARGET_CFLAGS) -o $(PKG_BUILD_DIR)/bdiohid main.cpp $(TARGET_LDFLAGS) -lbrlapi
+	cd src; $(TARGET_CC) $(TARGET_CPPFLAGS) -o $(PKG_BUILD_DIR)/bdiohid *.cpp $(TARGET_LDFLAGS) -lstdc++ -lbrlapi
 endef
 
 define Build/Install
