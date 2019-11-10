@@ -1,5 +1,5 @@
-#include "include/brlapi_interface.h"
-
+#include "brlapi_interface.h"
+#include <unistd.h>
 
 BrlApiInterface::BrlApiInterface()
 {
@@ -8,7 +8,11 @@ BrlApiInterface::BrlApiInterface()
 
     // brltty supports multiple rows. bdio does not, yet.
     unsigned int y = 0;
-    brlapi_getDisplaySize(&m_cellCount, &y);
+    while (!m_cellCount)
+    {
+        brlapi_getDisplaySize(&m_cellCount, &y);
+        sleep(1);
+    }
 
     char name[BRLAPI_MAXNAMELENGTH];
     brlapi_getDriverName(name, sizeof(name));

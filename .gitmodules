@@ -1,0 +1,3 @@
+[submodule "bdiofeed/bdiohid/src/sqlitecpp"]
+	path = bdiofeed/bdiohid/src/sqlitecpp
+	url = https://github.com/srombauts/sqlitecpp

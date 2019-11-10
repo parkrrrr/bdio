@@ -1,7 +1,7 @@
 #include <brlapi.h>
 #include <stdio.h>
 #include <unistd.h>
-#include "include/brlapi_interface.h"
+#include "brlapi_interface.h"
 
 int main()
 {

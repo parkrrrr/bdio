@@ -24,7 +24,17 @@ define Package/bdiohid/install
 endef
 
 define Build/Compile
-	cd src; $(TARGET_CC) $(TARGET_CPPFLAGS) -o $(PKG_BUILD_DIR)/bdiohid *.cpp $(TARGET_LDFLAGS) -lstdc++ -lbrlapi
+	cd src; $(TARGET_CC) $(TARGET_CPPFLAGS) \
+	  -Iinclude \
+	  -Isqlitecpp/sqlite3 \
+	  -Isqlitecpp/include \
+	  -o $(PKG_BUILD_DIR)/bdiohid \
+	  *.cpp \
+	  sqlitecpp/src/*.cpp \
+	  sqlitecpp/sqlite3/sqlite3.c \
+	  $(TARGET_LDFLAGS) \
+	  -lstdc++ \
+	  -lbrlapi
 endef
 
 define Build/Install

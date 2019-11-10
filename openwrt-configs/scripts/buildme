@@ -1,0 +1,7 @@
+#/bin/sh
+
+scripts/feeds update bdio
+scripts/feeds install -p bdio bdiohid
+make package/brltty/compile
+make package/bdiohid/{clean,compile} V=s
+make

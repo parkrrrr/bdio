@@ -1,0 +1,12 @@
+implement Reports
+    implement ctor
+    implement methods for Gadget
+    implement input report methods
+    implement output report methods
+
+implement Gadget
+    implement ctor/setup
+    implement input report methods
+    implement output report methods
+
+implement Main thread
