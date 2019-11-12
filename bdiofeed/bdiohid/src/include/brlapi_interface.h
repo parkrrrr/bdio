@@ -1,4 +1,5 @@
 #pragma once
+#include "base.h"
 #include <brlapi.h>
 #include <string>
 #include <functional>
@@ -8,15 +9,14 @@
 class BrlApiInterface
 {
 public:
-    using ByteString = std::basic_string<uint8_t>;
     using ListenerToken = int;
     using Listener = std::function<void(bool /*pressed*/, uint8_t /*group*/, uint8_t /*key*/)>;
 
     BrlApiInterface();
     ~BrlApiInterface();
 
-    std::string GetDriverName() {return m_driverName;}
-    std::string GetModelName() {return m_modelName;}
+    const std::string& GetDriverName() {return m_driverName;}
+    const std::string& GetModelName() {return m_modelName;}
     unsigned int GetCellCount() {return m_cellCount;}
 
     void WriteCells(ByteString bytes);
@@ -25,8 +25,6 @@ public:
 
 private:
     void ThreadProcedure();
-
-    static constexpr int c_keyTimeoutMs = 250;
 
     unsigned int m_cellCount = 0; 
     std::string m_driverName;

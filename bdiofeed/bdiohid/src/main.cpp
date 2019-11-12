@@ -1,6 +1,7 @@
 #include <brlapi.h>
 #include <stdio.h>
 #include <unistd.h>
+#include "base.h"
 #include "brlapi_interface.h"
 
 int main()
@@ -13,7 +14,7 @@ int main()
   auto cellCount = interface.GetCellCount();
   printf( " Cells: [%d]\n", cellCount);
 
-  BrlApiInterface::ByteString cells;
+  ByteString cells;
   for (unsigned int i = 1; i <= cellCount; ++i)
   {
     cells.append(1, static_cast<uint8_t>(i));

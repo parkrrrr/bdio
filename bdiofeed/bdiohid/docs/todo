@@ -10,3 +10,5 @@ implement Gadget
     implement output report methods
 
 implement Main thread
+
+add identifiers for exceptions
