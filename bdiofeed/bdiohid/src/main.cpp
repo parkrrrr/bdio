@@ -4,6 +4,8 @@
 #include "base.h"
 #include "brlapi_interface.h"
 
+const char* c_databaseName = "bdio.db";
+
 int main()
 {
   BrlApiInterface interface;

@@ -4,13 +4,48 @@
 void Reports::SetButton(bool press, uint8_t group, uint8_t key)
 {
     // find button in m_buttons, if present, using group and key
+    bool keyIsIndex = false;
+
+    auto button = m_buttons.find(std::make_pair(group, key));
+    if (button == m_buttons.end())
+    {
+        keyIsIndex = true;
+        button = m_buttons.find(std::make_pair(group, -1));
+        if (button == m_buttons.end())
+        {
+            return;
+        }
+    }
+
     // get reference to appropriate byte in input report
+    auto byteOffset = button->second.byteOffsetInInputReport;
+    auto bit = button->second.bitInInputByte;
+
+    if (keyIsIndex)
+    {
+        unsigned int bitOffset = (byteOffset << 3 ) + bit + key;
+        byteOffset = static_cast<uint16_t>(bitOffset >> 3);
+        bit = static_cast<uint8_t>(bitOffset & 7);
+    }
+
     // set or unset bit in byte based on value of 'press'
+    auto bitmask = 1 << bit;
+    if (press)
+    {
+        m_inputReport[byteOffset] |= bitmask;
+    }
+    else
+    {
+        m_inputReport[byteOffset] &= ~bitmask;
+    }
 }
 
 void Reports::SetOutputReport(const ByteString& outputReport)
 {
     // extract output data from output report and send to brlapi
+    // Since currently the only output we have is cells, there's not much 
+    //"extracting" to do.
+    m_brailleApi.WriteCells(outputReport);
 }
 
 void Reports::CreateReportModel()
@@ -30,9 +65,9 @@ void Reports::CreateReportModel()
     
     if (displayQuery.executeStep())
     {
-        m_modelId = displayQuery.GetColumn(0).getInt;
-        m_manufacturerName = displayQuery.GetColumn(1).getString();
-        m_modelName = displayQuery.GetColumn(2).getString();
+        m_modelId = displayQuery.getColumn(0).getInt();
+        m_manufacturerName = displayQuery.getColumn(1).getString();
+        m_modelName = displayQuery.getColumn(2).getString();
     }
 
     // read collection info from 'collections' and 'mappings' tables and build data structure
@@ -60,7 +95,7 @@ void Reports::ReadCollection(SQLite::Database& database, Collection& collection)
     if (collectionQuery.executeStep())
     {
         collection.usage_page = MapUsagePage(collectionQuery.getColumn(0).getString());
-        collection.usage = MapUsagePage(collectoin.usage_page, collectionQuery.getColumn(1).getString());
+        collection.usage = MapUsage(collection.usage_page, collectionQuery.getColumn(1).getString());
     }
 
     // read button mappings for this collection
@@ -73,7 +108,7 @@ void Reports::ReadCollection(SQLite::Database& database, Collection& collection)
     while (childQuery.executeStep())
     {
         int childId = childQuery.getColumn(0).getInt();
-        collection.subCollections.emplace_back({.id=childId});        
+        collection.subCollections.emplace_back(Collection{.id=childId});        
     }
 
     for (auto& subCollection : collection.subCollections)
@@ -102,265 +137,9 @@ void Reports::ReadButtonMappings(SQLite::Database& database, Collection& collect
 
 void Reports::CreateReportDescriptorForCollection(Collection& baseCollection)
 {
-    // function definitions for basic integer sizes
-    auto EmitByte = [&](uint8_t byte)
-    {
-        m_reportDescriptor.append(byte);
-    };
-
-    auto EmitWord = [&](uint16_t word)
-    {
-        EmitByte(word & 0xff);
-        EmitByte(word >> 8);
-    };
-
-    // *** begin global items (HID DCD 1.11 section 6.2.2.7)
-
-    // usage page
-    int currentUsagePage = -1;
-    auto EmitUsagePage = [&](uint16_t usagePage)
-    {
-        if (usagePage != currentUsagePage)
-        {
-            if (usagePage > 0xff)
-            {
-                EmitByte(0x06);
-                EmitWord(usagePage);
-            }
-            else 
-            {
-                EmitByte(0x05);
-                EmitByte(usagePage);
-            }
-            currentUsagePage = usagePage;
-        }
-    };
-
     // all fields have the same logical minimum, 0, so emit it once and never again.
     EmitByte(0x15);
     EmitByte(0x00);
-
-    // cells and cell counts have different logical maxima from buttons, so track that.
-    int currentLogicalMaximum = -1; 
-    auto EmitLogicalMaximum = [&](uint8_t logicalMaximum)
-    {
-        if (logicalMaximum != currentLogicalMaximum)
-        {
-            EmitByte(0x25);
-            EmitByte(logicalMaximum);
-            currentLogicalMaximum = logicalMaximum;
-        }
-    };
-
-    // physical minima and maxima and units are meaningless in Braille
-
-    // report size
-    int currentReportSize = -1;
-    auto EmitReportSize = [&](uint8_t reportSize)
-    {
-        if (reportSize != currentReportSize)
-        {
-            EmitByte(0x75);
-            EmitByte(reportSize);
-            currentReportSize = reportSize;
-        }
-    };
-
-    // For now, everything is in the same report, so we don't use report IDs.
-
-    // report count
-    int currentReportCount = -1;
-    auto EmitReportCount = [&](uint8_t reportCount)
-    {
-        if (reportCount != currentReportCount)
-        {
-            EmitByte(0x95);
-            EmitByte(reportCount);
-            currentReportCount = reportCount;
-        }
-    };
-
-    // we don't currently use push or pop
-
-    // *** begin local items (HID DCD 1.11 section 6.2.2.8)
-
-    // usage (we just go ahead and put usage page in this method, too)
-    auto EmitUsage = [&](uint16_t usagepage, uint8_t usage)
-    {
-        EmitUsagePage(usagePage);
-        if (usage > 0xff)
-        {
-            EmitByte(0x0a);
-            EmitWord(usage);
-        }
-        else
-        {
-            EmitByte(0x09);
-            EmitByte(usage);
-        }        
-    };
-
-    // We don't currently block adjacent usage IDs together, so min/max usage aren't used.
-    // Designators are irrelevant to Braille.
-    
-    // string index
-    uint16_t stringId = 4;  // 1, 2, and 3 are the mfgr, model, and serial number strings
-    auto EmitString = [&](std::string name)
-    {
-        if (!name.empty())
-        {
-            m_strings.emplace_back({stringId, name});
-            if (stringId > 0xff)
-            {
-                EmitByte(0x7a);
-                EmitWord(stringId);
-            }
-            else
-            {
-                EmitByte(0x79);
-                EmitByte(stringId);
-            }
-            ++stringId;            
-        }
-    };
-
-    // No min/max string index; see above
-    // no aliases
-
-    // *** begin function definitions for emitting collections and data items (main items)
-
-    // Emit padding bits into the report specified by tag (0x81=input, 0x91=output, 0x93=feature)
-    auto EmitPaddingIfNeeded = [&](uint8_t tag, uint8_t reportSize)
-    {        
-        if (tag == 0x81 && reportSize != 1 && (m_inputReportBitSize & 7))
-        {
-            unsigned int bits = 8-(m_inputReportBitSize & 7);
-            EmitReportSize(bits);
-            EmitReportCount(1);
-            EmitByte(tag);
-            EmitByte(0x03); // constant, variable, absolute, no wrap, linear, preferred state, no null, bitfield
-            m_inputReportBitSize += bits;
-        }        
-    };
-
-    // Emit the data item. This determines the appropriate report based on the usage.
-    auto EmitDataItem = [&](const ButtonMapping& mapping)
-    {
-        uint8_t tag = 0;
-        uint8_t logicalMaximum = 0;
-        uint8_t reportSize = 0;
-        uint8_t reportCount = 0;
-        bool isButton = false;
-
-        if (mapping.usage_page == 0x41) // Braille usage page
-        {
-            if (mapping.usage == 0x03 || mapping.usage == 0x04) // cell8, cell6
-            {
-                if (mapping.usage == 0x03)
-                {
-                    logicalMaximum = 0xff;
-                }
-                else
-                {
-                    logicalMaximum =0x3f;
-                }
-                reportSize = 8;
-                reportCount = m_cellCount;
-                tag = 0x91; // output
-            }
-            else if (mapping.usage == 0x05) // cell count
-            {
-                logicalMaximum = m_cellCount;
-                reportSize = 8;
-                reportCount = 1;
-                tag = 0x81; // input
-            }
-            else if (mapping.usage == 0x100) // router
-            {
-                logicalMaximum = 1;
-                reportSize = 1;
-                reportCount = m_cellCount;
-                tag = 0x81; // input
-                isButton = true;
-            }
-        }
-
-        // all other usages are buttons
-        if (!tag)
-        {
-            logicalMaximum = 1;
-            reportSize = 1;
-            reportCount = 1;
-            tag = 0x81;
-            isButton = true;
-        }
-
-        // if we need to emit a non-bit value to the input record, pad to a byte boundary
-        EmitPaddingIfNeeded(tag, reportSize);
-
-        // add button mappings, including routers, to ButtonInformation collection
-        if (isButton)
-        {
-            m_buttons.emplace_back
-            (
-                {mapping.key_group, mapping.key_index}, 
-                {mapping.key_group, mapping.key_index, m_inputReportBitSize/8, m_inputReportBitSize & 7}
-            );
-        }
-
-        if (usage == 0x05) 
-        {
-            m_cellCountOffsetInInputReport = m_inputReportBitSize / 8;
-        }
-
-        EmitLogicalMaximum(logicalMaximum);
-        EmitReportSize(reportSize);
-        EmitReportCount(reportCount);
-        EmitString(mapping.name);
-        EmitUsage(mapping.usage_page, mapping.usage);
-        EmitByte(tag);
-        EmitByte(0x02); // data, variable, absolute, no wrap, linear, preferred state, no null, (nonvolatile if output), bitfield
-        
-        // update position counters
-        if (tag == 0x81)
-        {
-            m_inputReportBitSize += (reportSize * reportCount);
-        }
-        else if (tag == 0x91)
-        {
-            // the only output data we currently support is cells, so they're always the entire output report
-            m_cellsOffsetInOutputReport = 0;
-            m_outputReportSize = reportCount;
-        }
-
-        // if we emitted a non-bit value to the input record, pad to a byte boundary again if needed (should be only for routers)
-        EmitPaddingIfNeeded(tag, reportSize);
-    }
-
-    // Recursive lambdas feel like living in sin
-    std::function<void(const Collection&)> EmitCollection;
-
-    EmitCollection = [&](const Collection& collection)
-    {
-        // collection start
-        EmitByte(0xa1);
-        EmitByte(collection.id == 0 ? 0x01 : 0x02);  // application if collection 0, else logical
-
-        // collection contents
-        for (const auto& mapping : collection.buttonMappings)
-        {
-            EmitDataItem(mapping);
-        }
-
-        // sub-collections
-        for (const auto& subCollection : collection.subCollections)
-        {
-            EmitCollection(subCollection);
-        }
-
-        // collection end
-        EmitByte(0xc0);
-    };
 
     EmitCollection(baseCollection);
     EmitPaddingIfNeeded(0x81, 8);
@@ -369,7 +148,230 @@ void Reports::CreateReportDescriptorForCollection(Collection& baseCollection)
     m_maxReportSize = m_outputReportSize > m_inputReportSize ? m_outputReportSize : m_inputReportSize;
 }
 
-uint16_t Reports::MapUsagePage(std::string& pageName)
+void Reports::EmitByte(uint8_t byte)
+{
+    m_reportDescriptor += byte;
+}
+
+void Reports::EmitWord(uint16_t word)
+{
+    EmitByte(word & 0xff);
+    EmitByte(word >> 8);
+};
+
+void Reports::EmitUsagePage(uint16_t usagePage)
+{
+    if (usagePage != m_currentUsagePage)
+    {
+        if (usagePage > 0xff)
+        {
+            EmitByte(0x06);
+            EmitWord(usagePage);
+        }
+        else 
+        {
+            EmitByte(0x05);
+            EmitByte(usagePage);
+        }
+        m_currentUsagePage = usagePage;
+    }
+};
+
+void Reports::EmitLogicalMaximum(uint8_t logicalMaximum)
+{
+    if (logicalMaximum != m_currentLogicalMaximum)
+    {
+        EmitByte(0x25);
+        EmitByte(logicalMaximum);
+        m_currentLogicalMaximum = logicalMaximum;
+    }
+};
+
+void Reports::EmitReportSize(uint8_t reportSize)
+{
+    if (reportSize != m_currentReportSize)
+    {
+        EmitByte(0x75);
+        EmitByte(reportSize);
+        m_currentReportSize = reportSize;
+    }
+};
+
+void Reports::EmitReportCount(uint8_t reportCount)
+{
+    if (reportCount != m_currentReportCount)
+    {
+        EmitByte(0x95);
+        EmitByte(reportCount);
+        m_currentReportCount = reportCount;
+    }
+};
+
+void Reports::EmitUsage(uint16_t usagePage, uint8_t usage)
+{
+    EmitUsagePage(usagePage);
+    if (usage > 0xff)
+    {
+        EmitByte(0x0a);
+        EmitWord(usage);
+    }
+    else
+    {
+        EmitByte(0x09);
+        EmitByte(usage);
+    }        
+};
+
+void Reports::EmitString(std::string name)
+{
+    if (!name.empty())
+    {
+        m_strings.insert({m_stringId, name});
+        if (m_stringId > 0xff)
+        {
+            EmitByte(0x7a);
+            EmitWord(m_stringId);
+        }
+        else
+        {
+            EmitByte(0x79);
+            EmitByte(m_stringId);
+        }
+        ++m_stringId;            
+    }
+};
+
+void Reports::EmitPaddingIfNeeded(uint8_t tag, uint8_t reportSize)
+{        
+    if (tag == 0x81 && reportSize != 1 && (m_inputReportBitSize & 7))
+    {
+        unsigned int bits = 8-(m_inputReportBitSize & 7);
+        EmitReportSize(bits);
+        EmitReportCount(1);
+        EmitByte(tag);
+        EmitByte(0x03); // constant, variable, absolute, no wrap, linear, preferred state, no null, bitfield
+        m_inputReportBitSize += bits;
+    }        
+};
+
+void Reports::EmitDataItem(const ButtonMapping& mapping)
+{
+    uint8_t tag = 0;
+    uint8_t logicalMaximum = 0;
+    uint8_t reportSize = 0;
+    uint8_t reportCount = 0;
+    bool isButton = false;
+
+    if (mapping.usage_page == 0x41) // Braille usage page
+    {
+        if (mapping.usage == 0x03 || mapping.usage == 0x04) // cell8, cell6
+        {
+            if (mapping.usage == 0x03)
+            {
+                logicalMaximum = 0xff;
+            }
+            else
+            {
+                logicalMaximum =0x3f;
+            }
+            reportSize = 8;
+            reportCount = m_cellCount;
+            tag = 0x91; // output
+        }
+        else if (mapping.usage == 0x05) // cell count
+        {
+            logicalMaximum = m_cellCount;
+            reportSize = 8;
+            reportCount = 1;
+            tag = 0x81; // input
+        }
+        else if (mapping.usage == 0x100) // router
+        {
+            logicalMaximum = 1;
+            reportSize = 1;
+            reportCount = m_cellCount;
+            tag = 0x81; // input
+            isButton = true;
+        }
+    }
+
+    // all other usages are buttons
+    if (!tag)
+    {
+        logicalMaximum = 1;
+        reportSize = 1;
+        reportCount = 1;
+        tag = 0x81;
+        isButton = true;
+    }
+
+    // if we need to emit a non-bit value to the input record, pad to a byte boundary
+    EmitPaddingIfNeeded(tag, reportSize);
+
+    // add button mappings, including routers, to ButtonInformation collection
+    if (isButton)
+    {
+        m_buttons.insert
+        (
+            std::make_pair(
+                std::make_pair<uint8_t, int16_t>(mapping.key_group, mapping.key_index), 
+                ButtonInformation{mapping.key_group, mapping.key_index, static_cast<uint16_t>(m_inputReportBitSize>>3), static_cast<uint8_t>(m_inputReportBitSize & 7)}
+            )
+        );
+    }
+
+    if (mapping.usage == 0x05) 
+    {
+        m_cellCountOffsetInInputReport = m_inputReportBitSize / 8;
+    }
+
+    EmitLogicalMaximum(logicalMaximum);
+    EmitReportSize(reportSize);
+    EmitReportCount(reportCount);
+    EmitString(mapping.name);
+    EmitUsage(mapping.usage_page, mapping.usage);
+    EmitByte(tag);
+    EmitByte(0x02); // data, variable, absolute, no wrap, linear, preferred state, no null, (nonvolatile if output), bitfield
+    
+    // update position counters
+    if (tag == 0x81)
+    {
+        m_inputReportBitSize += (reportSize * reportCount);
+    }
+    else if (tag == 0x91)
+    {
+        // the only output data we currently support is cells, so they're always the entire output report
+        m_cellsOffsetInOutputReport = 0;
+        m_outputReportSize = reportCount;
+    }
+
+    // if we emitted a non-bit value to the input record, pad to a byte boundary again if needed (should be only for routers)
+    EmitPaddingIfNeeded(tag, reportSize);
+}
+
+void Reports::EmitCollection(const Collection& collection)
+{
+    // collection start
+    EmitByte(0xa1);
+    EmitByte(collection.id == 0 ? 0x01 : 0x02);  // application if collection 0, else logical
+
+    // collection contents
+    for (const auto& mapping : collection.buttonMappings)
+    {
+        EmitDataItem(mapping);
+    }
+
+    // sub-collections
+    for (const auto& subCollection : collection.subCollections)
+    {
+        EmitCollection(subCollection);
+    }
+
+    // collection end
+    EmitByte(0xc0);
+};
+
+uint16_t Reports::MapUsagePage(std::string pageName)
 {
     static std::map<std::string, uint16_t> pages
     {
@@ -377,7 +379,7 @@ uint16_t Reports::MapUsagePage(std::string& pageName)
         {"button", 0x09},
     };
 
-    auto page = pages.find(pageName;
+    auto page = pages.find(pageName);
     if (page != pages.end())
     {
         return page->second;
@@ -387,7 +389,7 @@ uint16_t Reports::MapUsagePage(std::string& pageName)
     throw std::exception();
 }
 
-uint16_t MapUsage(uint16_t usagePage, std::string& usageName)
+uint16_t Reports::MapUsage(uint16_t usagePage, std::string usageName)
 {
     uint16_t usage = 0;
 

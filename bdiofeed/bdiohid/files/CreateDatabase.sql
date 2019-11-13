@@ -2,6 +2,13 @@
 drop table if exists settings;
 create table settings(setting_name, setting_value);
 
+insert into settings VALUES
+    ("udc", "musb-hdrc.1.auto"),
+    ("configdir", "/sys/kernel/config"),
+    ("vid", 4617),
+    ("pid", 1),
+    ("serial", "bdio-hid")
+
 drop table if exists displays;
 create table displays(modelid, mfgr, model, mfgr_name, model_name);
 
