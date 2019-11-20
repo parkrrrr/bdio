@@ -4,10 +4,11 @@ create table settings(setting_name, setting_value);
 
 insert into settings VALUES
     ("udc", "musb-hdrc.1.auto"),
-    ("configdir", "/sys/kernel/config"),
-    ("vid", 4617),
-    ("pid", 1),
-    ("serial", "bdio-hid")
+    ("configdir", "/sys/kernel/config/usb_gadget"),
+    ("vid", "0x1209"),
+    ("pid", "0x0001"),
+    ("serial", "bdio-hid"),
+    ("devname", "/dev/hidg0");
 
 drop table if exists displays;
 create table displays(modelid, mfgr, model, mfgr_name, model_name);
@@ -36,6 +37,7 @@ insert into mappings values
     (1, 0, 13, 4, "button", "1", "right scroll up"),
     (1, 0, 14, 4, "button", "2", "right scroll down");
 
+select * from settings order by setting_name;
 select * from displays order by modelid;
 select * from collections order by modelid, collection_id;
 select * from mappings order by modelid, key_group, key_index;

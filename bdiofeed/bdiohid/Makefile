@@ -21,6 +21,9 @@ endef
 define Package/bdiohid/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bdiohid $(1)/usr/bin/bdiohid
+	$(INSTALL_DIR) $(1)/etc/bdio
+	$(INSTALL_DATA) ./files/bdio.db $(1)/etc/bdio/
+	$(INSTALL_BIN) ./files/rc.local $(1)/etc/rc.local.new
 endef
 
 define Build/Compile
@@ -28,6 +31,7 @@ define Build/Compile
 	  -Iinclude \
 	  -Isqlitecpp/sqlite3 \
 	  -Isqlitecpp/include \
+	  -std=gnu++17 \
 	  -o $(PKG_BUILD_DIR)/bdiohid \
 	  *.cpp \
 	  sqlitecpp/src/*.cpp \
@@ -39,6 +43,9 @@ endef
 
 define Build/Install
 	cp $(PKG_BUILD_DIR)/bdiohid $(STAGING_DIR)/bdiohid
+	$(INSTALL_DIR) $(STAGING_DIR)/etc/bdio/
+	cp ./files/bdio.db $(STAGING_DIR)/etc/bdio/
+	cp ./files/rc.local $(STAGING_DIR)/etc/rc.local.new
 endef
 
 $(eval $(call BuildPackage,bdiohid)) 

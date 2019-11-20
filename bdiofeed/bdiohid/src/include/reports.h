@@ -7,6 +7,7 @@
 
 class Reports
 {
+public:
     Reports(BrlApiInterface& brailleApi) :
         m_brailleApi(brailleApi)
     {
@@ -86,7 +87,7 @@ private:
     // *** begin local items (HID DCD 1.11 section 6.2.2.8)
 
     // usage (we just go ahead and put usage page in this method, too)
-    void EmitUsage(uint16_t usagePage, uint8_t usage);
+    void EmitUsage(uint16_t usagePage, uint16_t usage);
 
     // We don't currently block adjacent usage IDs together, so min/max usage aren't used.
     // Designators are irrelevant to Braille.
@@ -106,7 +107,7 @@ private:
     // Emit the data item. This determines the appropriate report based on the usage.
     void EmitDataItem(const ButtonMapping& mapping);
 
-    void EmitCollection(const Collection& collection);
+    void EmitCollection(const Collection& collection, uint8_t pad);
 
     uint16_t MapUsagePage(std::string pageName);
     uint16_t MapUsage(uint16_t usagePage, std::string usageName);

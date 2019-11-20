@@ -3,8 +3,10 @@
 #include <unistd.h>
 #include "base.h"
 #include "brlapi_interface.h"
+#include "reports.h"
+#include "gadget.h"
 
-const char* c_databaseName = "bdio.db";
+const char* c_databaseName = "/etc/bdio/bdio.db";
 
 int main()
 {
@@ -17,23 +19,31 @@ int main()
   printf( " Cells: [%d]\n", cellCount);
 
   ByteString cells;
-  for (unsigned int i = 1; i <= cellCount; ++i)
-  {
-    cells.append(1, static_cast<uint8_t>(i));
-  }
-
   interface.WriteCells(cells);
 
+  Reports reports(interface);
+  Gadget gadget(reports);
+
   auto token = interface.AddListener(
-    [](bool pressed, uint8_t group, uint8_t key)
+    [&](bool pressed, uint8_t group, uint8_t key)
     {
       printf( "Key %s : group %d key %d\n", pressed ? "pressed" : "released", group, key);
+      reports.SetButton(pressed, group, key);
+      gadget.SendInputReport(reports.GetInputReport());
+    }
+  );
+
+  auto gadgetToken = gadget.AddOutputListener(
+    [&](const ByteString& outputReport)
+    {
+      reports.SetOutputReport(outputReport);
     }
   );
 
   sleep(60);
 
   interface.RemoveListener(token);
+  gadget.RemoveOutputListener(gadgetToken);
 
   cells.clear();
   interface.WriteCells(cells);

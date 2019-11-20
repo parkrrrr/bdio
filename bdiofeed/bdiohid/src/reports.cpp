@@ -141,8 +141,7 @@ void Reports::CreateReportDescriptorForCollection(Collection& baseCollection)
     EmitByte(0x15);
     EmitByte(0x00);
 
-    EmitCollection(baseCollection);
-    EmitPaddingIfNeeded(0x81, 8);
+    EmitCollection(baseCollection, 8);
 
     m_inputReportSize = m_inputReportBitSize / 8;
     m_maxReportSize = m_outputReportSize > m_inputReportSize ? m_outputReportSize : m_inputReportSize;
@@ -163,7 +162,7 @@ void Reports::EmitUsagePage(uint16_t usagePage)
 {
     if (usagePage != m_currentUsagePage)
     {
-        if (usagePage > 0xff)
+        if (usagePage > 0U)
         {
             EmitByte(0x06);
             EmitWord(usagePage);
@@ -207,10 +206,10 @@ void Reports::EmitReportCount(uint8_t reportCount)
     }
 };
 
-void Reports::EmitUsage(uint16_t usagePage, uint8_t usage)
+void Reports::EmitUsage(uint16_t usagePage, uint16_t usage)
 {
     EmitUsagePage(usagePage);
-    if (usage > 0xff)
+    if (usage > 0xffU)
     {
         EmitByte(0x0a);
         EmitWord(usage);
@@ -224,6 +223,9 @@ void Reports::EmitUsage(uint16_t usagePage, uint8_t usage)
 
 void Reports::EmitString(std::string name)
 {
+    // Linux gadget drivers don't support strings yet
+    return;
+    /*
     if (!name.empty())
     {
         m_strings.insert({m_stringId, name});
@@ -239,6 +241,7 @@ void Reports::EmitString(std::string name)
         }
         ++m_stringId;            
     }
+    */
 };
 
 void Reports::EmitPaddingIfNeeded(uint8_t tag, uint8_t reportSize)
@@ -349,9 +352,10 @@ void Reports::EmitDataItem(const ButtonMapping& mapping)
     EmitPaddingIfNeeded(tag, reportSize);
 }
 
-void Reports::EmitCollection(const Collection& collection)
+void Reports::EmitCollection(const Collection& collection, uint8_t pad)
 {
     // collection start
+    EmitUsage(collection.usage_page, collection.usage);
     EmitByte(0xa1);
     EmitByte(collection.id == 0 ? 0x01 : 0x02);  // application if collection 0, else logical
 
@@ -364,7 +368,12 @@ void Reports::EmitCollection(const Collection& collection)
     // sub-collections
     for (const auto& subCollection : collection.subCollections)
     {
-        EmitCollection(subCollection);
+        EmitCollection(subCollection, 0);
+    }
+
+    if (pad)
+    {
+        EmitPaddingIfNeeded(0x81, pad);
     }
 
     // collection end
