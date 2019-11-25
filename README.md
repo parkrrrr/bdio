@@ -9,7 +9,7 @@ BDIOHID runs on a small Linux Single-Board Computer and leverages brltty to comm
 output to brltty output and brltty input to HID input on the fly. 
 
 At present, BDIOHID is a proof of concept. It currently supports only one Braille display, the HIMS SyncBraille. However, 
-support for additional hardware that brltty can autodetect should be straightforward to add by merely adding lines to `/etc/bdio.db`.
+support for additional hardware that brltty can autodetect should be straightforward to add by merely adding records to `/etc/bdio.db`.
 
 **Important!** Currently, BDIOHID uses a **test** USB Product ID from [pid.codes](http://pid.codes). It is only suitable for development and testing work. Do not distribute hardware based on this VID/PID. 
 
@@ -115,5 +115,17 @@ The long-term road map for BDIOHID contains even more pie-in-the-sky stuff:
 - Add support for automated testing using the simulation technology from the above feature. This, too, would be for software 
   developers.
   
+## How You Can Help
 
+I welcome contributions of all kinds, but I am particularly enthusiastic about crowdsourcing:
 
+- Creation of new display profiles.
+- Porting to other base hardware besides the NanoPi.
+- Debugging of the build process.
+- Documentation in general. This is a long readme, but it really doesn't even scratch the surface of what you need to know.
+- Marketing. If you know someone who needs this, tell them about it. Tell them to tell their friends about it. Spread the word.
+- Feature suggestions. Do you wish it did something that's not already on one of the lists above? Do you wish one of the things
+  on the long-term road map were on the shorter-term road map? Tell me!
+- Bug reports. Did your Braille display wake up in the middle of the night and go on a midnight rampage throughout the neighborhood, 
+  frightening small animals and children and etching an eldritch rune into your mailbox? I need to know, for the sake of everyone 
+  else's mailboxes. (It's too late for yours.)
