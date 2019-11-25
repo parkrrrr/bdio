@@ -55,23 +55,26 @@ cycle power to the NEO by unplugging and replugging the USB Micro-B cable.
 
 Now that you've got all of the required bits, it's time to build. (Note: I have not yet tested this process on a completely new system. If you do, and it doesn't work, please let me know so we can figure out what needs to change.)
 
-1. Copy the files from `bdiofeed/openwrt-configs` to the `openwrt` folder in which my OpenWRT branch resides. 
+1. Run `bdiofeed/bdiohid/files/CreateDatabase.sql` using whatever tools you use to create an SQLite database. I use an 
+   SQLite extension to Visual Studio Code to do this. This step should be optional, because the repository contains a copy of
+   `bdio.db`, but that copy is currently out of sync with `CreateDatabase.sql` in a way that breaks all functionality.
+2. Copy the files from `bdiofeed/openwrt-configs` to the `openwrt` folder in which my OpenWRT branch resides. 
    (There are better ways to do this, using OpenWRT's `make diffconfig`, but setting that up is a future project.)
-2. `cd openwrt`    \# set the working directory to the OpenWRT folder from step 1
-3. `./scripts/feeds update bdio`  \# Copy the package files and index information for the packages used by BDIOHID. 
+3. `cd openwrt`    \# set the working directory to the OpenWRT folder from step 1
+4. `./scripts/feeds update bdio`  \# Copy the package files and index information for the packages used by BDIOHID. 
     Currently, these are a stripped-down version of brltty version 6.0 and the bdiohid executable itself.
-4. `./scripts/feeds install -a -p bdio` \# Create the symbolic links the OpenWRT build system needs to build the new packages.
-5. Optionally, `make menuconfig` to change the OpenWRT configuration. As currently configured, the firmware image built 
+5. `./scripts/feeds install -a -p bdio` \# Create the symbolic links the OpenWRT build system needs to build the new packages.
+6. Optionally, `make menuconfig` to change the OpenWRT configuration. As currently configured, the firmware image built 
    by this configuration is very limited and contains almost no tools (including lsusb - if you need that you should turn it on
    in the BusyBox config.)
-6. `make`. If you have never built OpenWRT before, this will build the entire OpenWRT system, including the cross-compilation 
+7. `make`. If you have never built OpenWRT before, this will build the entire OpenWRT system, including the cross-compilation 
    toolchain, the Linux kernel, and assorted other utilities. This will take a while; go catch a movie or binge a season of 
    your favorite TV show while you wait.
-7. If everything went well, you will have an `.img.gz` file in some subdirectory of `openwrt/bin/targets`. Find it, decompress 
+8. If everything went well, you will have an `.img.gz` file in some subdirectory of `openwrt/bin/targets`. Find it, decompress 
    it, and burn the image to your MicroSD card using whatever means appeals to you.
-8. Put the MicroSD card in the NanoPI NEO, plug your Braille display into the NEO's USB A port, plug the USB Micro-B cable 
+9. Put the MicroSD card in the NanoPI NEO, plug your Braille display into the NEO's USB A port, plug the USB Micro-B cable 
    into the NEO's "OTG" port, and plug the other end of that cable into your computer.
-9. If everything continued to go well, you should now have a new HID device. 
+10. If everything continued to go well, you should now have a new HID device. 
 
 ## Where We're Going
 
