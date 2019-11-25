@@ -78,7 +78,7 @@ void Reports::CreateReportModel()
     CreateReportDescriptorForCollection(baseCollection);
 
     // initialize input report
-    m_inputReport = ByteString(m_maxReportSize, '\0');
+    m_inputReport = ByteString(m_inputReportSize, '\0');
     if (m_cellCountOffsetInInputReport >= 0)
     {
         m_inputReport[m_cellCountOffsetInInputReport] = m_cellCount;

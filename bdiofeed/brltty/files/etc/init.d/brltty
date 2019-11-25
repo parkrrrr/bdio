@@ -1,0 +1,12 @@
+#!/bin/sh /etc/rc.common
+
+START=55
+STOP=55
+
+start() {
+    /usr/bin/brltty -M1
+}
+
+stop() {
+    /usr/bin/killall brltty
+}

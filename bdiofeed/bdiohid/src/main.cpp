@@ -27,7 +27,6 @@ int main()
   auto token = interface.AddListener(
     [&](bool pressed, uint8_t group, uint8_t key)
     {
-      printf( "Key %s : group %d key %d\n", pressed ? "pressed" : "released", group, key);
       reports.SetButton(pressed, group, key);
       gadget.SendInputReport(reports.GetInputReport());
     }
@@ -40,7 +39,10 @@ int main()
     }
   );
 
-  sleep(60);
+  while (1)
+  {
+    sleep(60);
+  }
 
   interface.RemoveListener(token);
   gadget.RemoveOutputListener(gadgetToken);

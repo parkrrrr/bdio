@@ -28,7 +28,9 @@ define Package/brltty/description
 endef
 
 define Package/brltty/install
-    $(CP) ./files/* $(1)/
+	$(INSTALL_DIR) $(1)/etc/init.d
+	$(INSTALL_DATA) ./files/etc/brlapi.key $(1)/etc
+	$(INSTALL_BIN) ./files/etc/init.d/brltty $(1)/etc/init.d
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/brltty $(1)/usr/bin/brltty
 	$(INSTALL_DIR) $(1)/usr/lib

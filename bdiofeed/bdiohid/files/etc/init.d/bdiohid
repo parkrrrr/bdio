@@ -1,0 +1,12 @@
+#!/bin/sh /etc/rc.common
+
+START=56
+STOP=54
+
+start() {
+    /usr/bin/bdiohid </dev/null &
+}
+
+stop() {
+    /usr/bin/killall bdiohid
+}

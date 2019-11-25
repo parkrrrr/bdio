@@ -21,6 +21,7 @@ public:
     const std::map<uint16_t, std::string>& GetStrings() const {return m_strings;}
 
     uint16_t GetMaxReportSize() const {return m_maxReportSize;}
+    uint16_t GetInputReportSize() const {return m_inputReportSize;}
 
     ByteString GetInputReport() const {return m_inputReport;}
     void SetButton(bool press, uint8_t group, uint8_t key);
