@@ -30,11 +30,11 @@ insert into collections values
     (2, 0, -1, "braille", "display"),
     (2, 1,  0, "braille", "row"),
     (2, 2,  1, "braille", "router1"),
-    (1, 3,  0, "braille", "left"),
-    (1, 4,  0, "braille", "right"),
-    (1, 5,  0, "braille", "face"),
-    (1, 6,  5, "braille", "left"),
-    (1, 7,  5, "braille", "right");
+    (2, 3,  0, "braille", "left"),
+    (2, 4,  0, "braille", "right"),
+    (2, 5,  0, "braille", "face"),
+    (2, 6,  5, "braille", "left"),
+    (2, 7,  5, "braille", "right");
 
 drop table if exists mappings;
 create table mappings(modelid, key_group, key_index, collection_id, usage_page, usage, name);
