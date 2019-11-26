@@ -78,7 +78,7 @@ Now that you've got all of the required bits, it's time to build. (Note: I have 
 
 ## Where We're Going
 
-The current short-term road map for BDIOHID consists of the following:
+The current short-term road map for BDIOHID consists of the following (These are all added as github issues, too):
 
 - Make input less sluggish. I don't know how to do raw Linux file I/O, and it shows. Right now it can take a while for an input event
   from brltty to show up as a HID input report. Change the file I/O to use `boost::asio` because I know how to use that to do what 
@@ -97,7 +97,8 @@ The current short-term road map for BDIOHID consists of the following:
   to, e.g. `http://bdiohid/`. Because of some of the stuff on the next list, I would likely use `boost::beast`, built directly
   into the bdiohid executable, for the HTTP server.
 - Add support for additional hardware. At minimum, I would like to support some newer NanoPi hardware, especially the new NanoPi R1S,
-  but I would also like to see what it takes to support other Linux SBCs with USB OTG ports.
+  but I would also like to see what it takes to support other openwrt-compatiable Linux SBCs with USB OTG ports such as the OrangePi 
+  Zero Plus.
   
 ## Where We're Going After That
   
