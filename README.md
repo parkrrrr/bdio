@@ -56,8 +56,8 @@ cycle power to the NEO by unplugging and replugging the USB Micro-B cable.
 Now that you've got all of the required bits, it's time to build. (Note: I have not yet tested this process on a completely new system. If you do, and it doesn't work, please let me know so we can figure out what needs to change.)
 
 1. Run `bdiofeed/bdiohid/files/CreateDatabase.sql` using whatever tools you use to create an SQLite database. I use an 
-   SQLite extension to Visual Studio Code to do this. This step should be optional, because the repository contains a copy of
-   `bdio.db`, but that copy is currently out of sync with `CreateDatabase.sql` in a way that breaks all functionality.
+   SQLite extension to Visual Studio Code to do this. This step is optional, because the repository contains a copy of
+   `bdio.db`, but if you modify `CreateDatabase.sql`, you will need to do it.
 2. Copy the files from `bdiofeed/openwrt-configs` to the `openwrt` folder in which my OpenWRT branch resides. 
    (There are better ways to do this, using OpenWRT's `make diffconfig`, but setting that up is a future project.)
 3. `cd openwrt`    \# set the working directory to the OpenWRT folder from step 1
