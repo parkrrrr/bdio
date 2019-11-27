@@ -17,7 +17,7 @@ insert into displays values
     (1, "HIMS", "sync", "HIMS", "SyncBraille"),
     (2, "TSI",  "pb40", "TeleSensory", "PowerBraille 40"),
     (3, "HumanWare", "BI40", "HumanWare", "Brailliant BI 40"),
-    (4, "Baum", "ultra", "Baum", "VarioUltra"),
+    (4, "Baum", "ultra", "Baum", "VarioUltra");
 
 drop table if exists collections;
 create table collections(modelid, collection_id, parent_collection_id, usage_page, usage);
