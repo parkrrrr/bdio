@@ -20,8 +20,8 @@ public:
 
     const std::map<uint16_t, std::string>& GetStrings() const {return m_strings;}
 
-    uint16_t GetMaxReportSize() const {return m_maxReportSize;}
     uint16_t GetInputReportSize() const {return m_inputReportSize;}
+    uint16_t GetOutputReportSize() const {return m_outputReportSize;}
 
     ByteString GetInputReport() const {return m_inputReport;}
     void SetButton(bool press, uint8_t group, uint8_t key);
@@ -122,7 +122,6 @@ private:
     std::string m_modelName;
 
     std::map<uint16_t, std::string> m_strings;
-    uint16_t m_maxReportSize = 0;
     uint16_t m_outputReportSize = 0;
     unsigned int m_inputReportBitSize = 0;
     uint16_t m_inputReportSize = 0;

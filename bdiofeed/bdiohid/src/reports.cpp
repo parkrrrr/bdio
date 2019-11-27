@@ -144,7 +144,6 @@ void Reports::CreateReportDescriptorForCollection(Collection& baseCollection)
     EmitCollection(baseCollection, 8);
 
     m_inputReportSize = m_inputReportBitSize / 8;
-    m_maxReportSize = m_outputReportSize > m_inputReportSize ? m_outputReportSize : m_inputReportSize;
 }
 
 void Reports::EmitByte(uint8_t byte)

@@ -1,5 +1,7 @@
 #include "gadget.h"
+#include "sys/types.h"
 #include "sys/stat.h"
+#include "fcntl.h"
 #include "sys/select.h"
 #include "sys/mount.h"
 #include <string>
@@ -22,7 +24,7 @@ Gadget::~Gadget()
 
     if (m_gadgetDevice)
     {
-        fclose(m_gadgetDevice);
+        close(m_gadgetDevice);
     }
 
     DisableGadgetDevice();
@@ -30,7 +32,7 @@ Gadget::~Gadget()
 
 void Gadget::SendInputReport(ByteString inputReport)
 {
-    fwrite(inputReport.c_str(), sizeof(uint8_t), inputReport.length(), m_gadgetDevice);
+    write(m_gadgetDevice, inputReport.c_str(), inputReport.length());
 }
 
 Gadget::ListenerToken Gadget::AddOutputListener(Gadget::OutputListener listener)
@@ -123,7 +125,7 @@ void Gadget::OpenGadgetDevice()
 
     // read configs from 'settings' table
     auto devname = ReadConfigString(database, "devname");
-    m_gadgetDevice = fopen(devname.c_str(), "r+");
+    m_gadgetDevice = open(devname.c_str(), O_RDWR | O_SYNC);
 }
 
 std::string Gadget::ReadConfigString(SQLite::Database& database, std::string name)
@@ -147,15 +149,14 @@ void Gadget::MakeConfigDir(std::string name)
 void Gadget::ThreadProcedure()
 {
     fd_set rfds;
-    auto fd = fileno(m_gadgetDevice);
     while (!m_terminateOutputThread)
     {
         FD_ZERO(&rfds);
-        FD_SET(fd, &rfds);
+        FD_SET(m_gadgetDevice, &rfds);
 
         timeval timeVal{0,10000}; // 10 msec timeout
 
-        auto retval = select(fd + 1, &rfds, NULL, NULL, &timeVal);
+        auto retval = select(m_gadgetDevice + 1, &rfds, NULL, NULL, &timeVal);
         if (retval == -1 && errno == EINTR)
         {
             continue;
@@ -163,10 +164,14 @@ void Gadget::ThreadProcedure()
         if (retval < 0) {
             m_terminateOutputThread = true;
         }
-        if (FD_ISSET(fd, &rfds)) {
+        if (FD_ISSET(m_gadgetDevice, &rfds)) {
             ByteString outputReport;
-            outputReport.resize(m_reports.GetMaxReportSize());
-            fread(outputReport.data(), sizeof(uint8_t), outputReport.length(), m_gadgetDevice);
+            outputReport.resize(m_reports.GetOutputReportSize());
+            size_t toRead = outputReport.length();
+            size_t beenRead = 0;
+            while (toRead != beenRead) {
+                beenRead += read(m_gadgetDevice, outputReport.data() + beenRead, toRead - beenRead);
+            }
 
             for (auto& callback : m_listeners)
             {

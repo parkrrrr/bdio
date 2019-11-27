@@ -50,7 +50,7 @@ private:
     std::thread m_outputThread;
     bool m_terminateOutputThread = false;
 
-    FILE* m_gadgetDevice = nullptr;
+    int m_gadgetDevice = 0;
 
     Reports& m_reports;
 };
