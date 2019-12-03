@@ -74,16 +74,25 @@ Now that you've got all of the required bits, it's time to build. (Note: I have 
    it, and burn the image to your MicroSD card using whatever means appeals to you.
 9. Put the MicroSD card in the NanoPI NEO, plug your Braille display into the NEO's USB A port, plug the USB Micro-B cable 
    into the NEO's "OTG" port, and plug the other end of that cable into your computer.
-10. If everything continued to go well, you should now have a new HID device. 
+10. If everything continued to go well, you should now have a new HID device.
+
+If everything didn't go well in the sense that Windows tells you that the last USB device you attached malfunctioned, it may be
+a power delivery problem. Your computer's USB ports have a limit on how much current they can source, and that limit is 
+distributed across all connected devices. This hardware, especially if it is also powering the Braille device, wants as much 
+power as it can get. To make sure it gets that power, consider getting a powered USB hub and plugging the device into that. I 
+have [this one](https://www.amazon.com/dp/B00HL7Z46K/) because for some reason people doing USB development work always need more 
+USB ports, and I can recommend it, though I suggest that you pick up a USB A-A extension cable at the same time because it has
+a really short cable attached. (That's not an affiliate link or anything, just a satisfied user.)
 
 ## Where We're Going
 
 The current short-term road map for BDIOHID consists of the following (These are all added as github issues, too):
 
-- Make input less sluggish. I don't know how to do raw Linux file I/O, and it shows. Right now it can take a while for an input event
+- ~~Make input less sluggish. I don't know how to do raw Linux file I/O, and it shows. Right now it can take a while for an input event
   from brltty to show up as a HID input report. Change the file I/O to use `boost::asio` because I know how to use that to do what 
-  I'm trying to accomplish here.
-- Obtain and use a real PID from pid.codes.
+  I'm trying to accomplish here.~~
+- Obtain and use a real PID from pid.codes. (PR submitted, but pid.codes is a volunteer organization with a long backlog, so we
+  must wait patiently for the PID to be assigned.)
 - Do whatever's necessary to make the process of configuring OpenWRT for the build easier and more flexible.
 - Create a developer configuration for OpenWRT including networking and `sshd` so that a developer can use the Ethernet port instead
   of the serial debugger interface.
