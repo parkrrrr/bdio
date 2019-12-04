@@ -1,7 +1,7 @@
-#Unsupported Braille Devices
+# Unsupported Braille Devices
 The following devices are unlikely to be supported, because `brltty` doesn't use its modern raw-key-based driver architecture for them:
 
-##Hardware Devices
+## Hardware Devices
 
 I would like to support these devices, but many of them have little to no information available online, and since it would
 require significant work on the brltty drivers they would also need to be tested extensively. That seems impractical given 
@@ -18,7 +18,7 @@ the age of the hardware.
 - VideoBraille - Tiflosoft Videobraille VB40 - Italian
 - VisioBraille - [TVB, 20/40] French - 30 years old? Name reused by new owner of Baum IP, so difficult to research.
 
-##Software Devices
+## Software Devices
 
 I will likely never support these devices, opting instead to create similar functionality through `bdiohid` directly where it makes
 sense. (For example, my long-term wishlist includes an HTML/Javascript-based emulator that would fill XWindow's niche, and it would
