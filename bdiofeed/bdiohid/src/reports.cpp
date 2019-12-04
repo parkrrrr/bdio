@@ -102,8 +102,9 @@ void Reports::ReadCollection(SQLite::Database& database, Collection& collection)
     ReadButtonMappings(database, collection);
 
     // recursively read subcollections of this collection
-    SQLite::Statement childQuery(database, "SELECT collection_id FROM collections WHERE parent_collection_id=?;");
-    childQuery.bind(1, collection.id);
+    SQLite::Statement childQuery(database, "SELECT collection_id FROM collections WHERE modelid=? AND parent_collection_id=?;");
+    childQuery.bind(1, m_modelId);
+    childQuery.bind(2, collection.id);
 
     while (childQuery.executeStep())
     {
@@ -119,8 +120,9 @@ void Reports::ReadCollection(SQLite::Database& database, Collection& collection)
 
 void Reports::ReadButtonMappings(SQLite::Database& database, Collection& collection)
 {
-    SQLite::Statement buttonQuery(database, "SELECT key_group, key_index, usage_page, usage, name FROM mappings WHERE collection_id=?;");
-    buttonQuery.bind(1, collection.id);
+    SQLite::Statement buttonQuery(database, "SELECT key_group, key_index, usage_page, usage, name FROM mappings WHERE modelid=? AND collection_id=?;");
+    buttonQuery.bind(1, m_modelId);
+    buttonQuery.bind(2, collection.id);
 
     while (buttonQuery.executeStep())
     {
@@ -245,11 +247,13 @@ void Reports::EmitString(std::string name)
 
 void Reports::EmitPaddingIfNeeded(uint8_t tag, uint8_t reportSize)
 {        
-    if (tag == 0x81 && reportSize != 1 && (m_inputReportBitSize & 7))
+    if (tag == 0x81 && reportSize > 1 && (m_inputReportBitSize & 7))
     {
         unsigned int bits = 8-(m_inputReportBitSize & 7);
-        EmitReportSize(bits);
-        EmitReportCount(1);
+        EmitUsage(0x9, 0xffff);
+        EmitLogicalMaximum(1);
+        EmitReportSize(1);
+        EmitReportCount(bits);
         EmitByte(tag);
         EmitByte(0x03); // constant, variable, absolute, no wrap, linear, preferred state, no null, bitfield
         m_inputReportBitSize += bits;
