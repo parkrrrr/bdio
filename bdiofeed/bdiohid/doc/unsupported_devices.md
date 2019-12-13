@@ -52,7 +52,8 @@ be simple to write a network forwarder for HID config and reports to replace Brl
 - BrlAPI - This is a forwarding driver for `brltty` running on a remote machine.
 - Libbraille - This driver encapsulates `libbraille`, which has support for a number of displays but appears to have been inactive
   since 2005. If `libbraille` supports hardware that `brltty` does not support natively, there might be an argument for making this 
-  work, if it can be done. 
+  work, if it can be done. There might also be an argument for working with `libbraille` directly from `bdio`, without the `brltty`
+  middleman. 
 - TTY - This is a software driver which outputs to a tty. Among other things, it also doesn't support raw dots, and raw dots are all
   we get from HID, so supporting this would require back-translation via `liblouis` or some other mechanism. While it's likely that
   such back-translation will eventually happen somewhere in `bdio`, it'll probably be through a web interface rather than a tty.
