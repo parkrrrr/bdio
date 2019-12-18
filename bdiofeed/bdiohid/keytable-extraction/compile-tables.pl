@@ -30,6 +30,7 @@ sub CreateFile
     print FILE qq(manufacturer "$driver"\n);
     my $Model = ucfirst($model);
     print FILE qq(model        "$Model"\n\n);
+    
     print FILE qq(display {\n);
 
     print FILE qq(  row {\n);
@@ -113,3 +114,4 @@ while (<ALLTABLES>)
         $model = undef;
     }
 }
+close ALLTABLES;
