@@ -1,9 +1,0 @@
-
-implement Gadget
-    implement ctor/setup
-    implement input report methods
-    implement output report methods
-
-implement Main thread
-
-add identifiers for exceptions
