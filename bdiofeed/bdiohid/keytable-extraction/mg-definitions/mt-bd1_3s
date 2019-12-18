@@ -1,0 +1,19 @@
+ttydriver    "Metec"
+ttymodel     "bd1_3s"
+ttycode      "mt"
+manufacturer "Metec"
+model        "Bd1_3s"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  button 1   0 6 "Up";
+  button 2   0 4 "Select";
+  button 3   0 2 "Down";
+  # unrecognized group 2 named "StatusKey"
+}

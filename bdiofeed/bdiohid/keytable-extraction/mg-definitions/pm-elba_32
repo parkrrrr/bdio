@@ -1,0 +1,31 @@
+ttydriver    "Papenmeier"
+ttymodel     "elba_32"
+ttycode      "pm"
+manufacturer "Papenmeier"
+model        "Elba_32"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   4;  # RoutingKey1
+    }
+  }
+
+  button 1   0 0 "BarLeft1";
+  button 2   0 1 "BarLeft2";
+  button 3   0 4 "BarRight1";
+  button 4   0 5 "BarRight2";
+  button 5   0 2 "BarUp1";
+  button 6   0 3 "BarUp2";
+  button 7   0 6 "BarDown1";
+  button 8   0 7 "BarDown2";
+  button 9   1 0 "LeftSwitchRear";
+  button 10   1 1 "LeftSwitchFront";
+  button 11   1 6 "RightSwitchRear";
+  button 12   1 7 "RightSwitchFront";
+  button 13   1 2 "LeftKeyRear";
+  button 14   1 3 "LeftKeyFront";
+  button 15   1 4 "RightKeyRear";
+  button 16   1 5 "RightKeyFront";
+}

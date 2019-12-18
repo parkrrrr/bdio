@@ -1,0 +1,28 @@
+ttydriver    "BrailleNote"
+ttymodel     "all"
+ttycode      "bn"
+manufacturer "BrailleNote"
+model        "All"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  dot1   0 0; # Dot1
+  dot2   0 1; # Dot2
+  dot3   0 2; # Dot3
+  dot4   0 3; # Dot4
+  dot5   0 4; # Dot5
+  dot6   0 5; # Dot6
+  space   0 6; # Space
+  button 1   0 7 "Backspace";
+  button 2   0 8 "Enter";
+  button 3   0 9 "Previous";
+  button 4   0 10 "Back";
+  button 5   0 11 "Advance";
+  button 6   0 12 "Next";
+}

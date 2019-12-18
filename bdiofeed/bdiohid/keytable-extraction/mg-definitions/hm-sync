@@ -1,0 +1,19 @@
+ttydriver    "HIMS"
+ttymodel     "sync"
+ttycode      "hm"
+manufacturer "HIMS"
+model        "Sync"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  button 1   0 12 "LeftScrollUp";
+  button 2   0 15 "LeftScrollDown";
+  button 3   0 13 "RightScrollUp";
+  button 4   0 14 "RightScrollDown";
+}

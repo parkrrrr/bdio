@@ -1,0 +1,37 @@
+ttydriver    "Seika"
+ttymodel     "ntk"
+ttycode      "sk"
+manufacturer "Seika"
+model        "Ntk"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  dot1   0 0; # Dot1
+  dot2   0 1; # Dot2
+  dot3   0 2; # Dot3
+  dot4   0 3; # Dot4
+  dot5   0 4; # Dot5
+  dot6   0 5; # Dot6
+  dot7   0 6; # Dot7
+  dot8   0 7; # Dot8
+  button 1   0 8 "Backspace";
+  space   0 9; # Space
+  button 2   0 10 "LeftButton";
+  button 3   0 11 "RightButton";
+  button 4   0 12 "LeftJoystickPress";
+  button 5   0 13 "LeftJoystickLeft";
+  button 6   0 14 "LeftJoystickRight";
+  button 7   0 15 "LeftJoystickUp";
+  button 8   0 16 "LeftJoystickDown";
+  button 9   0 17 "RightJoystickPress";
+  button 10   0 18 "RightJoystickLeft";
+  button 11   0 19 "RightJoystickRight";
+  button 12   0 20 "RightJoystickUp";
+  button 13   0 21 "RightJoystickDown";
+}

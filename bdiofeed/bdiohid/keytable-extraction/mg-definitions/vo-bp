@@ -1,0 +1,31 @@
+ttydriver    "Voyager"
+ttymodel     "bp"
+ttycode      "vo"
+manufacturer "Voyager"
+model        "Bp"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  dot1   0 0; # Dot1
+  dot2   0 1; # Dot2
+  dot3   0 2; # Dot3
+  dot4   0 3; # Dot4
+  dot5   0 4; # Dot5
+  dot6   0 5; # Dot6
+  button 1   0 6 "Shift";
+  space   0 14; # Space
+  button 2   0 7 "Control";
+  button 3   0 9 "JoystickEnter";
+  button 4   0 10 "JoystickLeft";
+  button 5   0 13 "JoystickRight";
+  button 6   0 11 "JoystickUp";
+  button 7   0 12 "JoystickDown";
+  button 8   0 8 "ScrollLeft";
+  button 9   0 15 "ScrollRight";
+}

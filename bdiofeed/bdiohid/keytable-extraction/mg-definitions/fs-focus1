@@ -1,0 +1,37 @@
+ttydriver    "FreedomScientific"
+ttymodel     "focus1"
+ttycode      "fs"
+manufacturer "FreedomScientific"
+model        "Focus1"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  button 1   0 12 "PanLeft";
+  button 2   0 13 "PanRight";
+  button 3   0 16 "LeftSelector";
+  button 4   0 17 "RightSelector";
+  # unrecognized group 2 named "NavrowKey"
+  button 5   0 8 "LeftNavPress";
+  button 6   0 9 "RightNavPress";
+  button 7   0 32 "LeftNavUp";
+  button 8   0 33 "LeftNavDown";
+  button 9   0 34 "RightNavDown";
+  button 10   0 35 "RightNavUp";
+  dot1   0 0; # Dot1
+  dot2   0 1; # Dot2
+  dot3   0 2; # Dot3
+  dot4   0 3; # Dot4
+  dot5   0 4; # Dot5
+  dot6   0 5; # Dot6
+  dot7   0 6; # Dot7
+  dot8   0 7; # Dot8
+  space   0 15; # Space
+  button 11   0 10 "LeftShift";
+  button 12   0 11 "RightShift";
+}

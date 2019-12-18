@@ -1,0 +1,62 @@
+ttydriver    "Albatross"
+ttymodel     "all"
+ttycode      "at"
+manufacturer "Albatross"
+model        "All"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey1
+    }
+    router2 {
+      router   2;  # RoutingKey2
+    }
+  }
+
+  button 1   0 91 "Home1";
+  button 2   0 92 "End1";
+  button 3   0 93 "ExtraCursor1";
+  button 4   0 94 "Cursor1";
+  button 5   0 95 "Up1";
+  button 6   0 96 "Down1";
+  button 7   0 97 "Left";
+  button 8   0 201 "Home2";
+  button 9   0 202 "End2";
+  button 10   0 203 "ExtraCursor2";
+  button 11   0 204 "Cursor2";
+  button 12   0 205 "Up2";
+  button 13   0 206 "Down2";
+  button 14   0 207 "Right";
+  button 15   0 98 "Up3";
+  button 16   0 208 "Down3";
+  button 17   0 83 "F1";
+  button 18   0 84 "F2";
+  button 19   0 85 "F3";
+  button 20   0 86 "F4";
+  button 21   0 87 "F5";
+  button 22   0 88 "F6";
+  button 23   0 89 "F7";
+  button 24   0 90 "F8";
+  button 25   0 193 "F9";
+  button 26   0 194 "F10";
+  button 27   0 195 "F11";
+  button 28   0 196 "F12";
+  button 29   0 197 "F13";
+  button 30   0 198 "F14";
+  button 31   0 199 "F15";
+  button 32   0 200 "F16";
+  button 33   0 1 "Attribute1";
+  button 34   0 42 "Attribute2";
+  button 35   0 151 "Attribute3";
+  button 36   0 192 "Attribute4";
+  button 37   0 103 "LeftWheelRight";
+  button 38   0 104 "LeftWheelLeft";
+  button 39   0 105 "LeftWheelUp";
+  button 40   0 106 "LeftWheelDown";
+  button 41   0 213 "RightWheelRight";
+  button 42   0 214 "RightWheelLeft";
+  button 43   0 215 "RightWheelUp";
+  button 44   0 216 "RightWheelDown";
+}

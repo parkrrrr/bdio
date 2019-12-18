@@ -1,0 +1,25 @@
+ttydriver    "TSI"
+ttymodel     "nav80"
+ttycode      "ts"
+manufacturer "TSI"
+model        "Nav80"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  button 1   0 5 "CursorLeft";
+  button 2   0 7 "CursorRight";
+  button 3   0 6 "CursorUp";
+  button 4   0 8 "CursorDown";
+  button 5   0 0 "LeftOuter";
+  button 6   0 2 "RightOuter";
+  button 7   0 1 "LeftInner";
+  button 8   0 3 "RightInner";
+  button 9   0 9 "LeftThumb";
+  button 10   0 4 "RightThumb";
+}

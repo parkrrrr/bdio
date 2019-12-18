@@ -1,0 +1,31 @@
+ttydriver    "Alva"
+ttymodel     "el"
+ttycode      "al"
+manufacturer "Alva"
+model        "El"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  dot1   0 58; # Dot1
+  dot2   0 59; # Dot2
+  dot3   0 60; # Dot3
+  dot4   0 61; # Dot4
+  dot5   0 62; # Dot5
+  dot6   0 63; # Dot6
+  button 1   0 64 "Shift";
+  space   0 68; # Space
+  button 2   0 65 "Control";
+  button 3   0 46 "JoystickEnter";
+  button 4   0 45 "JoystickLeft";
+  button 5   0 49 "JoystickRight";
+  button 6   0 47 "JoystickUp";
+  button 7   0 48 "JoystickDown";
+  button 8   0 52 "ScrollLeft";
+  button 9   0 56 "ScrollRight";
+}

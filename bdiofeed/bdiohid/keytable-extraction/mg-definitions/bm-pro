@@ -1,0 +1,41 @@
+ttydriver    "Baum"
+ttymodel     "pro"
+ttycode      "bm"
+manufacturer "Baum"
+model        "Pro"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  button 1   0 5 "Display6";
+  button 2   0 4 "Display5";
+  button 3   0 3 "Display4";
+  button 4   0 2 "Display3";
+  button 5   0 1 "Display2";
+  button 6   0 0 "Display1";
+  button 7   0 56 "FirstWheelUp";
+  button 8   0 60 "FirstWheelDown";
+  button 9   0 64 "FirstWheelPress";
+  button 10   0 57 "SecondWheelUp";
+  button 11   0 61 "SecondWheelDown";
+  button 12   0 65 "SecondWheelPress";
+  button 13   0 58 "ThirdWheelUp";
+  button 14   0 62 "ThirdWheelDown";
+  button 15   0 66 "ThirdWheelPress";
+  button 16   0 59 "FourthWheelUp";
+  button 17   0 63 "FourthWheelDown";
+  button 18   0 67 "FourthWheelPress";
+  button 19   0 68 "StatusButton1";
+  button 20   0 69 "StatusButton2";
+  button 21   0 70 "StatusButton3";
+  button 22   0 71 "StatusButton4";
+  button 23   0 72 "StatusKey1";
+  button 24   0 73 "StatusKey2";
+  button 25   0 74 "StatusKey3";
+  button 26   0 75 "StatusKey4";
+}

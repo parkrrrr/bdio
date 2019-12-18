@@ -1,0 +1,29 @@
+ttydriver    "Papenmeier"
+ttymodel     "2d_s"
+ttycode      "pm"
+manufacturer "Papenmeier"
+model        "2d_s"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   4;  # RoutingKey1
+    }
+  }
+
+  dot7   3 0; # Dot7
+  dot3   3 1; # Dot3
+  dot2   3 2; # Dot2
+  dot1   3 3; # Dot1
+  button 1   3 4 "Up";
+  button 2   3 5 "Home";
+  button 3   3 6 "Shift";
+  button 4   3 7 "End";
+  button 5   3 8 "Down";
+  dot4   3 9; # Dot4
+  dot5   3 10; # Dot5
+  dot6   3 11; # Dot6
+  dot8   3 12; # Dot8
+  # unrecognized group 6 named "Status"
+}

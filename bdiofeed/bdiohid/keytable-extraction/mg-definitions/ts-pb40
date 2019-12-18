@@ -1,0 +1,23 @@
+ttydriver    "TSI"
+ttymodel     "pb40"
+ttycode      "ts"
+manufacturer "TSI"
+model        "Pb40"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  button 1   0 6 "LeftRockerUp";
+  button 2   0 8 "LeftRockerDown";
+  button 3   0 0 "Backward";
+  button 4   0 2 "Forward";
+  button 5   0 1 "RightRockerUp";
+  button 6   0 3 "RightRockerDown";
+  button 7   0 9 "Convex";
+  button 8   0 4 "Concave";
+}

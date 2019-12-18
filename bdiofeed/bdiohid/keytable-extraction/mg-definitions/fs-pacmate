@@ -1,0 +1,34 @@
+ttydriver    "FreedomScientific"
+ttymodel     "pacmate"
+ttycode      "fs"
+manufacturer "FreedomScientific"
+model        "Pacmate"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  button 1   0 12 "PanLeft";
+  button 2   0 13 "PanRight";
+  button 3   0 16 "LeftSelector";
+  button 4   0 17 "RightSelector";
+  # unrecognized group 2 named "NavrowKey"
+  button 5   0 8 "LeftWheelPress";
+  button 6   0 9 "RightWheelPress";
+  button 7   0 32 "LeftWheelUp";
+  button 8   0 33 "LeftWheelDown";
+  button 9   0 34 "RightWheelDown";
+  button 10   0 35 "RightWheelUp";
+  button 11   0 40 "Hot1";
+  button 12   0 41 "Hot2";
+  button 13   0 42 "Hot3";
+  button 14   0 43 "Hot4";
+  button 15   0 44 "Hot5";
+  button 16   0 45 "Hot6";
+  button 17   0 46 "Hot7";
+  button 18   0 47 "Hot8";
+}

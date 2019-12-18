@@ -1,0 +1,32 @@
+ttydriver    "HIMS"
+ttymodel     "qwerty"
+ttycode      "hm"
+manufacturer "HIMS"
+model        "Qwerty"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  dot1   0 0; # Dot1
+  dot2   0 1; # Dot2
+  dot3   0 2; # Dot3
+  dot4   0 3; # Dot4
+  dot5   0 4; # Dot5
+  dot6   0 5; # Dot6
+  dot7   0 6; # Dot7
+  dot8   0 7; # Dot8
+  space   0 8; # Space
+  button 1   0 9 "F1";
+  button 2   0 10 "F2";
+  button 3   0 11 "F3";
+  button 4   0 12 "F4";
+  button 5   0 16 "LeftScrollUp";
+  button 6   0 17 "LeftScrollDown";
+  button 7   0 18 "RightScrollUp";
+  button 8   0 19 "RightScrollDown";
+}

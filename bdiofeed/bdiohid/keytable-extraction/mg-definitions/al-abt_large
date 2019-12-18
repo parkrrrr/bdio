@@ -1,0 +1,31 @@
+ttydriver    "Alva"
+ttymodel     "abt_large"
+ttycode      "al"
+manufacturer "Alva"
+model        "Abt_large"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey1
+    }
+  }
+
+  button 1   0 1 "Prog";
+  button 2   0 2 "Home";
+  button 3   0 3 "Cursor";
+  button 4   0 4 "Up";
+  button 5   0 5 "Left";
+  button 6   0 6 "Right";
+  button 7   0 7 "Down";
+  button 8   0 8 "Cursor2";
+  button 9   0 9 "Home2";
+  button 10   0 10 "Prog2";
+  button 11   0 15 "Status1A";
+  button 12   0 16 "Status1B";
+  button 13   0 17 "Status1C";
+  button 14   0 18 "Status1D";
+  button 15   0 19 "Status1E";
+  button 16   0 20 "Status1F";
+}

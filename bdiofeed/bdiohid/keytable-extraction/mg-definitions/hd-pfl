@@ -1,0 +1,26 @@
+ttydriver    "Hedo"
+ttymodel     "pfl"
+ttycode      "hd"
+manufacturer "Hedo"
+model        "Pfl"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  button 1   0 4 "K1";
+  button 2   0 3 "K2";
+  button 3   0 8 "K3";
+  button 4   0 3 "B1";
+  button 5   0 7 "B2";
+  button 6   0 11 "B3";
+  button 7   0 15 "B4";
+  button 8   0 19 "B5";
+  button 9   0 23 "B6";
+  button 10   0 27 "B7";
+  button 11   0 31 "B8";
+}

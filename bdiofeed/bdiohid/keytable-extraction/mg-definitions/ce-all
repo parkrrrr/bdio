@@ -1,0 +1,37 @@
+ttydriver    "Cebra"
+ttymodel     "all"
+ttycode      "ce"
+manufacturer "Cebra"
+model        "All"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  button 1   0 12 "PadLeft1";
+  button 2   0 15 "PadUp1";
+  button 3   0 16 "PadCenter1";
+  button 4   0 19 "PadDown1";
+  button 5   0 20 "PadRight1";
+  button 6   0 7 "LeftUpper1";
+  button 7   0 11 "LeftMiddle1";
+  button 8   0 27 "LeftLower1";
+  button 9   0 3 "RightUpper1";
+  button 10   0 23 "RightMiddle1";
+  button 11   0 31 "RightLower1";
+  button 12   0 6 "PadLeft2";
+  button 13   0 26 "PadUp2";
+  button 14   0 10 "PadCenter2";
+  button 15   0 25 "PadDown2";
+  button 16   0 14 "PadRight2";
+  button 17   0 22 "LeftUpper2";
+  button 18   0 18 "LeftMiddle2";
+  button 19   0 21 "LeftLower2";
+  button 20   0 30 "RightUpper2";
+  button 21   0 13 "RightMiddle2";
+  button 22   0 29 "RightLower2";
+}

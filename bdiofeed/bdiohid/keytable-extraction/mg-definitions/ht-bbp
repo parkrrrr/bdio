@@ -1,0 +1,29 @@
+ttydriver    "HandyTech"
+ttymodel     "bbp"
+ttycode      "ht"
+manufacturer "HandyTech"
+model        "Bbp"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  button 1   0 3 "B1";
+  button 2   0 7 "B2";
+  button 3   0 11 "B3";
+  button 4   0 15 "B4";
+  button 5   0 19 "B5";
+  button 6   0 23 "B6";
+  button 7   0 27 "B7";
+  button 8   0 31 "B8";
+  button 9   0 12 "LeftRockerTop";
+  button 10   0 20 "LeftRockerBottom";
+  button 11   0 4 "RightRockerTop";
+  button 12   0 8 "RightRockerBottom";
+  lspace   0 16; # SpaceLeft
+  rspace   0 24; # SpaceRight
+}

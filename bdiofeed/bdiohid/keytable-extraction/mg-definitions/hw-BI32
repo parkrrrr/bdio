@@ -1,0 +1,34 @@
+ttydriver    "HumanWare"
+ttymodel     "BI32"
+ttycode      "hw"
+manufacturer "HumanWare"
+model        "BI32"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  button 1   0 17 "Previous";
+  button 2   0 18 "Back";
+  button 3   0 19 "Advance";
+  button 4   0 20 "Next";
+  dot1   0 2; # Dot1
+  dot2   0 3; # Dot2
+  dot3   0 4; # Dot3
+  dot4   0 5; # Dot4
+  dot5   0 6; # Dot5
+  dot6   0 7; # Dot6
+  dot7   0 8; # Dot7
+  dot8   0 9; # Dot8
+  space   0 10; # Space
+  button 5   0 11 "Display1";
+  button 6   0 12 "Display2";
+  button 7   0 13 "Display3";
+  button 8   0 14 "Display4";
+  button 9   0 15 "Display5";
+  button 10   0 16 "Display6";
+}

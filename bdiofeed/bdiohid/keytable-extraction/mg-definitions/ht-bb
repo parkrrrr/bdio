@@ -1,0 +1,21 @@
+ttydriver    "HandyTech"
+ttymodel     "bb"
+ttycode      "ht"
+manufacturer "HandyTech"
+model        "Bb"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  button 1   0 7 "Display3";
+  button 2   0 11 "Display2";
+  button 3   0 15 "Display1";
+  button 4   0 19 "Display4";
+  button 5   0 23 "Display5";
+  button 6   0 27 "Display6";
+}

@@ -1,0 +1,45 @@
+ttydriver    "HandyTech"
+ttymodel     "bs80"
+ttycode      "ht"
+manufacturer "HandyTech"
+model        "Bs80"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  button 1   0 3 "B1";
+  button 2   0 7 "B2";
+  button 3   0 11 "B3";
+  button 4   0 15 "B4";
+  button 5   0 19 "B5";
+  button 6   0 23 "B6";
+  button 7   0 27 "B7";
+  button 8   0 31 "B8";
+  button 9   0 12 "LeftRockerTop";
+  button 10   0 20 "LeftRockerBottom";
+  button 11   0 4 "RightRockerTop";
+  button 12   0 8 "RightRockerBottom";
+  button 13   0 1 "B12";
+  button 14   0 5 "Zero";
+  button 15   0 9 "B13";
+  button 16   0 13 "B14";
+  button 17   0 17 "B11";
+  button 18   0 21 "One";
+  button 19   0 25 "Two";
+  button 20   0 29 "Three";
+  button 21   0 2 "B10";
+  button 22   0 6 "Four";
+  button 23   0 10 "Five";
+  button 24   0 14 "Six";
+  button 25   0 18 "B9";
+  button 26   0 22 "Seven";
+  button 27   0 26 "Eight";
+  button 28   0 30 "Nine";
+  lspace   0 16; # SpaceLeft
+  rspace   0 24; # SpaceRight
+}

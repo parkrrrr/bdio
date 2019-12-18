@@ -1,0 +1,23 @@
+ttydriver    "Seika"
+ttymodel     "bdp"
+ttycode      "sk"
+manufacturer "Seika"
+model        "Bdp"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  button 1   0 0 "K1";
+  button 2   0 9 "K2";
+  button 3   0 11 "K3";
+  button 4   0 12 "K4";
+  button 5   0 4 "K5";
+  button 6   0 3 "K6";
+  button 7   0 1 "K7";
+  button 8   0 2 "K8";
+}

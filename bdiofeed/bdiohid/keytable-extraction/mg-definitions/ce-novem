@@ -1,0 +1,22 @@
+ttydriver    "Cebra"
+ttymodel     "novem"
+ttycode      "ce"
+manufacturer "Cebra"
+model        "Novem"
+
+display {
+  row {
+    cells 8;
+  }
+
+  dot7   0 3; # Dot7
+  dot3   0 7; # Dot3
+  dot2   0 11; # Dot2
+  dot1   0 15; # Dot1
+  dot4   0 19; # Dot4
+  dot5   0 23; # Dot5
+  dot6   0 27; # Dot6
+  dot8   0 31; # Dot8
+  lspace   0 16; # LeftSpace
+  rspace   0 24; # RightSpace
+}

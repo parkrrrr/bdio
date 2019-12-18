@@ -1,0 +1,22 @@
+ttydriver    "Baum"
+ttymodel     "dm80p"
+ttycode      "bm"
+manufacturer "Baum"
+model        "Dm80p"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  button 1   0 6 "Display7";
+  button 2   0 5 "Display6";
+  button 3   0 4 "Display5";
+  button 4   0 3 "Display4";
+  button 5   0 2 "Display3";
+  button 6   0 1 "Display2";
+  button 7   0 0 "Display1";
+}

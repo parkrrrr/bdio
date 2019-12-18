@@ -1,0 +1,37 @@
+ttydriver    "TSI"
+ttymodel     "pb80"
+ttycode      "ts"
+manufacturer "TSI"
+model        "Pb80"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  button 1   0 5 "Button1";
+  button 2   0 7 "Button2";
+  button 3   0 21 "Button3";
+  button 4   0 23 "Button4";
+  button 5   0 24 "Bar1";
+  button 6   0 26 "Bar2";
+  button 7   0 18 "Bar3";
+  button 8   0 20 "Bar4";
+  button 9   0 10 "Switch1Up";
+  button 10   0 11 "Switch1Down";
+  button 11   0 12 "Switch2Up";
+  button 12   0 13 "Switch2Down";
+  button 13   0 14 "Switch3Up";
+  button 14   0 15 "Switch3Down";
+  button 15   0 16 "Switch4Up";
+  button 16   0 17 "Switch4Down";
+  button 17   0 6 "LeftRockerUp";
+  button 18   0 8 "LeftRockerDown";
+  button 19   0 25 "RightRockerUp";
+  button 20   0 27 "RightRockerDown";
+  button 21   0 9 "Convex";
+  button 22   0 28 "Concave";
+}

@@ -1,0 +1,44 @@
+ttydriver    "HIMS"
+ttymodel     "edge"
+ttycode      "hm"
+manufacturer "HIMS"
+model        "Edge"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  dot1   0 0; # Dot1
+  dot2   0 1; # Dot2
+  dot3   0 2; # Dot3
+  dot4   0 3; # Dot4
+  dot5   0 4; # Dot5
+  dot6   0 5; # Dot6
+  dot7   0 6; # Dot7
+  dot8   0 7; # Dot8
+  space   0 8; # Space
+  button 1   0 9 "F1";
+  button 2   0 10 "F2";
+  button 3   0 11 "F3";
+  button 4   0 12 "F4";
+  button 5   0 20 "F5";
+  button 6   0 21 "F6";
+  button 7   0 22 "F7";
+  button 8   0 23 "F8";
+  button 9   0 16 "LeftScrollUp";
+  button 10   0 19 "LeftScrollDown";
+  button 11   0 17 "RightScrollUp";
+  button 12   0 18 "RightScrollDown";
+  button 13   0 24 "LeftPadUp";
+  button 14   0 25 "LeftPadDown";
+  button 15   0 26 "LeftPadLeft";
+  button 16   0 27 "LeftPadRight";
+  button 17   0 28 "RightPadUp";
+  button 18   0 29 "RightPadDown";
+  button 19   0 30 "RightPadLeft";
+  button 20   0 31 "RightPadRight";
+}

@@ -1,0 +1,46 @@
+ttydriver    "EuroBraille"
+ttymodel     "esys_medium"
+ttycode      "eu"
+manufacturer "EuroBraille"
+model        "Esys_medium"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   4;  # RoutingKey1
+    }
+    router2 {
+      router   5;  # RoutingKey2
+    }
+  }
+
+  button 1   2 1 "Switch1Left";
+  button 2   2 0 "Switch1Right";
+  button 3   2 3 "Switch2Left";
+  button 4   2 2 "Switch2Right";
+  button 5   2 5 "Switch3Left";
+  button 6   2 4 "Switch3Right";
+  button 7   2 7 "Switch4Left";
+  button 8   2 6 "Switch4Right";
+  button 9   2 19 "LeftJoystickLeft";
+  button 10   2 18 "LeftJoystickRight";
+  button 11   2 16 "LeftJoystickUp";
+  button 12   2 17 "LeftJoystickDown";
+  button 13   2 20 "LeftJoystickPress";
+  button 14   2 27 "RightJoystickLeft";
+  button 15   2 26 "RightJoystickRight";
+  button 16   2 24 "RightJoystickUp";
+  button 17   2 25 "RightJoystickDown";
+  button 18   2 28 "RightJoystickPress";
+  dot1   3 0; # Dot1
+  dot2   3 1; # Dot2
+  dot3   3 2; # Dot3
+  dot4   3 3; # Dot4
+  dot5   3 4; # Dot5
+  dot6   3 5; # Dot6
+  dot7   3 6; # Dot7
+  dot8   3 7; # Dot8
+  button 19   3 8 "Backspace";
+  space   3 9; # Space
+}

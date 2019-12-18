@@ -1,0 +1,12 @@
+ttydriver    "DirectoryName"
+ttymodel     "all"
+ttycode      "xx"
+manufacturer "DirectoryName"
+model        "All"
+
+display {
+  row {
+    cells 8;
+  }
+
+}

@@ -1,0 +1,41 @@
+ttydriver    "Baum"
+ttymodel     "pronto"
+ttycode      "bm"
+manufacturer "Baum"
+model        "Pronto"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  button 1   0 5 "Display6";
+  button 2   0 4 "Display5";
+  button 3   0 3 "Display4";
+  button 4   0 2 "Display3";
+  button 5   0 1 "Display2";
+  button 6   0 0 "Display1";
+  button 7   0 35 "B9";
+  button 8   0 36 "B10";
+  button 9   0 37 "B11";
+  button 10   0 39 "F1";
+  button 11   0 40 "F2";
+  button 12   0 41 "F3";
+  button 13   0 42 "F4";
+  dot1   0 43; # Dot1
+  dot2   0 44; # Dot2
+  dot3   0 45; # Dot3
+  dot4   0 46; # Dot4
+  dot5   0 47; # Dot5
+  dot6   0 48; # Dot6
+  dot7   0 49; # Dot7
+  dot8   0 50; # Dot8
+  button 14   0 51 "Up";
+  button 15   0 52 "Left";
+  button 16   0 53 "Down";
+  button 17   0 54 "Right";
+  button 18   0 55 "Press";
+}

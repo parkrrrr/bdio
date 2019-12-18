@@ -1,0 +1,29 @@
+ttydriver    "Pegasus"
+ttymodel     "all"
+ttycode      "pg"
+manufacturer "Pegasus"
+model        "All"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  button 1   0 1 "LeftShift";
+  button 2   0 2 "RightShift";
+  button 3   0 3 "LeftControl";
+  button 4   0 4 "RighTControl";
+  button 5   0 5 "Left";
+  button 6   0 6 "Right";
+  button 7   0 7 "Up";
+  button 8   0 8 "Down";
+  button 9   0 9 "Home";
+  button 10   0 10 "End";
+  button 11   0 11 "Enter";
+  button 12   0 12 "Escape";
+  button 13   0 13 "Status1";
+  button 14   0 14 "Status2";
+}

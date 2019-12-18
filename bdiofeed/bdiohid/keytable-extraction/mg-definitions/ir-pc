@@ -1,0 +1,28 @@
+ttydriver    "Iris"
+ttymodel     "pc"
+ttycode      "ir"
+manufacturer "Iris"
+model        "Pc"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  button 1   0 0 "L1";
+  button 2   0 1 "L2";
+  button 3   0 2 "L3";
+  button 4   0 3 "L4";
+  button 5   0 5 "L5";
+  button 6   0 6 "L6";
+  button 7   0 7 "L7";
+  button 8   0 8 "L8";
+  button 9   0 32 "Menu";
+  button 10   0 33 "Z";
+  # unrecognized group 2 named "Xt"
+  # unrecognized group 3 named "XtE0"
+  # unrecognized group 4 named "XtE1"
+}
