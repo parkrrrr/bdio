@@ -45,7 +45,7 @@ display {
   dot6    2 5; # Dot6 
   dot7    2 6; # Dot7 
   dot8    2 7; # Dot8 
-  space   2 9; # Space   # brltty has no binding for this key
+  space   2 9; # Space 
   button 15     "";   # brltty has no binding for this key
   button 16     "";   # brltty has no binding for this key
 }

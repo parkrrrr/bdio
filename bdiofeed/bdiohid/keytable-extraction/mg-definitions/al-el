@@ -1,5 +1,11 @@
 # Display definition for Alva : Optelec EasyLink 12 Touch
 
+# The six round keys near the back are a braille keyboard.
+# From left to right, they're named: Dot3, Dot2, Dot1, Dot4, Dot5, Dot6.
+# From left to right, the three long function keys are named: Shift, Space, Control.
+# This table maps Shift to Dot7, and Control to Dot8.
+# The joystick between the dot and function keys has five positions named: Up, Down, Left, Right, Enter.
+# The round scroll keys at either end of the braille display are named: Left, Right.
 
 ttydriver    "Alva"
 ttymodel     "el"
@@ -15,20 +21,20 @@ display {
     }
   }
 
-  dot1   0 58; # Dot1   # brltty has no binding for this key
-  dot2   0 59; # Dot2   # brltty has no binding for this key
-  dot3   0 60; # Dot3   # brltty has no binding for this key
-  dot4   0 61; # Dot4   # brltty has no binding for this key
-  dot5   0 62; # Dot5   # brltty has no binding for this key
-  dot6   0 63; # Dot6   # brltty has no binding for this key
-  button 1   0 64 "Shift";   # brltty has no binding for this key
-  space   0 68; # Space   # brltty has no binding for this key
-  button 2   0 65 "Control";   # brltty has no binding for this key
-  jenter    0 46; # JoystickEnter   # brltty has no binding for this key
-  jleft    0 45; # JoystickLeft   # brltty has no binding for this key
-  jright    0 49; # JoystickRight   # brltty has no binding for this key
-  jup    0 47; # JoystickUp   # brltty has no binding for this key
-  jdown    0 48; # JoystickDown   # brltty has no binding for this key
-  button 3   0 52 "ScrollLeft";   # brltty has no binding for this key
-  button 4   0 56 "ScrollRight";   # brltty has no binding for this key
+  dot1    0 58; # Dot1 
+  dot2    0 59; # Dot2 
+  dot3    0 60; # Dot3 
+  dot4    0 61; # Dot4 
+  dot5    0 62; # Dot5 
+  dot6    0 63; # Dot6 
+  dot7    0 64; # Shift 
+  space    0 68; # Space 
+  dot8    0 65; # Control 
+  jcenter    0 46; # JoystickEnter 
+  jleft    0 45; # JoystickLeft 
+  jright    0 49; # JoystickRight 
+  jup    0 47; # JoystickUp 
+  jdown    0 48; # JoystickDown 
+  button 1   0 52 "ScrollLeft"; 
+  button 2   0 56 "ScrollRight"; 
 }

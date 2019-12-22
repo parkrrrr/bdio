@@ -15,20 +15,20 @@ display {
     }
   }
 
-  button 1   0 52 "Thumb1";   # brltty has no binding for this key
-  button 2   0 53 "Thumb2";   # brltty has no binding for this key
-  button 3   0 55 "Thumb3";   # brltty has no binding for this key
-  button 4   0 56 "Thumb4";   # brltty has no binding for this key
-  button 5   0 45 "Left";   # brltty has no binding for this key
-  button 6   0 47 "Up";   # brltty has no binding for this key
-  button 7   0 48 "Down";   # brltty has no binding for this key
-  button 8   0 49 "Right";   # brltty has no binding for this key
-  dot1   0 43; # Dot1   # brltty has no binding for this key
-  dot2   0 44; # Dot2   # brltty has no binding for this key
-  dot3   0 50; # Dot3   # brltty has no binding for this key
-  dot4   0 51; # Dot4   # brltty has no binding for this key
-  dot5   0 39; # Dot5   # brltty has no binding for this key
-  dot6   0 40; # Dot6   # brltty has no binding for this key
-  dot7   0 41; # Dot7   # brltty has no binding for this key
-  dot8   0 42; # Dot8   # brltty has no binding for this key
+  button 1   0 52 "Thumb1"; 
+  space    0 53; # Thumb2 
+  space    0 55; # Thumb3 
+  button 2   0 56 "Thumb4"; 
+  button 3   0 45 "Left"; 
+  button 4   0 47 "Up"; 
+  button 5   0 48 "Down"; 
+  button 6   0 49 "Right"; 
+  dot1    0 43; # Dot1 
+  dot2    0 44; # Dot2 
+  dot3    0 50; # Dot3 
+  dot4    0 51; # Dot4 
+  dot5    0 39; # Dot5 
+  dot6    0 40; # Dot6 
+  dot7    0 41; # Dot7 
+  dot8    0 42; # Dot8 
 }

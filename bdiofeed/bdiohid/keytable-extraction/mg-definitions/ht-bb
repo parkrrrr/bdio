@@ -1,5 +1,9 @@
 # Display definition for HandyTech : Basic Braille
 
+# There are three display keys at each end of the braille cells.
+# * From top to bottom:
+# + The three at the left are named Display1, Display2, and Display3.
+# + The three at the right are named Display4, Display5, and Display6.
 
 ttydriver    "HandyTech"
 ttymodel     "bb"
@@ -15,10 +19,10 @@ display {
     }
   }
 
-  button 1   0 7 "Display3";   # brltty has no binding for this key
-  button 2   0 11 "Display2";   # brltty has no binding for this key
-  button 3   0 15 "Display1";   # brltty has no binding for this key
-  button 4   0 19 "Display4";   # brltty has no binding for this key
-  button 5   0 23 "Display5";   # brltty has no binding for this key
-  button 6   0 27 "Display6";   # brltty has no binding for this key
+  button 1   0 7 "Display3"; 
+  button 2   0 11 "Display2"; 
+  button 3   0 15 "Display1"; 
+  button 4   0 19 "Display4"; 
+  button 5   0 23 "Display5"; 
+  button 6   0 27 "Display6"; 
 }

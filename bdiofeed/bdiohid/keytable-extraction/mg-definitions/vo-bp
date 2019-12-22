@@ -1,5 +1,11 @@
 # Display definition for Voyager : Braille Pen 12
 
+# The six round keys near the back are a braille keyboard.
+# From left to right, they're named: Dot3, Dot2, Dot1, Dot4, Dot5, Dot6.
+# From left to right, the three long function keys are named: Shift, Space, Control.
+# This table maps Shift to Dot7, and Control to Dot8.
+# The joystick between the dot and function keys has five positions named: Up, Down, Left, Right, Enter.
+# The round scroll keys at either end of the braille display are named: Left, Right.
 
 ttydriver    "Voyager"
 ttymodel     "bp"
@@ -15,20 +21,20 @@ display {
     }
   }
 
-  dot1   0 0; # Dot1   # brltty has no binding for this key
-  dot2   0 1; # Dot2   # brltty has no binding for this key
-  dot3   0 2; # Dot3   # brltty has no binding for this key
-  dot4   0 3; # Dot4   # brltty has no binding for this key
-  dot5   0 4; # Dot5   # brltty has no binding for this key
-  dot6   0 5; # Dot6   # brltty has no binding for this key
-  button 1   0 6 "Shift";   # brltty has no binding for this key
-  space   0 14; # Space   # brltty has no binding for this key
-  button 2   0 7 "Control";   # brltty has no binding for this key
-  jenter    0 9; # JoystickEnter   # brltty has no binding for this key
-  jleft    0 10; # JoystickLeft   # brltty has no binding for this key
-  jright    0 13; # JoystickRight   # brltty has no binding for this key
-  jup    0 11; # JoystickUp   # brltty has no binding for this key
-  jdown    0 12; # JoystickDown   # brltty has no binding for this key
-  button 3   0 8 "ScrollLeft";   # brltty has no binding for this key
-  button 4   0 15 "ScrollRight";   # brltty has no binding for this key
+  dot1    0 0; # Dot1 
+  dot2    0 1; # Dot2 
+  dot3    0 2; # Dot3 
+  dot4    0 3; # Dot4 
+  dot5    0 4; # Dot5 
+  dot6    0 5; # Dot6 
+  dot7    0 6; # Shift 
+  space    0 14; # Space 
+  dot8    0 7; # Control 
+  jcenter    0 9; # JoystickEnter 
+  jleft    0 10; # JoystickLeft 
+  jright    0 13; # JoystickRight 
+  jup    0 11; # JoystickUp 
+  jdown    0 12; # JoystickDown 
+  button 1   0 8 "ScrollLeft"; 
+  button 2   0 15 "ScrollRight"; 
 }

@@ -55,6 +55,7 @@ sub ReadMappingFile
 
     if ($filename =~ m/^\.\.\/(.*)/ )
     {
+        $filename =~ s/^\.\.//;
         $mapFilename = "$parentFolder/$filename";
     }
 
@@ -132,8 +133,12 @@ sub MapMovementKeys
 
     if ($name =~ m/Joystick(.*)/)
     {
-        # maps 'LeftJoystickLeft' to 'jleft' with special mapping for press -> jcenter
+        # maps 'LeftJoystickLeft' to 'jleft' with special mappings for press/enter -> jcenter
         if ($1 eq 'Press')
+        {
+            return "jcenter";
+        }
+        if ($1 eq 'Enter') 
         {
             return "jcenter";
         }

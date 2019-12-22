@@ -2,6 +2,10 @@
 
 # There are four thumb keys on the front. From left to right, they are:
 # * Previous, Back, Advance, Next.
+# There are three display keys at each end of the braille cells.
+# * From top to bottom:
+# + The three at the left are named Display1, Display2, and Display3.
+# + The three at the right are named Display4, Display5, and Display6.
 
 ttydriver    "HumanWare"
 ttymodel     "B80"
@@ -21,10 +25,10 @@ display {
   button 2   0 18 "Back"; 
   button 3   0 19 "Advance"; 
   button 4   0 20 "Next"; 
-  button 5   0 11 "Display1";   # brltty has no binding for this key
-  button 6   0 12 "Display2";   # brltty has no binding for this key
-  button 7   0 13 "Display3";   # brltty has no binding for this key
-  button 8   0 14 "Display4";   # brltty has no binding for this key
-  button 9   0 15 "Display5";   # brltty has no binding for this key
-  button 10   0 16 "Display6";   # brltty has no binding for this key
+  button 5   0 11 "Display1"; 
+  button 6   0 12 "Display2"; 
+  button 7   0 13 "Display3"; 
+  button 8   0 14 "Display4"; 
+  button 9   0 15 "Display5"; 
+  button 10   0 16 "Display6"; 
 }
