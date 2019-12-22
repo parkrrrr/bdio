@@ -1,3 +1,14 @@
+# Display definition for EuroBraille : Iris
+
+# The eight dot keys of the braille keyboard are behind the cursor routing keys.
+# From left to right, they are: Dot7, Dot3, Dot2, Dot1, Dot4, Dot5, Dot6, Dot8.
+# The two keys of the braille keyboard in front of the braille cells, from left to right, are: Backspace, Space.
+# The cursor routing keys are the small, round buttons just behind the braille cells.
+# RoutingKey1 means pressing a cursor routing key once (a single click).
+# RoutingKey2 means pressing a cursor routing key twice quickly (a double click).
+# The Menu key is the small, round button to the left of the cursor routing keys.
+# The Z key is the small, round button to the right of the cursor routing keys.
+
 ttydriver    "EuroBraille"
 ttymodel     "iris"
 ttycode      "eu"
@@ -15,26 +26,26 @@ display {
     }
   }
 
-  button 1   2 0 "L1";
-  button 2   2 1 "L2";
-  button 3   2 2 "L3";
-  button 4   2 3 "L4";
-  button 5   2 4 "L5";
-  button 6   2 5 "L6";
-  button 7   2 6 "L7";
-  button 8   2 7 "L8";
-  button 9   2 11 "Left";
-  button 10   2 10 "Right";
-  button 11   2 8 "Up";
-  button 12   2 9 "Down";
-  dot1   3 0; # Dot1
-  dot2   3 1; # Dot2
-  dot3   3 2; # Dot3
-  dot4   3 3; # Dot4
-  dot5   3 4; # Dot5
-  dot6   3 5; # Dot6
-  dot7   3 6; # Dot7
-  dot8   3 7; # Dot8
-  button 13   3 8 "Backspace";
-  space   3 9; # Space
+  button 1   2 0 "L1"; 
+  button 2   2 1 "L2"; 
+  button 3   2 2 "L3"; 
+  button 4   2 3 "L4"; 
+  button 5   2 4 "L5"; 
+  button 6   2 5 "L6"; 
+  button 7   2 6 "L7"; 
+  button 8   2 7 "L8"; 
+  button 9   2 11 "Left"; 
+  button 10   2 10 "Right"; 
+  button 11   2 8 "Up"; 
+  button 12   2 9 "Down"; 
+  dot1    3 0; # Dot1 
+  dot2    3 1; # Dot2 
+  dot3    3 2; # Dot3 
+  dot4    3 3; # Dot4 
+  dot5    3 4; # Dot5 
+  dot6    3 5; # Dot6 
+  dot7    3 6; # Dot7 
+  dot8    3 7; # Dot8 
+  button 13   3 8 "Backspace"; 
+  space    3 9; # Space 
 }

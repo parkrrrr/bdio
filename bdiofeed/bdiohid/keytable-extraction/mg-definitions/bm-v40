@@ -1,8 +1,15 @@
+# Display definition for Baum : Vario 40
+
+# There are three display keys at each end of the braille cells.
+# * From top to bottom:
+# + The three at the left are named Display1, Display2, and Display3.
+# + The three at the right are named Display4, Display5, and Display6.
+
 ttydriver    "Baum"
 ttymodel     "v40"
 ttycode      "bm"
 manufacturer "Baum"
-model        "V40"
+model        "Vario 40"
 
 display {
   row {
@@ -12,10 +19,10 @@ display {
     }
   }
 
-  button 1   0 5 "Display6";
-  button 2   0 4 "Display5";
-  button 3   0 3 "Display4";
-  button 4   0 2 "Display3";
-  button 5   0 1 "Display2";
-  button 6   0 0 "Display1";
+  button 1   0 5 "Display6"; 
+  button 2   0 4 "Display5"; 
+  button 3   0 3 "Display4"; 
+  button 4   0 2 "Display3"; 
+  button 5   0 1 "Display2"; 
+  button 6   0 0 "Display1"; 
 }

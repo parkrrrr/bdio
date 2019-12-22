@@ -1,3 +1,6 @@
+# Display definition for DirectoryName : All
+
+
 ttydriver    "DirectoryName"
 ttymodel     "all"
 ttycode      "xx"

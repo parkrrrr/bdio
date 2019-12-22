@@ -1,8 +1,31 @@
+# Display definition for Alva : BC640, BC624
+
+# There are four ETouch keys, two at each end of the text cell area.
+# * Each is subnamed according to the side it's on (Left, Right),
+# * and according to its position on that side (Rear, Front).
+# * The two Rear keys are identified by two vertical bars.
+# * The two Front keys are identified by one horizontal bar.
+# There's a Smartpad in front of the text cell area.
+# * The outer key on the left, identified by three horizontal bars, is subnamed F1.
+# * The inner key on the left, identified by one horizontal bar, is subnamed F2.
+# * The inner key on the right, identified by one vertical bar, is subnamed F3.
+# * The outer key on the right, identified by three vertical bars, is subnamed F4.
+# * The keys in the middle form a five-way directional pad:
+# + The round key in the middle is subnamed Enter.
+# + The short, thin keys that form a square around it are subnamed Left, Right, Up, and Down.
+# The five Thumb keys on the front, from left to right, are subnamed:
+# * Left, Up, Home, Down, Right.
+# * The Home key is identified by a vertical bar in the middle.
+# * The Left key is identified by a vertical bar near its left edge.
+# * The Right key is identified by a vertical bar near its right edge.
+# * The Up key is identified by a horizontal bar along its top edge.
+# * The Down key is identified by a horizontal bar along its bottom edge.
+
 ttydriver    "Alva"
 ttymodel     "bc640"
 ttycode      "al"
 manufacturer "Alva"
-model        "Bc640"
+model        "BC640, BC624"
 
 display {
   row {
@@ -15,35 +38,35 @@ display {
     }
   }
 
-  button 1   0 39 "ETouchLeftRear";
-  button 2   0 40 "ETouchLeftFront";
-  button 3   0 41 "ETouchRightRear";
-  button 4   0 42 "ETouchRightFront";
-  button 5   0 43 "SmartpadF1";
-  button 6   0 44 "SmartpadF2";
-  button 7   0 45 "SmartpadLeft";
-  button 8   0 46 "SmartpadEnter";
-  button 9   0 47 "SmartpadUp";
-  button 10   0 48 "SmartpadDown";
-  button 11   0 49 "SmartpadRight";
-  button 12   0 50 "SmartpadF3";
-  button 13   0 51 "SmartpadF4";
-  button 14   0 52 "ThumbLeft";
-  button 15   0 53 "ThumbUp";
-  button 16   0 54 "ThumbHome";
-  button 17   0 55 "ThumbDown";
-  button 18   0 56 "ThumbRight";
-  dot1   0 58; # Dot1
-  dot2   0 59; # Dot2
-  dot3   0 60; # Dot3
-  dot4   0 61; # Dot4
-  dot5   0 62; # Dot5
-  dot6   0 63; # Dot6
-  dot7   0 64; # Dot7
-  dot8   0 65; # Dot8
-  button 19   0 66 "Control";
-  button 20   0 67 "Windows";
-  space   0 68; # Space
-  button 21   0 69 "Alt";
-  button 22   0 70 "Enter";
+  button 1   0 39 "ETouchLeftRear"; 
+  button 2   0 40 "ETouchLeftFront"; 
+  button 3   0 41 "ETouchRightRear"; 
+  button 4   0 42 "ETouchRightFront"; 
+  button 5   0 43 "SmartpadF1"; 
+  button 6   0 44 "SmartpadF2"; 
+  button 7   0 45 "SmartpadLeft"; 
+  button 8   0 46 "SmartpadEnter"; 
+  button 9   0 47 "SmartpadUp"; 
+  button 10   0 48 "SmartpadDown"; 
+  button 11   0 49 "SmartpadRight"; 
+  button 12   0 50 "SmartpadF3"; 
+  button 13   0 51 "SmartpadF4"; 
+  button 14   0 52 "ThumbLeft"; 
+  button 15   0 53 "ThumbUp"; 
+  button 16   0 54 "ThumbHome"; 
+  button 17   0 55 "ThumbDown"; 
+  button 18   0 56 "ThumbRight"; 
+  dot1    0 58; # Dot1 
+  dot2    0 59; # Dot2 
+  dot3    0 60; # Dot3 
+  dot4    0 61; # Dot4 
+  dot5    0 62; # Dot5 
+  dot6    0 63; # Dot6 
+  dot7    0 64; # Dot7 
+  dot8    0 65; # Dot8 
+  button 19   0 66 "Control"; 
+  button 20   0 67 "Windows"; 
+  space    0 68; # Space 
+  button 21   0 69 "Alt"; 
+  button 22   0 70 "Enter"; 
 }

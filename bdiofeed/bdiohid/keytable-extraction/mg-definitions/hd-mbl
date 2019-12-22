@@ -1,8 +1,15 @@
+# Display definition for Hedo : MobilLine
+
+# The keys behind the text cells are named routing keys.
+# The rectangular navigation keys are named K1 through K3.
+# The square navigation keys are named B1 through B6.
+# From left to right, the navigation keys are: B3 B2 B1 K1 K2 K3 B4 B5 B6
+
 ttydriver    "Hedo"
 ttymodel     "mbl"
 ttycode      "hd"
 manufacturer "Hedo"
-model        "Mbl"
+model        "MobilLine"
 
 display {
   row {
@@ -12,13 +19,13 @@ display {
     }
   }
 
-  button 1   0 0 "B1";
-  button 2   0 1 "B2";
-  button 3   0 2 "B3";
-  button 4   0 4 "B4";
-  button 5   0 5 "B5";
-  button 6   0 6 "B6";
-  button 7   0 8 "K1";
-  button 8   0 9 "K2";
-  button 9   0 10 "K3";
+  button 1   0 0 "B1"; 
+  button 2   0 1 "B2"; 
+  button 3   0 2 "B3"; 
+  button 4   0 4 "B4"; 
+  button 5   0 5 "B5"; 
+  button 6   0 6 "B6"; 
+  button 7   0 8 "K1"; 
+  button 8   0 9 "K2"; 
+  button 9   0 10 "K3"; 
 }

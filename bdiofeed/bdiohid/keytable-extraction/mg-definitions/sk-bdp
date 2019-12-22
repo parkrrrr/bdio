@@ -1,8 +1,15 @@
+# Display definition for Seika : Braille Displays
+
+# The round keys to the left/right of the braille cells are named K1 and K8.
+# The left/right ends of the left rocker are named K2 and K3.
+# The long keys to the left/right of the center are named K4 and K5.
+# The left/right ends of the right rocker are named K6 and K7.
+
 ttydriver    "Seika"
 ttymodel     "bdp"
 ttycode      "sk"
 manufacturer "Seika"
-model        "Bdp"
+model        "Braille Displays"
 
 display {
   row {
@@ -12,12 +19,12 @@ display {
     }
   }
 
-  button 1   0 0 "K1";
-  button 2   0 9 "K2";
-  button 3   0 11 "K3";
-  button 4   0 12 "K4";
-  button 5   0 4 "K5";
-  button 6   0 3 "K6";
-  button 7   0 1 "K7";
-  button 8   0 2 "K8";
+  button 1   0 0 "K1"; 
+  button 2   0 9 "K2"; 
+  button 3   0 11 "K3"; 
+  button 4   0 12 "K4"; 
+  button 5   0 4 "K5"; 
+  button 6   0 3 "K6"; 
+  button 7   0 1 "K7"; 
+  button 8   0 2 "K8"; 
 }

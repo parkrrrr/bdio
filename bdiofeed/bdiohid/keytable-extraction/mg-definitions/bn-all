@@ -1,8 +1,17 @@
+# Display definition for BrailleNote : Braille Note
+
+# To temporarily (for the next character) switch to an input mode,
+# use [4] together with combinations of [3] and ]6].
+# To permanently switch to an input mode,
+# use [45] together with combinations of [3] and ]6].
+# To turn on dot 7, add [3].  To turn on dot 8, add [6].
+# To switch back to (n)avigation mode, use space+[1345].
+
 ttydriver    "BrailleNote"
 ttymodel     "all"
 ttycode      "bn"
 manufacturer "BrailleNote"
-model        "All"
+model        "Braille Note"
 
 display {
   row {
@@ -12,17 +21,17 @@ display {
     }
   }
 
-  dot1   0 0; # Dot1
-  dot2   0 1; # Dot2
-  dot3   0 2; # Dot3
-  dot4   0 3; # Dot4
-  dot5   0 4; # Dot5
-  dot6   0 5; # Dot6
-  space   0 6; # Space
-  button 1   0 7 "Backspace";
-  button 2   0 8 "Enter";
-  button 3   0 9 "Previous";
-  button 4   0 10 "Back";
-  button 5   0 11 "Advance";
-  button 6   0 12 "Next";
+  dot1    0 0; # Dot1 
+  dot2    0 1; # Dot2 
+  dot3    0 2; # Dot3 
+  dot4    0 3; # Dot4 
+  dot5    0 4; # Dot5 
+  dot6    0 5; # Dot6 
+  space    0 6; # Space 
+  button 1   0 7 "Backspace"; 
+  button 2   0 8 "Enter"; 
+  button 3   0 9 "Previous"; 
+  button 4   0 10 "Back"; 
+  button 5   0 11 "Advance"; 
+  button 6   0 12 "Next"; 
 }

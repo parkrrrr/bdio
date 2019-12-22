@@ -1,8 +1,23 @@
+# Display definition for B2G : B2G
+
+# The eight, rectangular, concave keys (in two groups of four) near the back are a braille keyboard.
+# * The four on the left, from left to right, are: Dot7, Dot3, Dot2, Dot1.
+# * The four on the right, from left to right, are: Dot4, Dot5, Dot6, Dot8.
+# The square pad with a small, round button in the middle, in between Dot1 and Dot4, is the D-Pad (directional pad).
+# * Its four edges are the Up, Down, Left, and Right keys.
+# * The button in the middle is the Center key.
+# The long, rectangular key in front of Dot1, the D-Pad, and Dot4 is the Space bar.
+# The small, round buttons just behind each cell are the routing keys.
+# The convex, square button to the left of the routing keys is the Backward key.
+# The convex, square button to the right of the routing keys is the Forward key.
+# The two small, round buttons on the right side near the front are the volume keys.
+# * From front to back, they are: Softer, Louder.
+
 ttydriver    "B2G"
 ttymodel     "all"
 ttycode      "bg"
 manufacturer "B2G"
-model        "All"
+model        "B2G"
 
 display {
   row {
@@ -12,22 +27,22 @@ display {
     }
   }
 
-  dot1   0 0; # Dot1
-  dot2   0 1; # Dot2
-  dot3   0 2; # Dot3
-  dot4   0 3; # Dot4
-  dot5   0 4; # Dot5
-  dot6   0 5; # Dot6
-  dot7   0 6; # Dot7
-  dot8   0 7; # Dot8
-  space   0 8; # Space
-  button 1   0 9 "Backward";
-  button 2   0 10 "Forward";
-  button 3   0 11 "Center";
-  button 4   0 12 "Left";
-  button 5   0 13 "Right";
-  button 6   0 14 "Up";
-  button 7   0 15 "Down";
-  button 8   0 16 "Louder";
-  button 9   0 17 "Softer";
+  dot1    0 0; # Dot1 
+  dot2    0 1; # Dot2 
+  dot3    0 2; # Dot3 
+  dot4    0 3; # Dot4 
+  dot5    0 4; # Dot5 
+  dot6    0 5; # Dot6 
+  dot7    0 6; # Dot7 
+  dot8    0 7; # Dot8 
+  space    0 8; # Space 
+  button 1   0 9 "Backward"; 
+  button 2   0 10 "Forward"; 
+  button 3   0 11 "Center"; 
+  button 4   0 12 "Left"; 
+  button 5   0 13 "Right"; 
+  button 6   0 14 "Up"; 
+  button 7   0 15 "Down"; 
+  button 8   0 16 "Louder"; 
+  button 9   0 17 "Softer"; 
 }

@@ -1,8 +1,25 @@
+# Display definition for Baum : Vario 80
+
+# There are three display keys at each end of the braille cells.
+# * From top to bottom:
+# + The three at the left are named Display1, Display2, and Display3.
+# + The three at the right are named Display4, Display5, and Display6.
+# The command keys are in the middle, just behind the cursor routing keys,
+# and, from left to right, are named Command1 through Command7.
+# The keys in the upper row on the front are named:
+# * Front1, Front3, Front5, Front7, Front9.
+# The keys in the lower row on the front are named:
+# * Front2, Front4, Front6, Front8, Front10.
+# The keys in the upper row on the back are named:
+# * Back1, Back3, Back5, Back7, Back9.
+# The keys in the lower row on the back are named:
+# * Back2, Back4, Back6, Back8, Back10.
+
 ttydriver    "Baum"
 ttymodel     "v80"
 ttycode      "bm"
 manufacturer "Baum"
-model        "V80"
+model        "Vario 80"
 
 display {
   row {
@@ -12,37 +29,37 @@ display {
     }
   }
 
-  button 1   0 5 "Display6";
-  button 2   0 4 "Display5";
-  button 3   0 3 "Display4";
-  button 4   0 2 "Display3";
-  button 5   0 1 "Display2";
-  button 6   0 0 "Display1";
-  button 7   0 14 "Command7";
-  button 8   0 13 "Command6";
-  button 9   0 12 "Command5";
-  button 10   0 11 "Command4";
-  button 11   0 10 "Command3";
-  button 12   0 9 "Command2";
-  button 13   0 8 "Command1";
-  button 14   0 15 "Front1";
-  button 15   0 16 "Front2";
-  button 16   0 17 "Front3";
-  button 17   0 18 "Front4";
-  button 18   0 19 "Front5";
-  button 19   0 20 "Front6";
-  button 20   0 21 "Front7";
-  button 21   0 22 "Front8";
-  button 22   0 23 "Front9";
-  button 23   0 24 "Front10";
-  button 24   0 25 "Back1";
-  button 25   0 26 "Back2";
-  button 26   0 27 "Back3";
-  button 27   0 28 "Back4";
-  button 28   0 29 "Back5";
-  button 29   0 30 "Back6";
-  button 30   0 31 "Back7";
-  button 31   0 32 "Back8";
-  button 32   0 33 "Back9";
-  button 33   0 34 "Back10";
+  button 1   0 5 "Display6"; 
+  button 2   0 4 "Display5"; 
+  button 3   0 3 "Display4"; 
+  button 4   0 2 "Display3"; 
+  button 5   0 1 "Display2"; 
+  button 6   0 0 "Display1"; 
+  dot6    0 14; # Command7 
+  dot5    0 13; # Command6 
+  dot4    0 12; # Command5 
+  space    0 11; # Command4 
+  dot1    0 10; # Command3 
+  dot2    0 9; # Command2 
+  dot3    0 8; # Command1 
+  button 7   0 15 "Front1"; 
+  button 8   0 16 "Front2"; 
+  button 9   0 17 "Front3"; 
+  button 10   0 18 "Front4"; 
+  button 11   0 19 "Front5"; 
+  button 12   0 20 "Front6"; 
+  button 13   0 21 "Front7"; 
+  button 14   0 22 "Front8"; 
+  button 15   0 23 "Front9"; 
+  button 16   0 24 "Front10"; 
+  button 17   0 25 "Back1";   # brltty has no binding for this key
+  button 18   0 26 "Back2";   # brltty has no binding for this key
+  button 19   0 27 "Back3";   # brltty has no binding for this key
+  button 20   0 28 "Back4";   # brltty has no binding for this key
+  button 21   0 29 "Back5";   # brltty has no binding for this key
+  button 22   0 30 "Back6";   # brltty has no binding for this key
+  button 23   0 31 "Back7";   # brltty has no binding for this key
+  button 24   0 32 "Back8";   # brltty has no binding for this key
+  button 25   0 33 "Back9";   # brltty has no binding for this key
+  button 26   0 34 "Back10";   # brltty has no binding for this key
 }

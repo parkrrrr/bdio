@@ -1,8 +1,23 @@
+# Display definition for EuroBraille : Esys 40,64
+
+# The eight dot keys of the braille keyboard are behind the cursor routing keys.
+# From left to right, they are: Dot7, Dot3, Dot2, Dot1, Dot4, Dot5, Dot6, Dot8.
+# The two keys of the braille keyboard in front of the braille cells, from left to right, are: Backspace, Space.
+# The cursor routing keys are the small, round buttons just behind the braille cells.
+# RoutingKey1 means pressing a cursor routing key once (a single click).
+# RoutingKey2 means pressing a cursor routing key twice quickly (a double click).
+# The joysticks are the small, round, five-way (left, right, up, down, press) controls to the left and right of the cursor routing keys.
+# The switches are three-way (left, right, press) controls on the front surface.
+# Switch1 is the left outer switch.
+# Switch2 is the right outer switch.
+# Switch3 is the left inner switch.
+# Switch4 is the right inner switch.
+
 ttydriver    "EuroBraille"
 ttymodel     "esys_medium"
 ttycode      "eu"
 manufacturer "EuroBraille"
-model        "Esys_medium"
+model        "Esys 40,64"
 
 display {
   row {
@@ -15,32 +30,38 @@ display {
     }
   }
 
-  button 1   2 1 "Switch1Left";
-  button 2   2 0 "Switch1Right";
-  button 3   2 3 "Switch2Left";
-  button 4   2 2 "Switch2Right";
-  button 5   2 5 "Switch3Left";
-  button 6   2 4 "Switch3Right";
-  button 7   2 7 "Switch4Left";
-  button 8   2 6 "Switch4Right";
-  button 9   2 19 "LeftJoystickLeft";
-  button 10   2 18 "LeftJoystickRight";
-  button 11   2 16 "LeftJoystickUp";
-  button 12   2 17 "LeftJoystickDown";
-  button 13   2 20 "LeftJoystickPress";
-  button 14   2 27 "RightJoystickLeft";
-  button 15   2 26 "RightJoystickRight";
-  button 16   2 24 "RightJoystickUp";
-  button 17   2 25 "RightJoystickDown";
-  button 18   2 28 "RightJoystickPress";
-  dot1   3 0; # Dot1
-  dot2   3 1; # Dot2
-  dot3   3 2; # Dot3
-  dot4   3 3; # Dot4
-  dot5   3 4; # Dot5
-  dot6   3 5; # Dot6
-  dot7   3 6; # Dot7
-  dot8   3 7; # Dot8
-  button 19   3 8 "Backspace";
-  space   3 9; # Space
+  left {
+    jleft    2 19; # LeftJoystickLeft 
+    jright    2 18; # LeftJoystickRight 
+    jup    2 16; # LeftJoystickUp 
+    jdown    2 17; # LeftJoystickDown 
+    jcenter    2 20; # LeftJoystickPress   # brltty has no binding for this key
+  }
+
+  right {
+    jleft    2 27; # RightJoystickLeft 
+    jright    2 26; # RightJoystickRight 
+    jup    2 24; # RightJoystickUp 
+    jdown    2 25; # RightJoystickDown 
+    jcenter    2 28; # RightJoystickPress 
+  }
+
+  button 1   2 1 "Switch1Left"; 
+  button 2   2 0 "Switch1Right"; 
+  button 3   2 3 "Switch2Left"; 
+  button 4   2 2 "Switch2Right"; 
+  button 5   2 5 "Switch3Left";   # brltty has no binding for this key
+  button 6   2 4 "Switch3Right";   # brltty has no binding for this key
+  button 7   2 7 "Switch4Left";   # brltty has no binding for this key
+  button 8   2 6 "Switch4Right";   # brltty has no binding for this key
+  dot1    3 0; # Dot1 
+  dot2    3 1; # Dot2 
+  dot3    3 2; # Dot3 
+  dot4    3 3; # Dot4 
+  dot5    3 4; # Dot5 
+  dot6    3 5; # Dot6 
+  dot7    3 6; # Dot7 
+  dot8    3 7; # Dot8 
+  button 9   3 8 "Backspace"; 
+  space    3 9; # Space 
 }

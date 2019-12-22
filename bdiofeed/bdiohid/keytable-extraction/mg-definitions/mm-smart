@@ -1,8 +1,40 @@
+# Display definition for BrailleMemo : Braille Memo Smart
+
+# The six slightly angled keys along the top are a braille keyboard.
+# * From left to right, their names are: Dot3, Dot2, Dot1, Dot4, Dot5, Dot6.
+# The two keys to the left of Dot3, from top to bottom, are named: Control, Alt.
+# The two keys to the right of Dot6, from top to bottom, are named: Select, Read.
+# The key immediately below Dot2 is named Backspace.
+# The key immediately below Dot5 is named Delete.
+# The three keys below Dot1 and Dot4, from left to right, are named: Dot7, Extension, Dot8.
+# The keys to the left and right of the braille cells are named: PanLeft, PanRight.
+# The two keys on the front at the left are named: ArrowUp, ArrowDown.
+# The two keys on the front at the right are named: ArrowLeft, ArrowRight.
+# Some keys are entered by pressing a set of keys simultaneously:
+# + Return: Dot7
+# + Space: Dot8
+# + ArrowUp: Extension + Dot1
+# + ArrowDown: Extension + Dot4
+# + Control+ArrowLeft: Extension + Dot2
+# + Control+ArrowRight: Extension + Dot5
+# + ArrowLeft: Extension + Dot3
+# + ArrowRight: Extension + Dot6
+# + OK: Extension + Dot7
+# + Set: Extension + Dot8
+# + Info (Tab): Extension + Dot4 + Dot5
+# + Select+Info (Shift+Tab): Extension + Dot1 + Dot2
+# + Escape: Extension + Dot1 + Dot5
+# + Insert: Extension + Dot2 + Dot4
+# + Backward: Extension + ArrowUp
+# + Forward: Extension + ArrowDown
+# + ScrollLeft: Extension + ArrowLeft
+# + ScrollRight: Extension + ArrowRight
+
 ttydriver    "BrailleMemo"
 ttymodel     "smart"
 ttycode      "mm"
 manufacturer "BrailleMemo"
-model        "Smart"
+model        "Braille Memo Smart"
 
 display {
   row {
@@ -12,39 +44,39 @@ display {
     }
   }
 
-  button 1   0 0 "PanLeft";
-  button 2   0 7 "Extension";
-  button 3   0 1 "PanRight";
-  button 4   0 0 "F1";
-  button 5   0 6 "F2";
-  button 6   0 7 "F3";
-  button 7   0 1 "F4";
-  button 8   0 2 "Control";
-  button 9   0 3 "Alt";
-  button 10   0 4 "Select";
-  button 11   0 5 "Read";
-  button 12   1 7 "dot1";
-  button 13   1 6 "dot2";
-  button 14   1 5 "dot3";
-  button 15   1 3 "dot4";
-  button 16   1 2 "dot5";
-  button 17   1 1 "dot6";
-  button 18   1 4 "dot7";
-  button 19   1 0 "dot8";
-  button 20   2 0 "Escape";
-  button 21   2 1 "Info";
-  button 22   2 2 "Backspace";
-  button 23   2 3 "Delete";
-  button 24   2 4 "Insert";
-  button 25   2 5 "Change";
-  button 26   2 6 "OK";
-  button 27   2 7 "Set";
-  button 28   3 0 "ArrowUp";
-  button 29   3 1 "ArrowDown";
-  button 30   3 2 "ArrowLeft";
-  button 31   3 3 "ArrowRight";
-  button 32   6 0 "Backward";
-  button 33   6 1 "Forward";
-  button 34   6 2 "ScrollLeft";
-  button 35   6 3 "ScrollRight";
+  pleft    0 0; # PanLeft 
+  button 1   0 7 "Extension";   # brltty has no binding for this key
+  pright    0 1; # PanRight 
+  button 2   0 0 "F1";   # brltty has no binding for this key
+  button 3   0 6 "F2";   # brltty has no binding for this key
+  button 4   0 7 "F3";   # brltty has no binding for this key
+  button 5   0 1 "F4";   # brltty has no binding for this key
+  button 6   0 2 "Control"; 
+  button 7   0 3 "Alt"; 
+  button 8   0 4 "Select"; 
+  button 9   0 5 "Read"; 
+  button 10   1 7 "dot1";   # brltty has no binding for this key
+  button 11   1 6 "dot2";   # brltty has no binding for this key
+  button 12   1 5 "dot3";   # brltty has no binding for this key
+  button 13   1 3 "dot4";   # brltty has no binding for this key
+  button 14   1 2 "dot5";   # brltty has no binding for this key
+  button 15   1 1 "dot6";   # brltty has no binding for this key
+  button 16   1 4 "dot7";   # brltty has no binding for this key
+  button 17   1 0 "dot8";   # brltty has no binding for this key
+  button 18   2 0 "Escape"; 
+  button 19   2 1 "Info"; 
+  button 20   2 2 "Backspace"; 
+  button 21   2 3 "Delete"; 
+  button 22   2 4 "Insert"; 
+  button 23   2 5 "Change";   # brltty has no binding for this key
+  button 24   2 6 "OK";   # brltty has no binding for this key
+  button 25   2 7 "Set";   # brltty has no binding for this key
+  button 26   3 0 "ArrowUp"; 
+  button 27   3 1 "ArrowDown"; 
+  button 28   3 2 "ArrowLeft"; 
+  button 29   3 3 "ArrowRight"; 
+  button 30   6 0 "Backward"; 
+  button 31   6 1 "Forward"; 
+  button 32   6 2 "ScrollLeft"; 
+  button 33   6 3 "ScrollRight"; 
 }

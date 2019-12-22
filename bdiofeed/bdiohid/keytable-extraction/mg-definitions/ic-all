@@ -1,8 +1,11 @@
+# Display definition for Inceptor : BrailleMe
+
+
 ttydriver    "Inceptor"
 ttymodel     "all"
 ttycode      "ic"
 manufacturer "Inceptor"
-model        "All"
+model        "BrailleMe"
 
 display {
   row {
@@ -12,19 +15,25 @@ display {
     }
   }
 
-  dot1   0 0; # Dot1
-  dot2   0 1; # Dot2
-  dot3   0 2; # Dot3
-  dot4   0 3; # Dot4
-  dot5   0 4; # Dot5
-  dot6   0 5; # Dot6
-  dot7   0 6; # Dot7
-  dot8   0 7; # Dot8
-  button 1   0 9 "LeftUp";
-  button 2   0 10 "LeftDown";
-  button 3   0 11 "RightUp";
-  button 4   0 12 "RightDown";
-  button 5   0 13 "Back";
-  space   0 8; # Space
-  button 6   0 14 "Enter";
+  left {
+    button 1   0 9 "LeftUp"; 
+    button 2   0 10 "LeftDown"; 
+  }
+
+  right {
+    button 3   0 11 "RightUp"; 
+    button 4   0 12 "RightDown"; 
+  }
+
+  dot1    0 0; # Dot1 
+  dot2    0 1; # Dot2 
+  dot3    0 2; # Dot3 
+  dot4    0 3; # Dot4 
+  dot5    0 4; # Dot5 
+  dot6    0 5; # Dot6 
+  dot7    0 6; # Dot7 
+  dot8    0 7; # Dot8 
+  button 5   0 13 "Back"; 
+  space    0 8; # Space 
+  button 6   0 14 "Enter"; 
 }

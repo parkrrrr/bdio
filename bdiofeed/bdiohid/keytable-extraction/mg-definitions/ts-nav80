@@ -1,8 +1,16 @@
+# Display definition for TSI : Navigator 80
+
+# The keys of the four-key pad in the middle are named:
+# CursorLeft, CursorRight, CursorUp, CursorDown.
+# The keys on each side of the pad are named: LeftThumb, RightThumb.
+# The outer end keys are named: LeftOuter, RightOuter.
+# The inner end keys are named: LeftInner, RightInner.
+
 ttydriver    "TSI"
 ttymodel     "nav80"
 ttycode      "ts"
 manufacturer "TSI"
-model        "Nav80"
+model        "Navigator 80"
 
 display {
   row {
@@ -12,14 +20,20 @@ display {
     }
   }
 
-  button 1   0 5 "CursorLeft";
-  button 2   0 7 "CursorRight";
-  button 3   0 6 "CursorUp";
-  button 4   0 8 "CursorDown";
-  button 5   0 0 "LeftOuter";
-  button 6   0 2 "RightOuter";
-  button 7   0 1 "LeftInner";
-  button 8   0 3 "RightInner";
-  button 9   0 9 "LeftThumb";
-  button 10   0 4 "RightThumb";
+  left {
+    button 1   0 0 "LeftOuter"; 
+    button 2   0 1 "LeftInner"; 
+    button 3   0 9 "LeftThumb"; 
+  }
+
+  right {
+    button 4   0 2 "RightOuter"; 
+    button 5   0 3 "RightInner"; 
+    button 6   0 4 "RightThumb"; 
+  }
+
+  button 7   0 5 "CursorLeft";   # brltty has no binding for this key
+  button 8   0 7 "CursorRight";   # brltty has no binding for this key
+  button 9   0 6 "CursorUp"; 
+  button 10   0 8 "CursorDown"; 
 }

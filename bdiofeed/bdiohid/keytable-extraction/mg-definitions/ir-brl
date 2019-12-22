@@ -1,8 +1,16 @@
+# Display definition for Iris : (with braille keyboard)
+
+# The braille keyboard has two thumb keys rather than a single space bar.
+# * The left one is named Backspace, and the right one is named Space.
+# The eight keys behind the braille keyboard are known as linear keys.
+# * From left to right, they're named L1 through L8.
+# RoutingKey refers to any of the keys behind the text cells.
+
 ttydriver    "Iris"
 ttymodel     "brl"
 ttycode      "ir"
 manufacturer "Iris"
-model        "Brl"
+model        "(with braille keyboard)"
 
 display {
   row {
@@ -12,24 +20,24 @@ display {
     }
   }
 
-  button 1   0 0 "L1";
-  button 2   0 1 "L2";
-  button 3   0 2 "L3";
-  button 4   0 3 "L4";
-  button 5   0 5 "L5";
-  button 6   0 6 "L6";
-  button 7   0 7 "L7";
-  button 8   0 8 "L8";
-  button 9   0 32 "Menu";
-  button 10   0 33 "Z";
-  dot1   0 16; # Dot1
-  dot2   0 17; # Dot2
-  dot3   0 18; # Dot3
-  dot4   0 19; # Dot4
-  dot5   0 20; # Dot5
-  dot6   0 21; # Dot6
-  dot7   0 22; # Dot7
-  dot8   0 23; # Dot8
-  button 11   0 24 "Backspace";
-  space   0 25; # Space
+  button 1   0 0 "L1"; 
+  button 2   0 1 "L2"; 
+  button 3   0 2 "L3"; 
+  button 4   0 3 "L4"; 
+  button 5   0 5 "L5"; 
+  button 6   0 6 "L6"; 
+  button 7   0 7 "L7"; 
+  button 8   0 8 "L8"; 
+  button 9   0 32 "Menu";   # brltty has no binding for this key
+  button 10   0 33 "Z";   # brltty has no binding for this key
+  dot1    0 16; # Dot1 
+  dot2    0 17; # Dot2 
+  dot3    0 18; # Dot3 
+  dot4    0 19; # Dot4 
+  dot5    0 20; # Dot5 
+  dot6    0 21; # Dot6 
+  dot7    0 22; # Dot7 
+  dot8    0 23; # Dot8 
+  button 11   0 24 "Backspace"; 
+  space    0 25; # Space 
 }

@@ -1,8 +1,15 @@
+# Display definition for Iris : (with PC keyboard)
+
+# The eight extra keys at the ends of the keyboard are known as linear keys.
+# * The four at the left, from top to bottom, are named L1 through L4.
+# * The four at the right, from bottom to top, are named L5 through L8.
+# RoutingKey refers to any of the keys behind the text cells.
+
 ttydriver    "Iris"
 ttymodel     "pc"
 ttycode      "ir"
 manufacturer "Iris"
-model        "Pc"
+model        "(with PC keyboard)"
 
 display {
   row {
@@ -12,17 +19,17 @@ display {
     }
   }
 
-  button 1   0 0 "L1";
-  button 2   0 1 "L2";
-  button 3   0 2 "L3";
-  button 4   0 3 "L4";
-  button 5   0 5 "L5";
-  button 6   0 6 "L6";
-  button 7   0 7 "L7";
-  button 8   0 8 "L8";
-  button 9   0 32 "Menu";
-  button 10   0 33 "Z";
-  # unrecognized group 2 named "Xt"
-  # unrecognized group 3 named "XtE0"
-  # unrecognized group 4 named "XtE1"
+  button 1   0 0 "L1"; 
+  button 2   0 1 "L2"; 
+  button 3   0 2 "L3"; 
+  button 4   0 3 "L4"; 
+  button 5   0 5 "L5"; 
+  button 6   0 6 "L6"; 
+  button 7   0 7 "L7"; 
+  button 8   0 8 "L8"; 
+  button 9   0 32 "Menu";   # brltty has no binding for this key
+  button 10   0 33 "Z";   # brltty has no binding for this key
+  # unrecognized group 2 named "Xt" 
+  # unrecognized group 3 named "XtE0" 
+  # unrecognized group 4 named "XtE1" 
 }

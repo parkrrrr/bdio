@@ -1,3 +1,15 @@
+# Display definition for Baum : Inka
+
+# There are three display keys at each end of the braille cells.
+# * From top to bottom:
+# + The three at the left are named Display1, Display2, and Display3.
+# + The three at the right are named Display4, Display5, and Display6.
+# The switches are off when to the left and on when to the right.
+# * Switch1 (upper-left): disable all sensors.
+# * Switch2 (lower-left): scaled vertical sensor line selection.
+# * Switch3 (upper-right): show selected horizontal sensor (all dots raised).
+# * Switch4 (lower-right): enable braille keyboard.
+
 ttydriver    "Baum"
 ttymodel     "inka"
 ttycode      "bm"
@@ -9,15 +21,21 @@ display {
     cells 8;
   }
 
-  button 1   0 5 "Display6";
-  button 2   0 4 "Display5";
-  button 3   0 3 "Display4";
-  button 4   0 2 "Display3";
-  button 5   0 1 "Display2";
-  button 6   0 0 "Display1";
-  # unrecognized group 2 named "HorizontalSensor"
-  # unrecognized group 3 named "LeftSensor"
-  # unrecognized group 4 named "RightSensor"
-  # unrecognized group 5 named "ScaledLeftSensor"
-  # unrecognized group 6 named "ScaledRightSensor"
+  left {
+    # unrecognized group 3 named "LeftSensor" 
+  }
+
+  right {
+    # unrecognized group 4 named "RightSensor" 
+  }
+
+  button 1   0 5 "Display6"; 
+  button 2   0 4 "Display5"; 
+  button 3   0 3 "Display4"; 
+  button 4   0 2 "Display3"; 
+  button 5   0 1 "Display2"; 
+  button 6   0 0 "Display1"; 
+  # unrecognized group 2 named "HorizontalSensor" 
+  # unrecognized group 5 named "ScaledLeftSensor" 
+  # unrecognized group 6 named "ScaledRightSensor" 
 }

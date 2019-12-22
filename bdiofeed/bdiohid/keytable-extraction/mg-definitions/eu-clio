@@ -1,8 +1,14 @@
+# Display definition for EuroBraille : AzerBraille, Clio, NoteBraille, PupiBraille, Scriba
+
+# The eight dot keys of the braille keyboard are behind the cursor routing keys.
+# From left to right, they are: Dot7, Dot3, Dot2, Dot1, Dot4, Dot5, Dot6, Dot8.
+# The two keys of the braille keyboard in front of the braille cells, from left to right, are: Backspace, Space.
+
 ttydriver    "EuroBraille"
 ttymodel     "clio"
 ttycode      "eu"
 manufacturer "EuroBraille"
-model        "Clio"
+model        "AzerBraille, Clio, NoteBraille, PupiBraille, Scriba"
 
 display {
   row {
@@ -12,46 +18,46 @@ display {
     }
   }
 
-  dot1   3 0; # Dot1
-  dot2   3 1; # Dot2
-  dot3   3 2; # Dot3
-  dot4   3 3; # Dot4
-  dot5   3 4; # Dot5
-  dot6   3 5; # Dot6
-  dot7   3 8; # Dot7
-  dot8   3 9; # Dot8
-  button 1   3 6 "Backspace";
-  space   3 7; # Space
-  button 2   0 69 "E";
-  button 3   0 70 "F";
-  button 4   0 71 "G";
-  button 5   0 72 "H";
-  button 6   0 73 "I";
-  button 7   0 74 "J";
-  button 8   0 75 "K";
-  button 9   0 76 "L";
-  button 10   0 77 "M";
-  button 11   0 49 "One";
-  button 12   0 50 "Up";
-  button 13   0 51 "Three";
-  button 14   0 65 "A";
-  button 15   0 52 "Left";
-  button 16   0 53 "Five";
-  button 17   0 54 "Right";
-  button 18   0 66 "B";
-  button 19   0 55 "Seven";
-  button 20   0 56 "Down";
-  button 21   0 57 "Nine";
-  button 22   0 67 "C";
-  button 23   0 42 "Star";
-  button 24   0 48 "Zero";
-  button 25   0 35 "Sharp";
-  button 26   0 68 "D";
-  button 27   1 129 "Dollar";
-  button 28   1 130 "U";
-  button 29   1 136 "V";
-  button 30   1 137 "W";
-  button 31   1 138 "X";
-  button 32   1 139 "Y";
-  button 33   1 131 "Z";
+  dot1    3 0; # Dot1 
+  dot2    3 1; # Dot2 
+  dot3    3 2; # Dot3 
+  dot4    3 3; # Dot4 
+  dot5    3 4; # Dot5 
+  dot6    3 5; # Dot6 
+  dot7    3 8; # Dot7 
+  dot8    3 9; # Dot8 
+  button 1   3 6 "Backspace"; 
+  space    3 7; # Space 
+  button 2   0 69 "E"; 
+  button 3   0 70 "F"; 
+  button 4   0 71 "G"; 
+  button 5   0 72 "H"; 
+  button 6   0 73 "I"; 
+  button 7   0 74 "J";   # brltty has no binding for this key
+  button 8   0 75 "K"; 
+  button 9   0 76 "L"; 
+  button 10   0 77 "M"; 
+  button 11   0 49 "One"; 
+  button 12   0 50 "Up"; 
+  button 13   0 51 "Three"; 
+  button 14   0 65 "A"; 
+  button 15   0 52 "Left"; 
+  button 16   0 53 "Five"; 
+  button 17   0 54 "Right"; 
+  button 18   0 66 "B";   # brltty has no binding for this key
+  button 19   0 55 "Seven"; 
+  button 20   0 56 "Down"; 
+  button 21   0 57 "Nine"; 
+  button 22   0 67 "C";   # brltty has no binding for this key
+  button 23   0 42 "Star"; 
+  button 24   0 48 "Zero"; 
+  button 25   0 35 "Sharp"; 
+  button 26   0 68 "D";   # brltty has no binding for this key
+  button 27   1 129 "Dollar";   # brltty has no binding for this key
+  button 28   1 130 "U";   # brltty has no binding for this key
+  button 29   1 136 "V";   # brltty has no binding for this key
+  button 30   1 137 "W";   # brltty has no binding for this key
+  button 31   1 138 "X";   # brltty has no binding for this key
+  button 32   1 139 "Y";   # brltty has no binding for this key
+  button 33   1 131 "Z";   # brltty has no binding for this key
 }

@@ -1,8 +1,11 @@
+# Display definition for HIMS : SyncBraille
+
+
 ttydriver    "HIMS"
 ttymodel     "sync"
 ttycode      "hm"
 manufacturer "HIMS"
-model        "Sync"
+model        "SyncBraille"
 
 display {
   row {
@@ -12,8 +15,14 @@ display {
     }
   }
 
-  button 1   0 12 "LeftScrollUp";
-  button 2   0 15 "LeftScrollDown";
-  button 3   0 13 "RightScrollUp";
-  button 4   0 14 "RightScrollDown";
+  left {
+    button 1   0 12 "LeftScrollUp"; 
+    button 2   0 15 "LeftScrollDown"; 
+  }
+
+  right {
+    button 3   0 13 "RightScrollUp"; 
+    button 4   0 14 "RightScrollDown"; 
+  }
+
 }

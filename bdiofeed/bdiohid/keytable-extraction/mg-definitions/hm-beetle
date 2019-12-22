@@ -1,8 +1,11 @@
+# Display definition for HIMS : Smart Beetle
+
+
 ttydriver    "HIMS"
 ttymodel     "beetle"
 ttycode      "hm"
 manufacturer "HIMS"
-model        "Beetle"
+model        "Smart Beetle"
 
 display {
   row {
@@ -12,19 +15,19 @@ display {
     }
   }
 
-  dot1   0 0; # Dot1
-  dot2   0 1; # Dot2
-  dot3   0 2; # Dot3
-  dot4   0 3; # Dot4
-  dot5   0 4; # Dot5
-  dot6   0 5; # Dot6
-  dot7   0 6; # Dot7
-  dot8   0 7; # Dot8
-  space   0 8; # Space
-  button 1   0 18 "Backward";
-  button 2   0 19 "Forward";
-  button 3   0 9 "F1";
-  button 4   0 12 "F2";
-  button 5   0 11 "F3";
-  button 6   0 10 "F4";
+  dot1    0 0; # Dot1 
+  dot2    0 1; # Dot2 
+  dot3    0 2; # Dot3 
+  dot4    0 3; # Dot4 
+  dot5    0 4; # Dot5 
+  dot6    0 5; # Dot6 
+  dot7    0 6; # Dot7 
+  dot8    0 7; # Dot8 
+  space    0 8; # Space 
+  button 1   0 18 "Backward"; 
+  button 2   0 19 "Forward"; 
+  button 3   0 9 "F1"; 
+  button 4   0 12 "F2"; 
+  button 5   0 11 "F3"; 
+  button 6   0 10 "F4"; 
 }

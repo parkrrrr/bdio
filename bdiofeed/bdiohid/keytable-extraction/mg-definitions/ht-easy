@@ -1,8 +1,11 @@
+# Display definition for HandyTech : Easy Braille
+
+
 ttydriver    "HandyTech"
 ttymodel     "easy"
 ttycode      "ht"
 manufacturer "HandyTech"
-model        "Easy"
+model        "Easy Braille"
 
 display {
   row {
@@ -12,14 +15,14 @@ display {
     }
   }
 
-  button 1   0 3 "B1";
-  button 2   0 7 "B2";
-  button 3   0 11 "B3";
-  button 4   0 15 "B4";
-  button 5   0 19 "B5";
-  button 6   0 23 "B6";
-  button 7   0 27 "B7";
-  button 8   0 31 "B8";
-  button 9   0 4 "Left";
-  button 10   0 8 "Right";
+  button 1   0 3 "B1"; 
+  button 2   0 7 "B2"; 
+  button 3   0 11 "B3"; 
+  button 4   0 15 "B4"; 
+  button 5   0 19 "B5"; 
+  button 6   0 23 "B6"; 
+  button 7   0 27 "B7"; 
+  button 8   0 31 "B8"; 
+  button 9   0 4 "Left"; 
+  button 10   0 8 "Right"; 
 }

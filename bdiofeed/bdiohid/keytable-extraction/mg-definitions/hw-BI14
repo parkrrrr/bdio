@@ -1,8 +1,18 @@
+# Display definition for HumanWare : Brailliant BI 14
+
+# There are four thumb keys on the front. From left to right, they are:
+# * Previous, Back, Advance, Next.
+# There's an eight-key braille keyboard near the back of the top.
+# * From left to right, its keys are: Dot7, Dot3, Dot2, Dot1, Dot4, Dot5, Dot6, Dot8.
+# There's a five-way joystick between the Dot1 and Dot4 keys.
+# * The four directions are intuitively named: Up, Down, Left, Right.
+# * Pressing the joystick is named: Action.
+
 ttydriver    "HumanWare"
 ttymodel     "BI14"
 ttycode      "hw"
 manufacturer "HumanWare"
-model        "BI14"
+model        "Brailliant BI 14"
 
 display {
   row {
@@ -12,22 +22,22 @@ display {
     }
   }
 
-  button 1   0 17 "Previous";
-  button 2   0 18 "Back";
-  button 3   0 19 "Advance";
-  button 4   0 20 "Next";
-  dot1   0 2; # Dot1
-  dot2   0 3; # Dot2
-  dot3   0 4; # Dot3
-  dot4   0 5; # Dot4
-  dot5   0 6; # Dot5
-  dot6   0 7; # Dot6
-  dot7   0 8; # Dot7
-  dot8   0 9; # Dot8
-  space   0 10; # Space
-  button 5   0 21 "Up";
-  button 6   0 22 "Down";
-  button 7   0 23 "Left";
-  button 8   0 24 "Right";
-  button 9   0 25 "Action";
+  button 1   0 17 "Previous"; 
+  button 2   0 18 "Back"; 
+  button 3   0 19 "Advance"; 
+  button 4   0 20 "Next"; 
+  dot1    0 2; # Dot1 
+  dot2    0 3; # Dot2 
+  dot3    0 4; # Dot3 
+  dot4    0 5; # Dot4 
+  dot5    0 6; # Dot5 
+  dot6    0 7; # Dot6 
+  dot7    0 8; # Dot7 
+  dot8    0 9; # Dot8 
+  space    0 10; # Space 
+  button 5   0 21 "Up"; 
+  button 6   0 22 "Down"; 
+  button 7   0 23 "Left"; 
+  button 8   0 24 "Right"; 
+  button 9   0 25 "Action"; 
 }

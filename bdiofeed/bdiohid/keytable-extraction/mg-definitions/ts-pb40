@@ -1,8 +1,15 @@
+# Display definition for TSI : Power Braille 40
+
+# The positions of the left bar are named: LeftRockerUp, LeftRockerDown.
+# The positions of the right bar are named: RightRockerUp, RightRockerDown.
+# The keys in the middle are named: Convex, Concave.
+# The keys on the top are named: Backward (on the left), Forward (on the right).
+
 ttydriver    "TSI"
 ttymodel     "pb40"
 ttycode      "ts"
 manufacturer "TSI"
-model        "Pb40"
+model        "Power Braille 40"
 
 display {
   row {
@@ -12,12 +19,18 @@ display {
     }
   }
 
-  button 1   0 6 "LeftRockerUp";
-  button 2   0 8 "LeftRockerDown";
-  button 3   0 0 "Backward";
-  button 4   0 2 "Forward";
-  button 5   0 1 "RightRockerUp";
-  button 6   0 3 "RightRockerDown";
-  button 7   0 9 "Convex";
-  button 8   0 4 "Concave";
+  left {
+    rup    0 6; # LeftRockerUp 
+    rdown    0 8; # LeftRockerDown 
+  }
+
+  right {
+    rup    0 1; # RightRockerUp 
+    rdown    0 3; # RightRockerDown 
+  }
+
+  button 1   0 0 "Backward"; 
+  button 2   0 2 "Forward"; 
+  button 3   0 9 "Convex"; 
+  button 4   0 4 "Concave"; 
 }

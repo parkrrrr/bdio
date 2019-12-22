@@ -1,8 +1,18 @@
+# Display definition for Hedo : ProfiLine
+
+# The keys behind the text cells are named routing keys.
+# The rectangular navigation keys are named K1 through K3.
+# The square navigation keys are named B1 through B8.
+# From left to right, the navigation keys are: K1 B7 B3 B2 B1 K1 K2 K3 B4 B5 B6 B8 K3
+# Both K1 keys are hard-wired together.
+# Both K3 keys are hard-wired together.
+# The K2 and B1 keys are hard-wired together.
+
 ttydriver    "Hedo"
 ttymodel     "pfl"
 ttycode      "hd"
 manufacturer "Hedo"
-model        "Pfl"
+model        "ProfiLine"
 
 display {
   row {
@@ -12,15 +22,15 @@ display {
     }
   }
 
-  button 1   0 4 "K1";
-  button 2   0 3 "K2";
-  button 3   0 8 "K3";
-  button 4   0 3 "B1";
-  button 5   0 7 "B2";
-  button 6   0 11 "B3";
-  button 7   0 15 "B4";
-  button 8   0 19 "B5";
-  button 9   0 23 "B6";
-  button 10   0 27 "B7";
-  button 11   0 31 "B8";
+  button 1   0 4 "K1"; 
+  button 2   0 3 "K2"; 
+  button 3   0 8 "K3"; 
+  button 4   0 3 "B1";   # brltty has no binding for this key
+  button 5   0 7 "B2"; 
+  button 6   0 11 "B3"; 
+  button 7   0 15 "B4";   # brltty has no binding for this key
+  button 8   0 19 "B5"; 
+  button 9   0 23 "B6"; 
+  button 10   0 27 "B7"; 
+  button 11   0 31 "B8"; 
 }

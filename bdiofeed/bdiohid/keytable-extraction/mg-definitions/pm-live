@@ -1,8 +1,13 @@
+# Display definition for Papenmeier : BrailleX Live
+
+# The long key on the front is the Easy Access Bar.
+# RoutingKey1 refers to the row of keys just behind the text cells.
+
 ttydriver    "Papenmeier"
 ttymodel     "live"
 ttycode      "pm"
 manufacturer "Papenmeier"
-model        "Live"
+model        "BrailleX Live"
 
 display {
   row {
@@ -12,29 +17,35 @@ display {
     }
   }
 
-  button 1   0 0 "BarLeft1";
-  button 2   0 1 "BarLeft2";
-  button 3   0 4 "BarRight1";
-  button 4   0 5 "BarRight2";
-  button 5   0 2 "BarUp1";
-  button 6   0 3 "BarUp2";
-  button 7   0 6 "BarDown1";
-  button 8   0 7 "BarDown2";
-  button 9   1 2 "LeftKeyRear";
-  button 10   1 3 "LeftKeyFront";
-  button 11   1 4 "RightKeyRear";
-  button 12   1 5 "RightKeyFront";
-  dot1   2 0; # Dot1
-  dot2   2 1; # Dot2
-  dot3   2 2; # Dot3
-  dot4   2 3; # Dot4
-  dot5   2 4; # Dot5
-  dot6   2 5; # Dot6
-  dot7   2 6; # Dot7
-  dot8   2 7; # Dot8
-  space   2 9; # Space
-  lspace   2 12; # LeftSpace
-  rspace   2 11; # RightSpace
-  button 13   2 10 "LeftThumb";
-  button 14   2 8 "RightThumb";
+  left {
+    button 1   1 2 "LeftKeyRear"; 
+    button 2   1 3 "LeftKeyFront"; 
+    button 3   2 10 "LeftThumb"; 
+  }
+
+  right {
+    button 4   1 4 "RightKeyRear";   # brltty has no binding for this key
+    button 5   1 5 "RightKeyFront";   # brltty has no binding for this key
+    button 6   2 8 "RightThumb"; 
+  }
+
+  button 7   0 0 "BarLeft1"; 
+  button 8   0 1 "BarLeft2"; 
+  button 9   0 4 "BarRight1"; 
+  button 10   0 5 "BarRight2"; 
+  button 11   0 2 "BarUp1"; 
+  button 12   0 3 "BarUp2"; 
+  button 13   0 6 "BarDown1"; 
+  button 14   0 7 "BarDown2"; 
+  dot1    2 0; # Dot1 
+  dot2    2 1; # Dot2 
+  dot3    2 2; # Dot3 
+  dot4    2 3; # Dot4 
+  dot5    2 4; # Dot5 
+  dot6    2 5; # Dot6 
+  dot7    2 6; # Dot7 
+  dot8    2 7; # Dot8 
+  space   2 9; # Space   # brltty has no binding for this key
+  button 15     "";   # brltty has no binding for this key
+  button 16     "";   # brltty has no binding for this key
 }

@@ -1,8 +1,17 @@
+# Display definition for FreedomScientific : PAC Mate
+
+# The rear row of cursor routing keys is actually a set of navigation keys.
+# The 10 middle keys (5 on each side of the center) are special.
+# The two outer ones are named LeftSelector and RightSelector.
+# The eight inner ones are named Hot1 through Hot8.
+# The PanLeft key is any key to the left of the special keys.
+# The PanRight key is any key to the right of the special keys.
+
 ttydriver    "FreedomScientific"
 ttymodel     "pacmate"
 ttycode      "fs"
 manufacturer "FreedomScientific"
-model        "Pacmate"
+model        "PAC Mate"
 
 display {
   row {
@@ -12,23 +21,29 @@ display {
     }
   }
 
-  button 1   0 12 "PanLeft";
-  button 2   0 13 "PanRight";
-  button 3   0 16 "LeftSelector";
-  button 4   0 17 "RightSelector";
-  # unrecognized group 2 named "NavrowKey"
-  button 5   0 8 "LeftWheelPress";
-  button 6   0 9 "RightWheelPress";
-  button 7   0 32 "LeftWheelUp";
-  button 8   0 33 "LeftWheelDown";
-  button 9   0 34 "RightWheelDown";
-  button 10   0 35 "RightWheelUp";
-  button 11   0 40 "Hot1";
-  button 12   0 41 "Hot2";
-  button 13   0 42 "Hot3";
-  button 14   0 43 "Hot4";
-  button 15   0 44 "Hot5";
-  button 16   0 45 "Hot6";
-  button 17   0 46 "Hot7";
-  button 18   0 47 "Hot8";
+  left {
+    button 1   0 16 "LeftSelector"; 
+    button 2   0 8 "LeftWheelPress"; 
+    button 3   0 32 "LeftWheelUp"; 
+    button 4   0 33 "LeftWheelDown"; 
+  }
+
+  right {
+    button 5   0 17 "RightSelector"; 
+    button 6   0 9 "RightWheelPress"; 
+    button 7   0 34 "RightWheelDown"; 
+    button 8   0 35 "RightWheelUp"; 
+  }
+
+  pleft    0 12; # PanLeft 
+  pright    0 13; # PanRight 
+  # unrecognized group 2 named "NavrowKey"   # brltty has no binding for this key
+  button 9   0 40 "Hot1"; 
+  button 10   0 41 "Hot2"; 
+  button 11   0 42 "Hot3"; 
+  button 12   0 43 "Hot4"; 
+  button 13   0 44 "Hot5"; 
+  button 14   0 45 "Hot6"; 
+  button 15   0 46 "Hot7"; 
+  button 16   0 47 "Hot8"; 
 }

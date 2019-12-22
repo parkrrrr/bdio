@@ -1,8 +1,11 @@
+# Display definition for Voyager : Voyager
+
+
 ttydriver    "Voyager"
 ttymodel     "all"
 ttycode      "vo"
 manufacturer "Voyager"
-model        "All"
+model        "Voyager"
 
 display {
   row {
@@ -12,20 +15,20 @@ display {
     }
   }
 
-  dot1   0 0; # Dot1
-  dot2   0 1; # Dot2
-  dot3   0 2; # Dot3
-  dot4   0 3; # Dot4
-  dot5   0 4; # Dot5
-  dot6   0 5; # Dot6
-  dot7   0 6; # Dot7
-  dot8   0 7; # Dot8
-  button 1   0 8 "Thumb1";
-  button 2   0 9 "Thumb2";
-  button 3   0 10 "Left";
-  button 4   0 11 "Up";
-  button 5   0 12 "Down";
-  button 6   0 13 "Right";
-  button 7   0 14 "Thumb3";
-  button 8   0 15 "Thumb4";
+  dot1    0 0; # Dot1 
+  dot2    0 1; # Dot2 
+  dot3    0 2; # Dot3 
+  dot4    0 3; # Dot4 
+  dot5    0 4; # Dot5 
+  dot6    0 5; # Dot6 
+  dot7    0 6; # Dot7 
+  dot8    0 7; # Dot8 
+  button 1   0 8 "Thumb1"; 
+  space    0 9; # Thumb2 
+  button 2   0 10 "Left"; 
+  button 3   0 11 "Up"; 
+  button 4   0 12 "Down"; 
+  button 5   0 13 "Right"; 
+  space    0 14; # Thumb3 
+  button 6   0 15 "Thumb4"; 
 }

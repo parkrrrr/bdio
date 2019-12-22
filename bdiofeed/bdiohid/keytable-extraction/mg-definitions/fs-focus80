@@ -1,8 +1,26 @@
+# Display definition for FreedomScientific : Focus2 (Blue) 80
+
+# An eight-dot, Perkins-style, braille keyboard is near the rear of the top.
+# * Its keys, From left to right, are: Dot7, Dot3, Dot2, Dot1, Dot4, Dot5, Dot6, Dot8.
+# * The space bar is in front of the braille cells.
+# There is a routing key immediately behind each braille cell.
+# * Some models have a navrow key immediately behind each routing key.
+# There are two Nav controls - one at each end of the braille cells.
+# * They have three actions: Up, Down, and Press.
+# * On newer models, each is a rocker combined with a button.
+# * On older models, each is a wheel that can be both rolled and pressed.
+# The keys on the front, from left to right, are:
+# * pan left, left rocker, left selector, left bumper, left bumper, left shift - right shift, right bumper, right bumper, right selector, right rocker, pan right.
+# The left and right shift keys are squarish and flat.
+# The left and right panning keys are long and flat with a raised double-arrow.
+# The left and right selector keys are round and concave.
+# * On older models, they're known as GDF (General Display Function) keys.
+
 ttydriver    "FreedomScientific"
 ttymodel     "focus80"
 ttycode      "fs"
 manufacturer "FreedomScientific"
-model        "Focus80"
+model        "Focus2 (Blue) 80"
 
 display {
   row {
@@ -12,34 +30,40 @@ display {
     }
   }
 
-  button 1   0 12 "PanLeft";
-  button 2   0 13 "PanRight";
-  button 3   0 16 "LeftSelector";
-  button 4   0 17 "RightSelector";
-  # unrecognized group 2 named "NavrowKey"
-  button 5   0 8 "LeftNavPress";
-  button 6   0 9 "RightNavPress";
-  button 7   0 32 "LeftNavUp";
-  button 8   0 33 "LeftNavDown";
-  button 9   0 34 "RightNavDown";
-  button 10   0 35 "RightNavUp";
-  dot1   0 0; # Dot1
-  dot2   0 1; # Dot2
-  dot3   0 2; # Dot3
-  dot4   0 3; # Dot4
-  dot5   0 4; # Dot5
-  dot6   0 5; # Dot6
-  dot7   0 6; # Dot7
-  dot8   0 7; # Dot8
-  space   0 15; # Space
-  button 11   0 10 "LeftShift";
-  button 12   0 11 "RightShift";
-  button 13   0 28 "LeftRockerUp";
-  button 14   0 29 "LeftRockerDown";
-  button 15   0 30 "RightRockerUp";
-  button 16   0 31 "RightRockerDown";
-  button 17   0 20 "LeftBumperUp";
-  button 18   0 21 "LeftBumperDown";
-  button 19   0 22 "RightBumperUp";
-  button 20   0 23 "RightBumperDown";
+  left {
+    button 1   0 16 "LeftSelector"; 
+    button 2   0 8 "LeftNavPress"; 
+    button 3   0 32 "LeftNavUp"; 
+    button 4   0 33 "LeftNavDown"; 
+    button 5   0 10 "LeftShift"; 
+    rup    0 28; # LeftRockerUp 
+    rdown    0 29; # LeftRockerDown 
+    button 6   0 20 "LeftBumperUp"; 
+    button 7   0 21 "LeftBumperDown"; 
+  }
+
+  right {
+    button 8   0 17 "RightSelector"; 
+    button 9   0 9 "RightNavPress"; 
+    button 10   0 34 "RightNavDown"; 
+    button 11   0 35 "RightNavUp"; 
+    button 12   0 11 "RightShift"; 
+    rup    0 30; # RightRockerUp 
+    rdown    0 31; # RightRockerDown 
+    button 13   0 22 "RightBumperUp"; 
+    button 14   0 23 "RightBumperDown"; 
+  }
+
+  pleft    0 12; # PanLeft 
+  pright    0 13; # PanRight 
+  # unrecognized group 2 named "NavrowKey" 
+  dot1    0 0; # Dot1 
+  dot2    0 1; # Dot2 
+  dot3    0 2; # Dot3 
+  dot4    0 3; # Dot4 
+  dot5    0 4; # Dot5 
+  dot6    0 5; # Dot6 
+  dot7    0 6; # Dot7 
+  dot8    0 7; # Dot8 
+  space    0 15; # Space 
 }

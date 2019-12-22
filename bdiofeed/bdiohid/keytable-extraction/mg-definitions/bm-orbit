@@ -1,34 +1,47 @@
+# Display definition for Baum : Orbit Reader
+
+# A six-dot standard braille keyboard is along the back edge of the top.
+# * From left to right, its keys are: Dot3, Dot2, Dot1, Dot4, Dot5, Dot6.
+# There's a five-position joystick in between Dot1 and Dot4.
+# Space is the long key in the middle, just in front of the joystick.
+# Dot7 and Dot8 are the keys immediately to the left and right of Space.
+# The rocker to the left of the braille cells emulates the Display2 key,
+# * and the one to their right emulates the Display5 key.
+# Any display key combination can be emulated by pressing the joystick
+# * while typing the corresponding combination of the eight dot keys.
+# The five joystick motions are named Left, Right, Up, Down, and Press.
+
 ttydriver    "Baum"
 ttymodel     "orbit"
 ttycode      "bm"
 manufacturer "Baum"
-model        "Orbit"
+model        "Orbit Reader"
 
 display {
   row {
     cells 8;
   }
 
-  space   0 35; # Space
-  dot1   0 43; # Dot1
-  dot2   0 44; # Dot2
-  dot3   0 45; # Dot3
-  dot4   0 46; # Dot4
-  dot5   0 47; # Dot5
-  dot6   0 48; # Dot6
-  dot7   0 49; # Dot7
-  dot8   0 50; # Dot8
-  button 1   0 51 "Up";
-  button 2   0 52 "Left";
-  button 3   0 53 "Down";
-  button 4   0 54 "Right";
-  button 5   0 55 "Press";
-  button 6   0 7 "Display8";
-  button 7   0 6 "Display7";
-  button 8   0 5 "Display6";
-  button 9   0 4 "Display5";
-  button 10   0 3 "Display4";
-  button 11   0 2 "Display3";
-  button 12   0 1 "Display2";
-  button 13   0 0 "Display1";
+  space    0 35; # Space 
+  dot1    0 43; # Dot1 
+  dot2    0 44; # Dot2 
+  dot3    0 45; # Dot3 
+  dot4    0 46; # Dot4 
+  dot5    0 47; # Dot5 
+  dot6    0 48; # Dot6 
+  dot7    0 49; # Dot7 
+  dot8    0 50; # Dot8 
+  button 1   0 51 "Up"; 
+  button 2   0 52 "Left"; 
+  button 3   0 53 "Down"; 
+  button 4   0 54 "Right"; 
+  button 5   0 55 "Press"; 
+  button 6   0 7 "Display8";   # brltty has no binding for this key
+  button 7   0 6 "Display7";   # brltty has no binding for this key
+  button 8   0 5 "Display6"; 
+  button 9   0 4 "Display5"; 
+  button 10   0 3 "Display4"; 
+  button 11   0 2 "Display3"; 
+  button 12   0 1 "Display2"; 
+  button 13   0 0 "Display1"; 
 }

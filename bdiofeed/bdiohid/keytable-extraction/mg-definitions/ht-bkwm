@@ -1,16 +1,19 @@
+# Display definition for HandyTech : Bookworm
+
+
 ttydriver    "HandyTech"
 ttymodel     "bkwm"
 ttycode      "ht"
 manufacturer "HandyTech"
-model        "Bkwm"
+model        "Bookworm"
 
 display {
   row {
     cells 8;
   }
 
-  button 1   0 1 "Backward";
-  button 2   0 8 "Forward";
-  button 3   0 2 "Escape";
-  button 4   0 4 "Enter";
+  button 1   0 1 "Backward"; 
+  button 2   0 8 "Forward"; 
+  button 3   0 2 "Escape"; 
+  button 4   0 4 "Enter"; 
 }

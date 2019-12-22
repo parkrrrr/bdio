@@ -1,8 +1,15 @@
+# Display definition for Alva : ABT 380 / Delphi 480
+
+# The two long keys are named Left and Right.
+# The small keys immediately to their left and right are named Up and Down.
+# The three small keys at the left are named Prog, Home, and Cursor.
+# The three small keys at the right are named Cursor2, Home2, and Prog2.
+
 ttydriver    "Alva"
 ttymodel     "abt_large"
 ttycode      "al"
 manufacturer "Alva"
-model        "Abt_large"
+model        "ABT 380 / Delphi 480"
 
 display {
   row {
@@ -12,20 +19,20 @@ display {
     }
   }
 
-  button 1   0 1 "Prog";
-  button 2   0 2 "Home";
-  button 3   0 3 "Cursor";
-  button 4   0 4 "Up";
-  button 5   0 5 "Left";
-  button 6   0 6 "Right";
-  button 7   0 7 "Down";
-  button 8   0 8 "Cursor2";
-  button 9   0 9 "Home2";
-  button 10   0 10 "Prog2";
-  button 11   0 15 "Status1A";
-  button 12   0 16 "Status1B";
-  button 13   0 17 "Status1C";
-  button 14   0 18 "Status1D";
-  button 15   0 19 "Status1E";
-  button 16   0 20 "Status1F";
+  button 1   0 1 "Prog"; 
+  button 2   0 2 "Home"; 
+  button 3   0 3 "Cursor"; 
+  button 4   0 4 "Up"; 
+  button 5   0 5 "Left"; 
+  button 6   0 6 "Right"; 
+  button 7   0 7 "Down"; 
+  button 8   0 8 "Cursor2";   # brltty has no binding for this key
+  button 9   0 9 "Home2";   # brltty has no binding for this key
+  button 10   0 10 "Prog2";   # brltty has no binding for this key
+  button 11   0 15 "Status1A"; 
+  button 12   0 16 "Status1B"; 
+  button 13   0 17 "Status1C"; 
+  button 14   0 18 "Status1D";   # brltty has no binding for this key
+  button 15   0 19 "Status1E";   # brltty has no binding for this key
+  button 16   0 20 "Status1F";   # brltty has no binding for this key
 }

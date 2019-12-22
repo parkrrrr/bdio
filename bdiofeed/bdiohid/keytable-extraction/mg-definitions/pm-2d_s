@@ -1,8 +1,19 @@
+# Display definition for Papenmeier : BrailleX 2D Screen Soft
+
+# There are 13 keys on the front.
+# * The rectangular key at the center is named Shift.
+# * The square keys immediately to its left and right are named Home and End.
+# * The left and right bars are named Up and Down.
+# * The four square keys at the very left are named: Dot7, Dot3, Dot2, Dot1.
+# * The four square keys at the very right are named: Dot4, Dot5, Dot6, Dot8.
+# RoutingKey1 refers to the row of keys just behind the text cells.
+# The keys to the left of the status cells are named Status.1 through Status.22.
+
 ttydriver    "Papenmeier"
 ttymodel     "2d_s"
 ttycode      "pm"
 manufacturer "Papenmeier"
-model        "2d_s"
+model        "BrailleX 2D Screen Soft"
 
 display {
   row {
@@ -12,18 +23,18 @@ display {
     }
   }
 
-  dot7   3 0; # Dot7
-  dot3   3 1; # Dot3
-  dot2   3 2; # Dot2
-  dot1   3 3; # Dot1
-  button 1   3 4 "Up";
-  button 2   3 5 "Home";
-  button 3   3 6 "Shift";
-  button 4   3 7 "End";
-  button 5   3 8 "Down";
-  dot4   3 9; # Dot4
-  dot5   3 10; # Dot5
-  dot6   3 11; # Dot6
-  dot8   3 12; # Dot8
-  # unrecognized group 6 named "Status"
+  dot7    3 0; # Dot7 
+  dot3    3 1; # Dot3 
+  dot2    3 2; # Dot2 
+  dot1    3 3; # Dot1 
+  button 1   3 4 "Up"; 
+  button 2   3 5 "Home"; 
+  button 3   3 6 "Shift"; 
+  button 4   3 7 "End"; 
+  button 5   3 8 "Down"; 
+  dot4    3 9; # Dot4 
+  dot5    3 10; # Dot5 
+  dot6    3 11; # Dot6 
+  dot8    3 12; # Dot8 
+  # unrecognized group 6 named "Status"   # brltty has no binding for this key
 }

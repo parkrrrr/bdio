@@ -1,3 +1,26 @@
+# Display definition for EuroBraille : Esytime
+
+# The eight dot keys of the braille keyboard are behind the cursor routing keys.
+# From left to right, they are: Dot7, Dot3, Dot2, Dot1, Dot4, Dot5, Dot6, Dot8.
+# The two keys of the braille keyboard in front of the braille cells, from left to right, are: Backspace, Space.
+# The cursor routing keys are the small, round buttons just behind the braille cells.
+# RoutingKey1 means pressing a cursor routing key once (a single click).
+# RoutingKey2 means pressing a cursor routing key twice quickly (a double click).
+# The four keys below the left joystick, from top to bottom, are:
+# * L1, Escape, Tab, Shift.
+# The four keys below the right joystick, from top to bottom, are:
+# * L8, Insert, Alt, Control.
+# Some key combinations have been reserved for internal use:
+# + LeftJoystickDown: the Alt key
+# + LeftJoystickPress: the Alt key pressed twice in a row
+# + LeftJoystickDown + RightJoystick(Right/Left): enable/disable braille functions
+# + LeftJoystickDown + RightJoystick(Up/Down): switch to internal/external (Esytime/PC) USB interface
+# + LeftJoystickDown + L1 + Escape: switch to single-hand braille keyboard 1
+# + LeftJoystickDown + Shift + Tab: switch to single-hand braille keyboard 2
+# + LeftJoystickDown + Insert + L8: switch to standard (two-hand) braille keyboard
+# + RightJoystickPress: the Enter key
+# + RightJoystick(left/right/up/down): the Arrow Left/Right/Up/Down key
+
 ttydriver    "EuroBraille"
 ttymodel     "esytime"
 ttycode      "eu"
@@ -15,32 +38,38 @@ display {
     }
   }
 
-  button 1   2 19 "LeftJoystickLeft";
-  button 2   2 18 "LeftJoystickRight";
-  button 3   2 16 "LeftJoystickUp";
-  button 4   2 17 "LeftJoystickDown";
-  button 5   2 20 "LeftJoystickPress";
-  button 6   2 27 "RightJoystickLeft";
-  button 7   2 26 "RightJoystickRight";
-  button 8   2 24 "RightJoystickUp";
-  button 9   2 25 "RightJoystickDown";
-  button 10   2 28 "RightJoystickPress";
-  button 11   2 0 "L1";
-  button 12   2 1 "L2";
-  button 13   2 2 "L3";
-  button 14   2 3 "L4";
-  button 15   2 4 "L5";
-  button 16   2 5 "L6";
-  button 17   2 6 "L7";
-  button 18   2 7 "L8";
-  dot1   3 0; # Dot1
-  dot2   3 1; # Dot2
-  dot3   3 2; # Dot3
-  dot4   3 3; # Dot4
-  dot5   3 4; # Dot5
-  dot6   3 5; # Dot6
-  dot7   3 6; # Dot7
-  dot8   3 7; # Dot8
-  button 19   3 8 "Backspace";
-  space   3 9; # Space
+  left {
+    jleft    2 19; # LeftJoystickLeft 
+    jright    2 18; # LeftJoystickRight 
+    jup    2 16; # LeftJoystickUp 
+    jdown    2 17; # LeftJoystickDown 
+    jcenter    2 20; # LeftJoystickPress 
+  }
+
+  right {
+    jleft    2 27; # RightJoystickLeft 
+    jright    2 26; # RightJoystickRight 
+    jup    2 24; # RightJoystickUp 
+    jdown    2 25; # RightJoystickDown 
+    jcenter    2 28; # RightJoystickPress 
+  }
+
+  button 1   2 0 "L1"; 
+  button 2   2 1 "L2";   # brltty has no binding for this key
+  button 3   2 2 "L3";   # brltty has no binding for this key
+  button 4   2 3 "L4";   # brltty has no binding for this key
+  button 5   2 4 "L5";   # brltty has no binding for this key
+  button 6   2 5 "L6";   # brltty has no binding for this key
+  button 7   2 6 "L7";   # brltty has no binding for this key
+  button 8   2 7 "L8"; 
+  dot1    3 0; # Dot1 
+  dot2    3 1; # Dot2 
+  dot3    3 2; # Dot3 
+  dot4    3 3; # Dot4 
+  dot5    3 4; # Dot5 
+  dot6    3 5; # Dot6 
+  dot7    3 6; # Dot7 
+  dot8    3 7; # Dot8 
+  button 9   3 8 "Backspace"; 
+  space    3 9; # Space 
 }

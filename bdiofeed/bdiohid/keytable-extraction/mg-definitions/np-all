@@ -1,8 +1,11 @@
+# Display definition for NinePoint : NinePoint
+
+
 ttydriver    "NinePoint"
 ttymodel     "all"
 ttycode      "np"
 manufacturer "NinePoint"
-model        "All"
+model        "NinePoint"
 
 display {
   row {
@@ -12,21 +15,21 @@ display {
     }
   }
 
-  button 1   0 65 "Brl1";
-  button 2   0 66 "Brl2";
-  button 3   0 67 "Brl3";
-  button 4   0 68 "Brl4";
-  button 5   0 69 "Brl5";
-  button 6   0 70 "Brl6";
-  button 7   0 71 "Brl7";
-  button 8   0 72 "Brl8";
-  button 9   0 73 "Enter";
-  space   0 74; # Space
-  button 10   0 75 "PadCenter";
-  button 11   0 76 "PadLeft";
-  button 12   0 77 "PadRight";
-  button 13   0 81 "PadUp";
-  button 14   0 83 "PadDown";
-  button 15   0 85 "NavLeft";
-  button 16   0 82 "NavRight";
+  dot4    0 65; # Brl1 
+  dot5    0 66; # Brl2 
+  dot6    0 67; # Brl3 
+  dot8    0 68; # Brl4 
+  dot7    0 69; # Brl5 
+  dot3    0 70; # Brl6 
+  dot2    0 71; # Brl7 
+  dot1    0 72; # Brl8 
+  button 1   0 73 "Enter"; 
+  space    0 74; # Space 
+  dcenter    0 75; # PadCenter 
+  dleft    0 76; # PadLeft 
+  dright    0 77; # PadRight 
+  dup    0 81; # PadUp 
+  ddown    0 83; # PadDown 
+  button 2   0 85 "NavLeft"; 
+  button 3   0 82 "NavRight"; 
 }

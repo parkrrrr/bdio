@@ -1,8 +1,16 @@
+# Display definition for HandyTech : Modular
+
+# The 16-key pad is arranged in four columns and four rows.
+# * The keys in the first (top) row are named: B9, One, Two, Three.
+# * The keys in the second row are named: B10, Four, Five, Six.
+# * The keys in the third row are named: B11, Seven, Eight, Nine.
+# * The keys in the fourth (bottom) row are named: B12, B13, Zero, B14.
+
 ttydriver    "HandyTech"
 ttymodel     "mdlr"
 ttycode      "ht"
 manufacturer "HandyTech"
-model        "Mdlr"
+model        "Modular"
 
 display {
   row {
@@ -12,34 +20,34 @@ display {
     }
   }
 
-  button 1   0 3 "B1";
-  button 2   0 7 "B2";
-  button 3   0 11 "B3";
-  button 4   0 15 "B4";
-  button 5   0 19 "B5";
-  button 6   0 23 "B6";
-  button 7   0 27 "B7";
-  button 8   0 31 "B8";
-  button 9   0 1 "B12";
-  button 10   0 5 "Zero";
-  button 11   0 9 "B13";
-  button 12   0 13 "B14";
-  button 13   0 17 "B11";
-  button 14   0 21 "One";
-  button 15   0 25 "Two";
-  button 16   0 29 "Three";
-  button 17   0 2 "B10";
-  button 18   0 6 "Four";
-  button 19   0 10 "Five";
-  button 20   0 14 "Six";
-  button 21   0 18 "B9";
-  button 22   0 22 "Seven";
-  button 23   0 26 "Eight";
-  button 24   0 30 "Nine";
-  button 25   0 4 "Left";
-  button 26   0 8 "Right";
-  button 27   0 112 "Status1";
-  button 28   0 113 "Status2";
-  button 29   0 114 "Status3";
-  button 30   0 115 "Status4";
+  button 1   0 3 "B1"; 
+  button 2   0 7 "B2"; 
+  button 3   0 11 "B3"; 
+  button 4   0 15 "B4"; 
+  button 5   0 19 "B5"; 
+  button 6   0 23 "B6"; 
+  button 7   0 27 "B7"; 
+  button 8   0 31 "B8"; 
+  button 9   0 1 "B12"; 
+  button 10   0 5 "Zero"; 
+  button 11   0 9 "B13"; 
+  button 12   0 13 "B14"; 
+  button 13   0 17 "B11"; 
+  button 14   0 21 "One"; 
+  button 15   0 25 "Two"; 
+  button 16   0 29 "Three"; 
+  button 17   0 2 "B10"; 
+  button 18   0 6 "Four"; 
+  button 19   0 10 "Five"; 
+  button 20   0 14 "Six"; 
+  button 21   0 18 "B9"; 
+  button 22   0 22 "Seven"; 
+  button 23   0 26 "Eight"; 
+  button 24   0 30 "Nine"; 
+  button 25   0 4 "Left"; 
+  button 26   0 8 "Right"; 
+  button 27   0 112 "Status1"; 
+  button 28   0 113 "Status2"; 
+  button 29   0 114 "Status3"; 
+  button 30   0 115 "Status4"; 
 }

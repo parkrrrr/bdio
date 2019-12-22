@@ -1,8 +1,13 @@
+# Display definition for Papenmeier : BrailleX 2D Lite (plus)
+
+# RoutingKey1 refers to the row of keys just behind the text cells.
+# The keys to the left of the status cells are named Status.1 through Status.13.
+
 ttydriver    "Papenmeier"
 ttymodel     "2d_l"
 ttycode      "pm"
 manufacturer "Papenmeier"
-model        "2d_l"
+model        "BrailleX 2D Lite (plus)"
 
 display {
   row {
@@ -12,14 +17,14 @@ display {
     }
   }
 
-  button 1   3 0 "Function";
-  button 2   3 1 "Cursor";
-  button 3   3 2 "Backward";
-  button 4   3 3 "Up";
-  button 5   3 4 "Home";
-  button 6   3 5 "Down";
-  button 7   3 6 "Forward";
-  button 8   3 7 "Braille";
-  button 9   3 8 "Attribute";
-  # unrecognized group 6 named "Status"
+  button 1   3 0 "Function"; 
+  button 2   3 1 "Cursor"; 
+  button 3   3 2 "Backward"; 
+  button 4   3 3 "Up"; 
+  button 5   3 4 "Home"; 
+  button 6   3 5 "Down"; 
+  button 7   3 6 "Forward"; 
+  button 8   3 7 "Braille"; 
+  button 9   3 8 "Attribute"; 
+  # unrecognized group 6 named "Status"   # brltty has no binding for this key
 }

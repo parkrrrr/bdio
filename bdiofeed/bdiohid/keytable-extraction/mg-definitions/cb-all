@@ -1,8 +1,11 @@
+# Display definition for CombiBraille : CombiBraille
+
+
 ttydriver    "CombiBraille"
 ttymodel     "all"
 ttycode      "cb"
 manufacturer "CombiBraille"
-model        "All"
+model        "CombiBraille"
 
 display {
   row {
@@ -12,21 +15,21 @@ display {
     }
   }
 
-  dot1   0 4; # Dot1
-  dot2   0 5; # Dot2
-  dot3   0 6; # Dot3
-  dot4   0 3; # Dot4
-  dot5   0 2; # Dot5
-  dot6   0 1; # Dot6
-  button 1   0 7 "Thumb1";
-  button 2   0 8 "Thumb2";
-  button 3   0 9 "Thumb3";
-  button 4   0 10 "Thumb4";
-  button 5   0 11 "Thumb5";
-  button 6   0 12 "Status1";
-  button 7   0 13 "Status2";
-  button 8   0 14 "Status3";
-  button 9   0 15 "Status4";
-  button 10   0 16 "Status5";
-  button 11   0 17 "Status6";
+  dot1   0 4; # Dot1 
+  dot2   0 5; # Dot2 
+  dot3   0 6; # Dot3 
+  dot4   0 3; # Dot4 
+  dot5   0 2; # Dot5 
+  dot6   0 1; # Dot6 
+  button 1   0 7 "Thumb1"; 
+  button 2   0 8 "Thumb2"; 
+  button 3   0 9 "Thumb3"; 
+  button 4   0 10 "Thumb4"; 
+  button 5   0 11 "Thumb5"; 
+  button 6   0 12 "Status1"; 
+  button 7   0 13 "Status2"; 
+  button 8   0 14 "Status3"; 
+  button 9   0 15 "Status4"; 
+  button 10   0 16 "Status5"; 
+  button 11   0 17 "Status6"; 
 }

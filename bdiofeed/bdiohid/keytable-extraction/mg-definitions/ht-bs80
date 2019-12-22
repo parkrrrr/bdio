@@ -1,8 +1,16 @@
+# Display definition for HandyTech : Braille Star 80
+
+# The 16-key pad is arranged in four columns and four rows.
+# * The keys in the first (top) row are named: B9, One, Two, Three.
+# * The keys in the second row are named: B10, Four, Five, Six.
+# * The keys in the third row are named: B11, Seven, Eight, Nine.
+# * The keys in the fourth (bottom) row are named: B12, B13, Zero, B14.
+
 ttydriver    "HandyTech"
 ttymodel     "bs80"
 ttycode      "ht"
 manufacturer "HandyTech"
-model        "Bs80"
+model        "Braille Star 80"
 
 display {
   row {
@@ -12,34 +20,40 @@ display {
     }
   }
 
-  button 1   0 3 "B1";
-  button 2   0 7 "B2";
-  button 3   0 11 "B3";
-  button 4   0 15 "B4";
-  button 5   0 19 "B5";
-  button 6   0 23 "B6";
-  button 7   0 27 "B7";
-  button 8   0 31 "B8";
-  button 9   0 12 "LeftRockerTop";
-  button 10   0 20 "LeftRockerBottom";
-  button 11   0 4 "RightRockerTop";
-  button 12   0 8 "RightRockerBottom";
-  button 13   0 1 "B12";
-  button 14   0 5 "Zero";
-  button 15   0 9 "B13";
-  button 16   0 13 "B14";
-  button 17   0 17 "B11";
-  button 18   0 21 "One";
-  button 19   0 25 "Two";
-  button 20   0 29 "Three";
-  button 21   0 2 "B10";
-  button 22   0 6 "Four";
-  button 23   0 10 "Five";
-  button 24   0 14 "Six";
-  button 25   0 18 "B9";
-  button 26   0 22 "Seven";
-  button 27   0 26 "Eight";
-  button 28   0 30 "Nine";
-  lspace   0 16; # SpaceLeft
-  rspace   0 24; # SpaceRight
+  left {
+    rtop    0 12; # LeftRockerTop 
+    rbottom    0 20; # LeftRockerBottom 
+  }
+
+  right {
+    rtop    0 4; # RightRockerTop 
+    rbottom    0 8; # RightRockerBottom 
+  }
+
+  dot7    0 3; # B1 
+  dot3    0 7; # B2 
+  dot2    0 11; # B3 
+  dot1    0 15; # B4 
+  dot4    0 19; # B5 
+  dot5    0 23; # B6 
+  dot6    0 27; # B7 
+  dot8    0 31; # B8 
+  button 1   0 1 "B12"; 
+  button 2   0 5 "Zero"; 
+  button 3   0 9 "B13"; 
+  button 4   0 13 "B14"; 
+  button 5   0 17 "B11"; 
+  button 6   0 21 "One"; 
+  button 7   0 25 "Two"; 
+  button 8   0 29 "Three"; 
+  button 9   0 2 "B10"; 
+  button 10   0 6 "Four"; 
+  button 11   0 10 "Five"; 
+  button 12   0 14 "Six"; 
+  button 13   0 18 "B9"; 
+  button 14   0 22 "Seven"; 
+  button 15   0 26 "Eight"; 
+  button 16   0 30 "Nine"; 
+  lspace   0 16; # SpaceLeft 
+  rspace   0 24; # SpaceRight 
 }

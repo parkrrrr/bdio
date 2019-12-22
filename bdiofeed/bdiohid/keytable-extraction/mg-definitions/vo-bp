@@ -1,8 +1,11 @@
+# Display definition for Voyager : Braille Pen 12
+
+
 ttydriver    "Voyager"
 ttymodel     "bp"
 ttycode      "vo"
 manufacturer "Voyager"
-model        "Bp"
+model        "Braille Pen 12"
 
 display {
   row {
@@ -12,20 +15,20 @@ display {
     }
   }
 
-  dot1   0 0; # Dot1
-  dot2   0 1; # Dot2
-  dot3   0 2; # Dot3
-  dot4   0 3; # Dot4
-  dot5   0 4; # Dot5
-  dot6   0 5; # Dot6
-  button 1   0 6 "Shift";
-  space   0 14; # Space
-  button 2   0 7 "Control";
-  button 3   0 9 "JoystickEnter";
-  button 4   0 10 "JoystickLeft";
-  button 5   0 13 "JoystickRight";
-  button 6   0 11 "JoystickUp";
-  button 7   0 12 "JoystickDown";
-  button 8   0 8 "ScrollLeft";
-  button 9   0 15 "ScrollRight";
+  dot1   0 0; # Dot1   # brltty has no binding for this key
+  dot2   0 1; # Dot2   # brltty has no binding for this key
+  dot3   0 2; # Dot3   # brltty has no binding for this key
+  dot4   0 3; # Dot4   # brltty has no binding for this key
+  dot5   0 4; # Dot5   # brltty has no binding for this key
+  dot6   0 5; # Dot6   # brltty has no binding for this key
+  button 1   0 6 "Shift";   # brltty has no binding for this key
+  space   0 14; # Space   # brltty has no binding for this key
+  button 2   0 7 "Control";   # brltty has no binding for this key
+  jenter    0 9; # JoystickEnter   # brltty has no binding for this key
+  jleft    0 10; # JoystickLeft   # brltty has no binding for this key
+  jright    0 13; # JoystickRight   # brltty has no binding for this key
+  jup    0 11; # JoystickUp   # brltty has no binding for this key
+  jdown    0 12; # JoystickDown   # brltty has no binding for this key
+  button 3   0 8 "ScrollLeft";   # brltty has no binding for this key
+  button 4   0 15 "ScrollRight";   # brltty has no binding for this key
 }

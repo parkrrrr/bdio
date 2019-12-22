@@ -1,8 +1,11 @@
+# Display definition for Metec : BD I (with 3 keys and status cells)
+
+
 ttydriver    "Metec"
 ttymodel     "bd1_3s"
 ttycode      "mt"
 manufacturer "Metec"
-model        "Bd1_3s"
+model        "BD I (with 3 keys and status cells)"
 
 display {
   row {
@@ -12,8 +15,8 @@ display {
     }
   }
 
-  button 1   0 6 "Up";
-  button 2   0 4 "Select";
-  button 3   0 2 "Down";
-  # unrecognized group 2 named "StatusKey"
+  button 1   0 6 "Up"; 
+  button 2   0 4 "Select"; 
+  button 3   0 2 "Down"; 
+  # unrecognized group 2 named "StatusKey"   # brltty has no binding for this key
 }

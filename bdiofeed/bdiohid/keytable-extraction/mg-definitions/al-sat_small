@@ -1,8 +1,17 @@
+# Display definition for Alva : Satellite 544
+
+# The keypads at either side of the top are named LeftPad and RightPad.
+# * The four inner keys of each are subnamed Left, Right, Up, and Down.
+# * The two outer keys of each are subnamed F1 and F2.
+# The two long, flat keys are named Up and Down.
+# The two long, bent keys are named Left and Right.
+# The two round keys are named Home and Cursor.
+
 ttydriver    "Alva"
 ttymodel     "sat_small"
 ttycode      "al"
 manufacturer "Alva"
-model        "Sat_small"
+model        "Satellite 544"
 
 display {
   row {
@@ -15,34 +24,40 @@ display {
     }
   }
 
-  button 1   0 2 "Home";
-  button 2   0 3 "Cursor";
-  button 3   0 4 "Up";
-  button 4   0 5 "Left";
-  button 5   0 6 "Right";
-  button 6   0 7 "Down";
-  button 7   0 27 "LeftPadF1";
-  button 8   0 28 "LeftPadUp";
-  button 9   0 29 "LeftPadLeft";
-  button 10   0 30 "LeftPadDown";
-  button 11   0 31 "LeftPadRight";
-  button 12   0 32 "LeftPadF2";
-  button 13   0 33 "RightPadF1";
-  button 14   0 34 "RightPadUp";
-  button 15   0 35 "RightPadLeft";
-  button 16   0 36 "RightPadDown";
-  button 17   0 37 "RightPadRight";
-  button 18   0 38 "RightPadF2";
-  button 19   0 15 "Status1A";
-  button 20   0 16 "Status1B";
-  button 21   0 17 "Status1C";
-  button 22   0 18 "Status1D";
-  button 23   0 19 "Status1E";
-  button 24   0 20 "Status1F";
-  button 25   0 21 "Status2A";
-  button 26   0 22 "Status2B";
-  button 27   0 23 "Status2C";
-  button 28   0 24 "Status2D";
-  button 29   0 25 "Status2E";
-  button 30   0 26 "Status2F";
+  left {
+    df1    0 27; # LeftPadF1 
+    dup    0 28; # LeftPadUp 
+    dleft    0 29; # LeftPadLeft 
+    ddown    0 30; # LeftPadDown 
+    dright    0 31; # LeftPadRight 
+    df2    0 32; # LeftPadF2 
+  }
+
+  right {
+    df1    0 33; # RightPadF1 
+    dup    0 34; # RightPadUp 
+    dleft    0 35; # RightPadLeft 
+    ddown    0 36; # RightPadDown 
+    dright    0 37; # RightPadRight 
+    df2    0 38; # RightPadF2 
+  }
+
+  button 1   0 2 "Home"; 
+  button 2   0 3 "Cursor"; 
+  button 3   0 4 "Up"; 
+  button 4   0 5 "Left"; 
+  button 5   0 6 "Right"; 
+  button 6   0 7 "Down"; 
+  button 7   0 15 "Status1A"; 
+  button 8   0 16 "Status1B"; 
+  button 9   0 17 "Status1C"; 
+  button 10   0 18 "Status1D";   # brltty has no binding for this key
+  button 11   0 19 "Status1E";   # brltty has no binding for this key
+  button 12   0 20 "Status1F";   # brltty has no binding for this key
+  button 13   0 21 "Status2A"; 
+  button 14   0 22 "Status2B"; 
+  button 15   0 23 "Status2C"; 
+  button 16   0 24 "Status2D";   # brltty has no binding for this key
+  button 17   0 25 "Status2E";   # brltty has no binding for this key
+  button 18   0 26 "Status2F";   # brltty has no binding for this key
 }

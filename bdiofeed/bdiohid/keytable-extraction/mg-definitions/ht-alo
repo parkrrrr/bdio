@@ -1,8 +1,11 @@
+# Display definition for HandyTech : Actilino
+
+
 ttydriver    "HandyTech"
 ttymodel     "alo"
 ttycode      "ht"
 manufacturer "HandyTech"
-model        "Alo"
+model        "Actilino"
 
 display {
   row {
@@ -12,23 +15,29 @@ display {
     }
   }
 
-  button 1   0 3 "B1";
-  button 2   0 7 "B2";
-  button 3   0 11 "B3";
-  button 4   0 15 "B4";
-  button 5   0 19 "B5";
-  button 6   0 23 "B6";
-  button 7   0 27 "B7";
-  button 8   0 31 "B8";
-  button 9   0 12 "LeftRockerTop";
-  button 10   0 20 "LeftRockerBottom";
-  button 11   0 4 "RightRockerTop";
-  button 12   0 8 "RightRockerBottom";
-  lspace   0 16; # SpaceLeft
-  rspace   0 24; # SpaceRight
-  button 13   0 116 "Left";
-  button 14   0 117 "Right";
-  button 15   0 118 "Up";
-  button 16   0 119 "Down";
-  button 17   0 120 "Action";
+  left {
+    rtop    0 12; # LeftRockerTop 
+    rbottom    0 20; # LeftRockerBottom 
+  }
+
+  right {
+    rtop    0 4; # RightRockerTop 
+    rbottom    0 8; # RightRockerBottom 
+  }
+
+  dot7    0 3; # B1 
+  dot3    0 7; # B2 
+  dot2    0 11; # B3 
+  dot1    0 15; # B4 
+  dot4    0 19; # B5 
+  dot5    0 23; # B6 
+  dot6    0 27; # B7 
+  dot8    0 31; # B8 
+  lspace   0 16; # SpaceLeft 
+  rspace   0 24; # SpaceRight 
+  button 1   0 116 "Left"; 
+  button 2   0 117 "Right"; 
+  button 3   0 118 "Up"; 
+  button 4   0 119 "Down"; 
+  button 5   0 120 "Action"; 
 }

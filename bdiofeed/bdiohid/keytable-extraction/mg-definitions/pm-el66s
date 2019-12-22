@@ -1,8 +1,13 @@
+# Display definition for Papenmeier : BrailleX EL66s
+
+# The long key on the front is the Easy Access Bar.
+# RoutingKey1 refers to the row of keys just behind the text cells.
+
 ttydriver    "Papenmeier"
 ttymodel     "el66s"
 ttycode      "pm"
 manufacturer "Papenmeier"
-model        "El66s"
+model        "BrailleX EL66s"
 
 display {
   row {
@@ -15,16 +20,22 @@ display {
     }
   }
 
-  button 1   0 0 "BarLeft1";
-  button 2   0 1 "BarLeft2";
-  button 3   0 4 "BarRight1";
-  button 4   0 5 "BarRight2";
-  button 5   0 2 "BarUp1";
-  button 6   0 3 "BarUp2";
-  button 7   0 6 "BarDown1";
-  button 8   0 7 "BarDown2";
-  button 9   1 2 "LeftKeyRear";
-  button 10   1 3 "LeftKeyFront";
-  button 11   1 4 "RightKeyRear";
-  button 12   1 5 "RightKeyFront";
+  left {
+    button 1   1 2 "LeftKeyRear"; 
+    button 2   1 3 "LeftKeyFront"; 
+  }
+
+  right {
+    button 3   1 4 "RightKeyRear";   # brltty has no binding for this key
+    button 4   1 5 "RightKeyFront";   # brltty has no binding for this key
+  }
+
+  button 5   0 0 "BarLeft1"; 
+  button 6   0 1 "BarLeft2"; 
+  button 7   0 4 "BarRight1"; 
+  button 8   0 5 "BarRight2"; 
+  button 9   0 2 "BarUp1"; 
+  button 10   0 3 "BarUp2"; 
+  button 11   0 6 "BarDown1"; 
+  button 12   0 7 "BarDown2"; 
 }

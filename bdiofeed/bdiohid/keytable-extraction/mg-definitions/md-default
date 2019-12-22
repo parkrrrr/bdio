@@ -1,8 +1,19 @@
+# Display definition for MDV : (unrecognized model - all keys defined)
+
+# RoutingKey refers to any of the keys immediately behind the text cells.
+# The long key in the center of the front surface is named Shift.
+# * The two round keys to its left, from left to right, are named: Left, Up.
+# * The two round keys to its right, from left to right, are named: Down, Right.
+# There are five square keys at each end of the front surface.
+# * The ones at the left, from left to right, are named: F5, F4, F3, F2, F1.
+# * The ones at the right, from left to right, are named: F6, F7, F8, F9, F10.
+# StatusKey refers to any of the keys immediately behind the status cells.
+
 ttydriver    "MDV"
 ttymodel     "default"
 ttycode      "md"
 manufacturer "MDV"
-model        "Default"
+model        "(unrecognized model - all keys defined)"
 
 display {
   row {
@@ -12,30 +23,30 @@ display {
     }
   }
 
-  button 1   0 11 "Left";
-  button 2   0 12 "Up";
-  button 3   0 13 "Right";
-  button 4   0 14 "Down";
-  button 5   0 16 "Shift";
-  button 6   0 32 "Long";
-  dot1   1 0; # Dot1
-  dot2   1 1; # Dot2
-  dot3   1 2; # Dot3
-  dot4   1 3; # Dot4
-  dot5   1 4; # Dot5
-  dot6   1 5; # Dot6
-  dot7   1 6; # Dot7
-  dot8   1 7; # Dot8
-  space   1 8; # Space
-  button 7   0 1 "F1";
-  button 8   0 2 "F2";
-  button 9   0 3 "F3";
-  button 10   0 4 "F4";
-  button 11   0 5 "F5";
-  button 12   0 6 "F6";
-  button 13   0 7 "F7";
-  button 14   0 8 "F8";
-  button 15   0 9 "F9";
-  button 16   0 10 "F10";
-  # unrecognized group 3 named "StatusKey"
+  button 1   0 11 "Left"; 
+  button 2   0 12 "Up"; 
+  button 3   0 13 "Right"; 
+  button 4   0 14 "Down"; 
+  button 5   0 16 "Shift"; 
+  button 6   0 32 "Long"; 
+  dot1    1 0; # Dot1 
+  dot2    1 1; # Dot2 
+  dot3    1 2; # Dot3 
+  dot4    1 3; # Dot4 
+  dot5    1 4; # Dot5 
+  dot6    1 5; # Dot6 
+  dot7    1 6; # Dot7 
+  dot8    1 7; # Dot8 
+  space    1 8; # Space 
+  button 7   0 1 "F1"; 
+  button 8   0 2 "F2"; 
+  button 9   0 3 "F3"; 
+  button 10   0 4 "F4"; 
+  button 11   0 5 "F5"; 
+  button 12   0 6 "F6"; 
+  button 13   0 7 "F7"; 
+  button 14   0 8 "F8"; 
+  button 15   0 9 "F9"; 
+  button 16   0 10 "F10"; 
+  # unrecognized group 3 named "StatusKey"   # brltty has no binding for this key
 }

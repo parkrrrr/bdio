@@ -1,22 +1,30 @@
+# Display definition for TSI : Navigator 40
+
+# The keys of the four-key pad on the left are named:
+# CursorLeft, CursorRight, CursorUp, CursorDown.
+# The keys of the four-key pad on the right are named:
+# NavLeft, NavRight, NavUp, NavDown.
+# The keys in between the pads are named: ThumbLeft, ThumbRight.
+
 ttydriver    "TSI"
 ttymodel     "nav40"
 ttycode      "ts"
 manufacturer "TSI"
-model        "Nav40"
+model        "Navigator 40"
 
 display {
   row {
     cells 8;
   }
 
-  button 1   0 5 "CursorLeft";
-  button 2   0 7 "CursorRight";
-  button 3   0 6 "CursorUp";
-  button 4   0 8 "CursorDown";
-  button 5   0 0 "NavLeft";
-  button 6   0 2 "NavRight";
-  button 7   0 1 "NavUp";
-  button 8   0 3 "NavDown";
-  button 9   0 9 "ThumbLeft";
-  button 10   0 4 "ThumbRight";
+  button 1   0 5 "CursorLeft";   # brltty has no binding for this key
+  button 2   0 7 "CursorRight";   # brltty has no binding for this key
+  button 3   0 6 "CursorUp"; 
+  button 4   0 8 "CursorDown"; 
+  button 5   0 0 "NavLeft"; 
+  button 6   0 2 "NavRight"; 
+  button 7   0 1 "NavUp"; 
+  button 8   0 3 "NavDown"; 
+  button 9   0 9 "ThumbLeft"; 
+  button 10   0 4 "ThumbRight"; 
 }
