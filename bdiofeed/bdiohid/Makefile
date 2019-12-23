@@ -4,6 +4,7 @@ PKG_NAME:=bdiohid
 PKG_VERSION:=1.0
 PKG_RELEASE:=1
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
+MAKE_PATH:=src
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -28,18 +29,13 @@ define Package/bdiohid/install
 endef
 
 define Build/Compile
-	cd src; $(TARGET_CC) $(TARGET_CPPFLAGS) \
-	  -Iinclude \
-	  -Isqlitecpp/sqlite3 \
-	  -Isqlitecpp/include \
-	  -std=gnu++17 \
-	  -o $(PKG_BUILD_DIR)/bdiohid \
-	  *.cpp \
-	  sqlitecpp/src/*.cpp \
-	  sqlitecpp/sqlite3/sqlite3.c \
-	  $(TARGET_LDFLAGS) \
-	  -lstdc++ \
-	  -lbrlapi
+	$(MAKE) -C $(PKG_BUILD_DIR) \
+               CC="$(TARGET_CC)" \
+			  CXX="$(TARGET_CXX)" \
+           CFLAGS="$(TARGET_CFLAGS)" \
+	     CXXFLAGS="$(TARGET_CXXFLAGS)" \
+	     CPPFLAGS="$(TARGET_CPPFLAGS)" \
+          LDFLAGS="$(TARGET_LDFLAGS)"
 endef
 
 define Build/Install
