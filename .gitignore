@@ -2,3 +2,6 @@
 lost+found
 openwrt
 
+*.o
+maptodb
+

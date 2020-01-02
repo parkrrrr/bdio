@@ -55,13 +55,14 @@ int main(int argc, char** argv)
                 break;
 
             case '?':
-                std::cerr << R"**(
+                std::cerr << 
+R"**(
 Usage: maptodb <flags> <filename>...
 
 Flags:
 -c all | settings | smart | <driver> | <driver>/<model>
 -o <output-database>
-                )**";
+)**";
                 return 1;
         }
     }
@@ -78,43 +79,57 @@ Flags:
     }
 
     Reader reader;
-    for (const auto& name : filenames)
+    while (!filenames.empty())
     {
-        struct stat statResult;
-        if (!stat(name.c_str(), &statResult))
+        std::vector<std::string> newfilenames;
+
+        for (const auto& name : filenames)
         {
-            if (S_ISDIR(statResult.st_mode))
+            struct stat statResult;
+            if (!stat(name.c_str(), &statResult))
             {
-                auto dir = opendir(name.c_str());
-                if (dir)
+                if (S_ISDIR(statResult.st_mode))
                 {
-                    while (const auto entry = readdir(dir))
+                    auto dir = opendir(name.c_str());
+                    if (dir)
                     {
-                        filenames.push_back(entry->d_name);
+                        while (const auto entry = readdir(dir))
+                        {   
+                            // skip current/parent links, as well as any dotfiles.
+                            if (!entry->d_name || !entry->d_name[0] || entry->d_name[0] == '.')
+                            {
+                                continue;
+                            }
+                            std::cout << "extra file " << name << " " << entry->d_name << std::endl;
+                            newfilenames.push_back((name + "/") + entry->d_name);
+                        }
+                        closedir(dir);
                     }
-                    closedir(dir);
+                    std::cerr << "errno " << errno << std::endl;
                 }
-            }
-            else if (S_ISREG(statResult.st_mode))
-            {
-                if (name.find(".settings") != name.npos)
+                else if (S_ISREG(statResult.st_mode))
                 {
-                    std::cout << "Reading settings file \"" << name << "\"" << std::endl;
-                    if (!reader.ReadSettingsFile(name))
+                    if (name.find(".settings") != name.npos)
                     {
-                        return 1;
+                        std::cout << "Reading settings file \"" << name << "\"" << std::endl;
+                        if (!reader.ReadSettingsFile(name))
+                        {
+                            return 1;
+                        }
                     }
+                    else
+                    {
+                        std::cout << "Reading device file \"" << name << "\"" << std::endl;
+                        if (!reader.ReadDeviceFile(name))
+                        {
+                            return 1;
+                        }
+                    }                
                 }
-                else
-                {
-                    std::cout << "Reading device file \"" << name << "\"" << std::endl;
-                    if (!reader.ReadDeviceFile(name))
-                    {
-                        return 1;
-                    }
-                }                
             }
         }
+        filenames.clear();
+        filenames = std::move(newfilenames);
     }
     
     return 0;
