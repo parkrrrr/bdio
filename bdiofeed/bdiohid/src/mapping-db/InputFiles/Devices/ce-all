@@ -1,0 +1,53 @@
+# Display definition for Cebra : Cebra
+
+
+# RLP: This one is interesting. It's a modular display, so it can have lots of different configurations.
+# It also appears to have two rows of routers, but bdio can only support what brltty supports.
+
+# I have commented out the '2' versions of all of the keys. They would exist if you had two dpad/button 
+# modules attached. I will try to remember to revisit this config when I've added support for optional 
+# hardware.
+
+ttydriver    "Cebra"
+ttymodel     "all"
+ttycode      "ce"
+manufacturer "Cebra"
+model        "Cebra"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  left {
+    button 1   (0, 7) "LeftUpper1"; 
+    button 2   (0, 11) "LeftMiddle1"; 
+    button 3   (0, 27) "LeftLower1"; 
+#    button 4   (0, 22) "LeftUpper2";   # brltty has no binding for this key
+#    button 5   (0, 18) "LeftMiddle2";   # brltty has no binding for this key
+#    button 6   (0, 21) "LeftLower2";   # brltty has no binding for this key
+  }
+
+  right {
+    button 7   (0, 3) "RightUpper1"; 
+    button 8   (0, 23) "RightMiddle1"; 
+    button 9   (0, 31) "RightLower1"; 
+#    button 10   (0, 30) "RightUpper2";   # brltty has no binding for this key
+#    button 11   (0, 13) "RightMiddle2";   # brltty has no binding for this key
+#    button 12   (0, 29) "RightLower2";   # brltty has no binding for this key
+  }
+
+  dleft    (0, 12); # PadLeft1 
+  dup    (0, 15); # PadUp1 
+  dcenter    (0, 16); # PadCenter1 
+  ddown    (0, 19); # PadDown1 
+  dright    (0, 20); # PadRight1 
+#  dleft    (0, 6); # PadLeft2   # brltty has no binding for this key
+#  dup    (0, 26); # PadUp2   # brltty has no binding for this key
+#  dcenter    (0, 10); # PadCenter2   # brltty has no binding for this key
+#  ddown    (0, 25); # PadDown2   # brltty has no binding for this key
+#  dright    (0, 14); # PadRight2   # brltty has no binding for this key
+}

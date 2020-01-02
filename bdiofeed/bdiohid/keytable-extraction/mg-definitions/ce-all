@@ -16,31 +16,31 @@ display {
   }
 
   left {
-    button 1   0 7 "LeftUpper1"; 
-    button 2   0 11 "LeftMiddle1"; 
-    button 3   0 27 "LeftLower1"; 
-    button 4   0 22 "LeftUpper2";   # brltty has no binding for this key
-    button 5   0 18 "LeftMiddle2";   # brltty has no binding for this key
-    button 6   0 21 "LeftLower2";   # brltty has no binding for this key
+    button 1   (0, 7) "LeftUpper1"; 
+    button 2   (0, 11) "LeftMiddle1"; 
+    button 3   (0, 27) "LeftLower1"; 
+    button 4   (0, 22) "LeftUpper2";   # brltty has no binding for this key
+    button 5   (0, 18) "LeftMiddle2";   # brltty has no binding for this key
+    button 6   (0, 21) "LeftLower2";   # brltty has no binding for this key
   }
 
   right {
-    button 7   0 3 "RightUpper1"; 
-    button 8   0 23 "RightMiddle1"; 
-    button 9   0 31 "RightLower1"; 
-    button 10   0 30 "RightUpper2";   # brltty has no binding for this key
-    button 11   0 13 "RightMiddle2";   # brltty has no binding for this key
-    button 12   0 29 "RightLower2";   # brltty has no binding for this key
+    button 7   (0, 3) "RightUpper1"; 
+    button 8   (0, 23) "RightMiddle1"; 
+    button 9   (0, 31) "RightLower1"; 
+    button 10   (0, 30) "RightUpper2";   # brltty has no binding for this key
+    button 11   (0, 13) "RightMiddle2";   # brltty has no binding for this key
+    button 12   (0, 29) "RightLower2";   # brltty has no binding for this key
   }
 
-  dleft1    0 12; # PadLeft1 
-  dup1    0 15; # PadUp1 
-  dcenter1    0 16; # PadCenter1 
-  ddown1    0 19; # PadDown1 
-  dright1    0 20; # PadRight1 
-  dleft2    0 6; # PadLeft2   # brltty has no binding for this key
-  dup2    0 26; # PadUp2   # brltty has no binding for this key
-  dcenter2    0 10; # PadCenter2   # brltty has no binding for this key
-  ddown2    0 25; # PadDown2   # brltty has no binding for this key
-  dright2    0 14; # PadRight2   # brltty has no binding for this key
+  dleft1    (0, 12); # PadLeft1 
+  dup1    (0, 15); # PadUp1 
+  dcenter1    (0, 16); # PadCenter1 
+  ddown1    (0, 19); # PadDown1 
+  dright1    (0, 20); # PadRight1 
+  dleft2    (0, 6); # PadLeft2   # brltty has no binding for this key
+  dup2    (0, 26); # PadUp2   # brltty has no binding for this key
+  dcenter2    (0, 10); # PadCenter2   # brltty has no binding for this key
+  ddown2    (0, 25); # PadDown2   # brltty has no binding for this key
+  dright2    (0, 14); # PadRight2   # brltty has no binding for this key
 }

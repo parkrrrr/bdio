@@ -1,0 +1,38 @@
+# Display definition for HandyTech : Active Braille
+
+
+ttydriver    "HandyTech"
+ttymodel     "ab"
+ttycode      "ht"
+manufacturer "HandyTech"
+model        "Active Braille"
+
+display {
+  row {
+    cells 8;
+    router1 {
+      router   1;  # RoutingKey
+    }
+  }
+
+  left {
+    rup    (0, 12); # LeftRockerTop 
+    rdown    (0, 20); # LeftRockerBottom 
+  }
+
+  right {
+    rup    (0, 4); # RightRockerTop 
+    rdown    (0, 8); # RightRockerBottom 
+  }
+
+  dot7    (0, 3); # B1 
+  dot3    (0, 7); # B2 
+  dot2    (0, 11); # B3 
+  dot1    (0, 15); # B4 
+  dot4    (0, 19); # B5 
+  dot5    (0, 23); # B6 
+  dot6    (0, 27); # B7 
+  dot8    (0, 31); # B8 
+  lspace   (0, 16); # SpaceLeft 
+  rspace   (0, 24); # SpaceRight 
+}

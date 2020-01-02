@@ -32,7 +32,7 @@ The provided files are designed to work with a FriendlyArm NanoPi NEO. To build,
    glittery purple USB-to-MicroSD adapter I picked up at Office Depot for hardware, and [Balena Etcher](https://www.balena.io/etcher/) 
    for software. Use what you're comfortable with. (I would probably use Unix `dd`, but the Windows host autodetects the FAT 
    boot partition and tries to mount the drive, interfering with `dd`.)
-7. A compatible Braille display and the necessary hardware to plug it into a USB A port.
+7. A compatible Braille display and the necessary hardware to plug it into a USB A (host) port.
 8. A NanoPi NEO, of course. I recommend the 
    [NanoPi NEO Metal Basic Kit](https://www.friendlyarm.com/index.php?route=product/product&path=85&product_id=260). 
    This is a nice, compact implementation of the hardware that has everything you need for a clean, professional installation. 
@@ -41,7 +41,7 @@ If you intend to do development work, you may instead want to purchase the
 [NEO Core Starter Kit](https://www.friendlyarm.com/index.php?route=product/product&path=85&product_id=215), which comes with 
 the debugging module, additional USB ports, and support for an M.2 2242 SSD. Note, however, that the Micro USB connector on the 
 shield board does not support the required USB host functionality, so you will need to use the one on the NanoPi NEO Core board. 
-Depending on the USB Micro-B cable you use, the GPIO pins on the shield board may interfere somewhat with using that connector. 
+Depending on the USB Micro-B cable you use, the GPIO pins on the shield board may interfere with using that connector. 
 You may need to lift the Core board off of its mating pins somewhat, or desolder and remove the GPIO connector from the shield 
 board, as this project does not use it.
 
@@ -91,14 +91,14 @@ The current short-term road map for BDIOHID consists of the following (These are
 - ~~Make input less sluggish. I don't know how to do raw Linux file I/O, and it shows. Right now it can take a while for an input event
   from brltty to show up as a HID input report. Change the file I/O to use `boost::asio` because I know how to use that to do what 
   I'm trying to accomplish here.~~
-- Obtain and use a real PID from pid.codes. (PR submitted, but pid.codes is a volunteer organization with a long backlog, so we
-  must wait patiently for the PID to be assigned.)
+- Obtain and use a real PID from pid.codes. *(PR submitted, but pid.codes is a volunteer organization with a long backlog, so we*
+  *must wait patiently for the PID to be assigned.)*
 - Do whatever's necessary to make the process of configuring OpenWRT for the build easier and more flexible.
 - Create a developer configuration for OpenWRT including networking and `sshd` so that a developer can use the Ethernet port instead
   of the serial debugger interface.
-- Add support for more Braille hardware. At present, this means adding entries to `bdiofeed/bdiohid/files/CreateDatabase.sql` but 
+- ~~Add support for more Braille hardware. At present, this means adding entries to `bdiofeed/bdiohid/files/CreateDatabase.sql` but 
   I would also like to find a way to make that process easier. Some sort of configuration-building tool that could edit the control 
-  hierarchy in a visual form and then make the required entries in the SQL database would be ideal.
+  hierarchy in a visual form and then make the required entries in the SQL database would be ideal.~~
 - Add support for configurability. I envision this as a built-in http server which is accessed through a simulated USB Ethernet 
   adapter profile added to the existing USB Composite Gadget. At the very least, this must allow the user to choose brltty settings 
   to support hardware that brltty cannot autodetect. The NanoPi has more than enough power to also run DNS and DHCP servers on a 
@@ -106,8 +106,9 @@ The current short-term road map for BDIOHID consists of the following (These are
   to, e.g. `http://bdiohid/`. Because of some of the stuff on the next list, I would likely use `boost::beast`, built directly
   into the bdiohid executable, for the HTTP server.
 - Add support for additional hardware. At minimum, I would like to support some newer NanoPi hardware, especially the new NanoPi R1S,
-  but I would also like to see what it takes to support other openwrt-compatiable Linux SBCs with USB OTG ports such as the OrangePi 
-  Zero Plus.
+  but I would also like to see what it takes to support other openwrt-compatible Linux SBCs with USB OTG ports such as the OrangePi 
+  Zero Plus. *(I have purchased an OrangePi Zero and an OrangePi Zero Plus, as well a a NanoPi Duo2 and a NanoPi R1S. I have not yet*
+  *attempted to build this software for them.)*
   
 ## Where We're Going After That
   

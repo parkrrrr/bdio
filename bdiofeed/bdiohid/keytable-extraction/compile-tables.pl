@@ -199,31 +199,31 @@ sub WriteEntries
             }
             elsif ($name eq 'LeftSpace' || $name eq 'SpaceLeft')
             {
-                print $writeFile qq($in  lspace   $group $key; # $name $bindComment\n);
+                print $writeFile qq($in  lspace   ($group, $key); # $name $bindComment\n);
             }
             elsif ($name eq 'RightSpace' || $name eq 'SpaceRight')
             {
-                print $writeFile qq($in  rspace   $group $key; # $name $bindComment\n);
+                print $writeFile qq($in  rspace   ($group, $key); # $name $bindComment\n);
             }
             elsif ($mapping = MapName($name))
             {
-                print $writeFile qq($in  $mapping    $group $key; # $name $bindComment\n);
+                print $writeFile qq($in  $mapping    ($group, $key); # $name $bindComment\n);
             }
             elsif ($mapping = MapMovementKeys($name))
             {
-                print $writeFile qq($in  $mapping    $group $key; # $name $bindComment\n);
+                print $writeFile qq($in  $mapping    ($group, $key); # $name $bindComment\n);
             }
             elsif ($name =~ m/Dot(\d)/)
             {
-                print $writeFile qq($in  dot$1   $group $key; # $name $bindComment\n);
+                print $writeFile qq($in  dot$1   ($group, $key); # $name $bindComment\n);
             }
             elsif ($name eq 'Space')
             {
-                print $writeFile qq($in  space   $group $key; # $name $bindComment\n);
+                print $writeFile qq($in  space   ($group, $key); # $name $bindComment\n);
             }
             else
             {
-                print $writeFile qq($in  button $I   $group $key "$name"; $bindComment\n);
+                print $writeFile qq($in  button $I   ($group, $key) "$name"; $bindComment\n);
                 ++$I;
             }
         }

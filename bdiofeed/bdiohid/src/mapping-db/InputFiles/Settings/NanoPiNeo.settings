@@ -1,0 +1,8 @@
+# This file contains device settings for bdio running on a 
+# FriendlyArm NanoPi NEO. 
+
+settings {
+    configdir = "/sys/kernel/config";
+    udc = "musb-hdrc.1.auto";
+    devname = "/dev/hidg0";
+}
