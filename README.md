@@ -11,8 +11,6 @@ output to brltty output and brltty input to HID input on the fly.
 At present, BDIOHID is a proof of concept. It currently supports only one Braille display, the HIMS SyncBraille. However, 
 support for additional hardware that brltty can autodetect should be straightforward to add by merely adding records to `/etc/bdio.db`.
 
-**Important!** Currently, BDIOHID uses a **test** USB Product ID from [pid.codes](http://pid.codes). It is only suitable for development and testing work. Do not distribute hardware based on this VID/PID. 
-
 ## What You Need
 
 The provided files are designed to work with a FriendlyArm NanoPi NEO. To build, you will need the following:
@@ -20,7 +18,7 @@ The provided files are designed to work with a FriendlyArm NanoPi NEO. To build,
 1. A Unix-based computer configured to build [OpenWRT](https://openwrt.org/).
 2. [My branch of the OpenWRT project](https://github.com/parkrrrr/openwrt/tree/enable-udc), which has been modified to support 
    the NanoPi NEO USB host function. I should contribute this back to the OpenWRT project, but it is currently not very specific 
-   to the NEO and I'm afraid it might break configurations for other SunXi-based hardware.
+   to the NEO and I'm afraid it might break configurations for other SunXi-based hardware. Note: make sure to use the enable-udc branch; that's where the changes were made.
 3. This repository, which should be cloned into a folder next to the above OpenWRT project (i.e. `bdiofeed` and `openwrt` should 
    be in the same folder.)
 4. At least one Micro SD card for the firmware. If you order your NanoPi from FriendlyElec, you have the option to add one to 
@@ -54,6 +52,8 @@ cycle power to the NEO by unplugging and replugging the USB Micro-B cable.
 ## How To Build
 
 Now that you've got all of the required bits, it's time to build. (Note: I have not yet tested this process on a completely new system. If you do, and it doesn't work, please let me know so we can figure out what needs to change.)
+
+Additional note: I have tested this process on a completely new system. There are definitely some missing pieces. But of course I didn't take notes. Once I've fixed a couple issues from the bug tracker, I'll revisit this list.
 
 1. Run `bdiofeed/bdiohid/files/CreateDatabase.sql` using whatever tools you use to create an SQLite database. I use an 
    SQLite extension to Visual Studio Code to do this. This step is optional, because the repository contains a copy of
@@ -91,8 +91,7 @@ The current short-term road map for BDIOHID consists of the following (These are
 - ~~Make input less sluggish. I don't know how to do raw Linux file I/O, and it shows. Right now it can take a while for an input event
   from brltty to show up as a HID input report. Change the file I/O to use `boost::asio` because I know how to use that to do what 
   I'm trying to accomplish here.~~
-- Obtain and use a real PID from pid.codes. *(PR submitted, but pid.codes is a volunteer organization with a long backlog, so we*
-  *must wait patiently for the PID to be assigned.)*
+- ~~ Obtain and use a real PID from pid.codes. ~~
 - Do whatever's necessary to make the process of configuring OpenWRT for the build easier and more flexible.
 - Create a developer configuration for OpenWRT including networking and `sshd` so that a developer can use the Ethernet port instead
   of the serial debugger interface.

@@ -6,7 +6,7 @@ insert into settings VALUES
     ("udc", "musb-hdrc.1.auto"),
     ("configdir", "/sys/kernel/config"),
     ("vid", "0x1209"),
-    ("pid", "0x0001"),
+    ("pid", "0xbd10"),
     ("serial", "bdio-hid"),
     ("devname", "/dev/hidg0");
 
