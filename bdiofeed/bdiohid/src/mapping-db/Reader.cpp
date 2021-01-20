@@ -1,4 +1,4 @@
-#include "reader.h"
+#include "Reader.h"
 
 #include <boost/config/warning_disable.hpp>
 #include <boost/spirit/include/qi.hpp>
@@ -63,8 +63,8 @@ std::vector<Setting> Reader::s_settings;
             m_collectionContents = *(
                 (
                     qi::lit("cells") > (
-                        qi::lit('8') | 
-                        qi::lit('6')
+                        qi::lit('8')[phoenix::bind(&Collection::cells, _val) = 8] | 
+                        qi::lit('6')[phoenix::bind(&Collection::cells, _val) = 6]
                     ) > ';'
                 ) | 
                 (m_usage[_a = _1] >> 

@@ -2,6 +2,6 @@
 
 settings {
     vid = "0x1209";
-    pid = "0x0001";
+    pid = "0xBD10";
     serial = "bdio-hid";
 }

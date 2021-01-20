@@ -46,11 +46,13 @@ struct Collection
     Usage usage;
     std::vector<Collection> subCollections;
     std::vector<Mapping> mappings;
+    int cells = 0;
 
     void SetContents(Collection& other)
     {
         subCollections = other.subCollections;
         mappings = other.mappings;
+	cells = other.cells;
     }
 };
 

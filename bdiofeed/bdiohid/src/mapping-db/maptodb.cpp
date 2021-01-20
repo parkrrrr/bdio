@@ -1,6 +1,6 @@
 #include "maptodb.h"
-#include "reader.h"
-#include "database.h"
+#include "Reader.h"
+#include "Database.h"
 
 #include <sys/stat.h>
 #include <sys/types.h>
@@ -131,7 +131,11 @@ Flags:
         filenames.clear();
         filenames = std::move(newfilenames);
     }
-    
+   
+    Database database(databaseName, clears);
+    database.Clear();
+    database.Write();
+
     return 0;
 }
 

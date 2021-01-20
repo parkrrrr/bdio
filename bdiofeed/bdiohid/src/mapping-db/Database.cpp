@@ -1,6 +1,5 @@
-#include "database.h"
-#include "reader.h"
-#include "SQLiteCpp/SQLiteCpp.h"
+#include "Database.h"
+#include "Reader.h"
 
 void Database::Clear()
 {
@@ -27,7 +26,7 @@ void Database::Clear()
     {
         if (!strcasecmp(clear.c_str(), "settings"))
         {
-            SQLite::Database database(m_filename);
+            SQLite::Database database(m_filename, SQLite::OPEN_READWRITE | SQLite::OPEN_CREATE);
             SQLite::Statement drop(database, "DROP TABLE Settings;");
             drop.exec();
         }
@@ -58,7 +57,7 @@ void Database::Clear()
 
     // Now clear the devices.
     {
-        SQLite::Database database(m_filename);
+        SQLite::Database database(m_filename, SQLite::OPEN_READWRITE | SQLite::OPEN_CREATE);
         std::vector<int> modelIds;
         for (const auto &device : devicesToClear)
         {
@@ -98,12 +97,93 @@ void Database::Clear()
 }
 void Database::Write()
 {
+    EnsureTablesExist();
 
+    SQLite::Database database(m_filename, SQLite::OPEN_READWRITE | SQLite::OPEN_CREATE);
+    
+    // write the settings 
+    for (const auto& setting : Reader::s_settings)
+    {
+	SQLite::Statement writeSetting(database, "INSERT INTO settings VALUES (?,?);");
+	writeSetting.bind(1, setting.name);
+	writeSetting.bind(2, setting.value);
+	writeSetting.exec();
+    }
+
+    // write the displays
+
+    int displayId = 1;
+    for (auto& display : Reader::s_displays)
+    {
+	std::cout << "Writing display " << display.manufacturer << " " << display.model << std::endl;
+	SQLite::Statement writeDisplay(database, "INSERT INTO displays VALUES (?, ?, ?, ?, ?);");
+        writeDisplay.bind(1, displayId);
+        writeDisplay.bind(2, display.ttyDriver);
+	writeDisplay.bind(3, display.ttyModel);
+	writeDisplay.bind(4, display.manufacturer);
+	writeDisplay.bind(5, display.model);
+	writeDisplay.exec();
+
+	int collectionId = 0;
+	int mappingId = 0;
+        WriteCollection(database, displayId, display.baseCollection, collectionId, -1, mappingId);        
+
+	++displayId;	
+    } 
+}
+
+void Database::WriteCollection( SQLite::Database& database, int displayId, Collection& collection, 
+		int &collectionId, int parentCollectionId, int& mappingId)
+{
+    SQLite::Statement writeCollection(database, "INSERT INTO collections VALUES (?, ?, ?, ?, ?);");
+    writeCollection.bind(1, displayId);
+    writeCollection.bind(2, collectionId);
+    writeCollection.bind(3, parentCollectionId);
+    writeCollection.bind(4, collection.usage.usagePage);
+    writeCollection.bind(5, collection.usage.usageId);
+    writeCollection.exec();
+
+    if (collection.cells)
+    {
+	Mapping cellMapping;
+	cellMapping.usage.usagePage = 0x41;
+	cellMapping.usage.usageId = (collection.cells == 6 ? 4 : 3);
+        cellMapping.name = "cells";
+        WriteMapping(database, displayId, collectionId, cellMapping, mappingId);
+    }	
+
+    for (auto& mapping : collection.mappings)
+    {
+        WriteMapping(database, displayId, collectionId, mapping, mappingId);
+    }
+
+    int myId = collectionId;
+    ++collectionId;
+
+    for (auto& subCollection : collection.subCollections)
+    {
+        WriteCollection(database, displayId, subCollection, collectionId, myId, mappingId);
+    }
+}
+
+void Database::WriteMapping( SQLite::Database& database, int displayId, int collectionId, Mapping& mapping, 
+		int& mappingId)
+{
+    SQLite::Statement writeMapping(database, "INSERT INTO mappings VALUES (?, ?, ?, ?, ?, ?, ?);");
+    writeMapping.bind(1, displayId);
+    writeMapping.bind(2, mapping.ttyGroup);
+    writeMapping.bind(3, mapping.ttyKey);
+    writeMapping.bind(4, collectionId);
+    writeMapping.bind(5, mapping.usage.usagePage);
+    writeMapping.bind(6, mapping.usage.usageId);
+    writeMapping.bind(7, mapping.name);
+    writeMapping.exec();
+    mappingId++;
 }
 
 void Database::EnsureTablesExist()
 {
-    SQLite::Database database(m_filename);
+    SQLite::Database database(m_filename, SQLite::OPEN_READWRITE | SQLite::OPEN_CREATE);
     if (!database.tableExists("settings"))
     {
         SQLite::Statement query(database, "CREATE TABLE settings(setting_name, setting_value);");
