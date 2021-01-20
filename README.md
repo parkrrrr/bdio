@@ -91,7 +91,7 @@ The current short-term road map for BDIOHID consists of the following (These are
 - ~~Make input less sluggish. I don't know how to do raw Linux file I/O, and it shows. Right now it can take a while for an input event
   from brltty to show up as a HID input report. Change the file I/O to use `boost::asio` because I know how to use that to do what 
   I'm trying to accomplish here.~~
-- ~~ Obtain and use a real PID from pid.codes. ~~
+- ~~Obtain and use a real PID from pid.codes.~~
 - Do whatever's necessary to make the process of configuring OpenWRT for the build easier and more flexible.
 - Create a developer configuration for OpenWRT including networking and `sshd` so that a developer can use the Ethernet port instead
   of the serial debugger interface.
