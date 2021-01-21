@@ -94,8 +94,8 @@ void Reports::ReadCollection(SQLite::Database& database, Collection& collection)
 
     if (collectionQuery.executeStep())
     {
-        collection.usage_page = MapUsagePage(collectionQuery.getColumn(0).getString());
-        collection.usage = MapUsage(collection.usage_page, collectionQuery.getColumn(1).getString());
+        collection.usage_page = collectionQuery.getColumn(0).getInt();
+        collection.usage = collectionQuery.getColumn(1).getInt();
     }
 
     // read button mappings for this collection
@@ -129,8 +129,8 @@ void Reports::ReadButtonMappings(SQLite::Database& database, Collection& collect
         ButtonMapping newButton;
         newButton.key_group = buttonQuery.getColumn(0).getInt();
         newButton.key_index = buttonQuery.getColumn(1).getInt();
-        newButton.usage_page = MapUsagePage(buttonQuery.getColumn(2).getString());
-        newButton.usage = MapUsage(newButton.usage_page, buttonQuery.getColumn(3).getString());
+        newButton.usage_page = buttonQuery.getColumn(2).getInt();
+        newButton.usage = buttonQuery.getColumn(3).getInt();
         newButton.name = buttonQuery.getColumn(4).getString();
 
         collection.buttonMappings.emplace_back(std::move(newButton));
@@ -383,112 +383,3 @@ void Reports::EmitCollection(const Collection& collection, uint8_t pad)
     EmitByte(0xc0);
 };
 
-uint16_t Reports::MapUsagePage(std::string pageName)
-{
-    static std::map<std::string, uint16_t> pages
-    {
-        {"braille", 0x41},
-        {"button", 0x09},
-    };
-
-    auto page = pages.find(pageName);
-    if (page != pages.end())
-    {
-        return page->second;
-    }
-
-    // we don't know this usage page.
-    throw std::exception();
-}
-
-uint16_t Reports::MapUsage(uint16_t usagePage, std::string usageName)
-{
-    uint16_t usage = 0;
-
-    switch (usagePage)
-    {
-        case 0x09: // buttons
-        {
-            usage = atoi(usageName.c_str());
-            break;
-        }
-
-        case 0x41: // braille
-        {
-            static std::map<std::string, uint16_t> usages
-            {
-                // comments like the one below refer to sections in HUTRR-78 
-                // [https://www.usb.org/sites/default/files/hutrr78_-_creation_of_a_braille_display_usage_page_0.pdf]
-                // 20.1 Braille Display Device
-                {"display", 0x1},    // display application collection
-
-                // 20.2 Braille Cells
-                {"row", 0x2},        // row collection (contains cells, cell count, router collections, router buttons)
-                {"cell8", 0x3},      // 8-dot Braille cell (8 bits)
-                {"cell6", 0x4},      // 6-dot Braille cell (8 bits)
-                {"cellcount", 0x5},  // cell count (8 bits)
-
-                // 20.3 Routers
-                {"router1", 0xfa},   // router set 1
-                {"router2", 0xfb},   // router set 2
-                {"router3", 0xfc},   // router set 3
-                {"router", 0x100},   // router key (contained in router set, array)
-
-                // 20.4 Braille Buttons
-                {"buttons", 0x200},  // generic Braille button collection
-                
-                {"dot1", 0x201} ,    // keyboard dot 1
-                {"dot2", 0x202} ,    // keyboard dot 2
-                {"dot3", 0x203} ,    // keyboard dot 3
-                {"dot4", 0x204} ,    // keyboard dot 4
-                {"dot5", 0x205} ,    // keyboard dot 5
-                {"dot6", 0x206} ,    // keyboard dot 6
-                {"dot7", 0x207} ,    // keyboard dot 7
-                {"dot8", 0x208} ,    // keyboard dot 8
-                
-                {"space", 0x209} ,   // keyboard space
-                {"lspace", 0x20a},   // keyboard left space
-                {"rspace", 0x20b},   // keyboard right space
-                
-                {"face", 0x20c},     // face controls collection
-                {"left", 0x20d},     // left controls collection
-                {"right", 0x20e},    // right controls collection
-                {"top", 0x20f},      // top controls collection
-
-                {"jcenter", 0x210},  // joystick center
-                {"jup", 0x211},      // joystick up
-                {"jdown", 0x212},    // joystick down
-                {"jleft", 0x213},    // joystick left
-                {"jright", 0x214},   // joystick right
-
-                {"dcenter", 0x215},  // d-pad center
-                {"dup", 0x216},      // d-pad up
-                {"ddown", 0x217},    // d-pad down
-                {"dleft", 0x218},    // d-pad left
-                {"dright" ,0x219},   // d-pad right
-
-                {"pleft", 0x21a},    // pan left
-                {"pright", 0x21b},   // pan right
-
-                {"rup", 0x21c},      // rocker up
-                {"rdown", 0x21d},    // rocker down
-                {"rpress", 0x21e},   // rocker press
-            };
- 
-            auto entry = usages.find(usageName);
-            if (entry != usages.end())
-            {
-                usage = entry->second;
-            }
-            break;
-        }
-    }
-
-    if (usage)
-    {
-        return usage;
-    }
-
-    // we don't know this usage
-    throw std::exception();
-}
