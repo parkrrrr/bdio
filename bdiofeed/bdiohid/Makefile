@@ -4,9 +4,11 @@ PKG_NAME:=bdiohid
 PKG_VERSION:=1.0
 PKG_RELEASE:=1
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
+PKG_BUILD_DEPENDS:=bdiohid/host
 MAKE_PATH:=src
 
 include $(INCLUDE_DIR)/package.mk
+include $(INCLUDE_DIR)/host-build.mk
 
 define Package/bdiohid
   TITLE:=BDIO HID Converter
@@ -28,6 +30,16 @@ define Package/bdiohid/install
 	$(INSTALL_BIN) ./files/etc/init.d/bdiohid $(1)/etc/init.d/
 endef
 
+define Host/Compile
+	cd src/mapping-db; make
+	src/mapping-db/maptodb -o files/etc/bdio/bdio.db -c all \
+		src/mapping-db/InputFiles/Devices \
+		src/mapping-db/InputFiles/Settings	
+endef
+
+define Host/Install
+endef
+
 define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR) \
                CC="$(TARGET_CC)" \
@@ -46,4 +58,5 @@ define Build/Install
 	$(INSTALL_BIN) ./files/etc/init.d/bdiohid $(STAGING_DIR)/etc/init.d/
 endef
 
-$(eval $(call BuildPackage,bdiohid)) 
+$(eval $(call HostBuild))
+$(eval $(call BuildPackage,bdiohid))
