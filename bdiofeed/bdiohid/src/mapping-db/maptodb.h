@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include <boost/config/warning_disable.hpp>
 #include <boost/spirit/include/qi.hpp>
 #include <boost/spirit/include/phoenix_core.hpp>
@@ -11,12 +10,10 @@
 #include <boost/phoenix/bind/bind_member_variable.hpp>
 #include <boost/phoenix/bind/bind_member_function.hpp>
 
-
 #include <string>
 #include <vector>
 #include <tuple>
 #include <functional>
-
 
 namespace fusion = boost::fusion;
 namespace phoenix = boost::phoenix;
